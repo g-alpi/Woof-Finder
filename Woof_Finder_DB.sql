@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS Pets(
 	illness VARCHAR (255),
 	pet_description TEXT,
 	pet_status ENUM ("Adoptado", "En adopcion", "En acogida"),
-	users_pets_id INTEGER UNSIGNED,
+	users_pets_id INTEGER UNSIGNED NOT NULL,
 	FOREIGN KEY (users_pets_id) REFERENCES Users(users_id),
 	species_pet_id INTEGER UNSIGNED NOT NULL,
 	FOREIGN KEY (species_pet_id) 
