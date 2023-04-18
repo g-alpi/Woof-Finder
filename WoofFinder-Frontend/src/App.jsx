@@ -3,6 +3,8 @@ import './assets/styles/App.css'
 import Adopt from './pages/Adopt/Adopt'
 import Home from './pages/Home/Home'
 
+
+
 function App() {
 
   return (
