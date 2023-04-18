@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS Pets(
 	illness VARCHAR (255),
 	pet_description TEXT,
 	pet_status ENUM ("Adoptado", "En adopcion", "En acogida"),
-	users_pets_id INTEGER UNSIGNED NOT NULL,
+	users_pets_id INTEGER UNSIGNED,
 	FOREIGN KEY (users_pets_id) REFERENCES Users(users_id),
 	species_pet_id INTEGER UNSIGNED NOT NULL,
 	FOREIGN KEY (species_pet_id) 
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS Pets_Org(
     org_pets_org_id INTEGER UNSIGNED NOT NULL,
 	FOREIGN KEY (org_pets_org_id) 
 		REFERENCES Organizations(organizations_id),
-	pets_pets_org_id INTEGER UNSIGNED NOT NULL,
+	pets_pets_org_id INTEGER UNSIGNED,
 	FOREIGN KEY (pets_pets_org_id) 
 		REFERENCES Pets(pets_id)
 );
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS Pets_Org(
 CREATE TABLE IF NOT EXISTS Breed(
 	breed_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 	breed_type VARCHAR (255),
-	species_breed_id INTEGER UNSIGNED NOT NULL,
+	species_breed_id INTEGER UNSIGNED,
 	FOREIGN KEY (species_breed_id) 
 		REFERENCES Species(species_id)
 );
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS Vaccines(
 	admin_date DATE,
 	next_admin_date DATE,
 	category VARCHAR (20),
-	species_vac_id INTEGER UNSIGNED NOT NULL,
+	species_vac_id INTEGER UNSIGNED,
 	FOREIGN KEY (species_vac_id) 
 		REFERENCES Species(species_id)
 );
