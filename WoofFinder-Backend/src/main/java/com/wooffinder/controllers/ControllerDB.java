@@ -53,9 +53,9 @@ public class ControllerDB {
         
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         
-        dataSource.setUrl("jdbc:mysql://localhost:3306/woof_finder9");
-        dataSource.setUsername("root");
-        dataSource.setPassword("admin");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/woof_finder");
+        dataSource.setUsername("woof");
+        dataSource.setPassword("woof");
         
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         
