@@ -1,7 +1,33 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import PetCard from "./PetCard";
 
 export default function Adopt() {
+  const [pets, setPets] = useState();
+  const GET_ALL_PETS = "http://localhost:8080/pet/all";
+  useEffect(() => {
+    fetch(GET_ALL_PETS)
+      .then((response) => response.json())
+      .then((data) => {
+        setPets(data);
+      })
+      .catch((error) => console.error(error));
+  }, []);
+
+  let filteredPets = pets;
+
   return (
-    <div>Adopt</div>
-  )
+    <div className="adopt">
+      <div className="filter">
+        <ul>
+          <li>hola</li>
+          <li>hola</li>
+          <li>hola</li>
+          <li>hola</li>
+        </ul>
+      </div>
+      <div className="petsContainer">
+        {filteredPets && filteredPets.map((pet) => <PetCard content={pet} />)}
+      </div>
+    </div>
+  );
 }
