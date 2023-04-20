@@ -1,7 +1,5 @@
 package com.wooffinder.controllers;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -18,9 +16,9 @@ public class PetsController {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 
-	@GetMapping(value = "/all", produces = "application/json")
+	@GetMapping("/all")
 	@CrossOrigin
-	public List<Map<String, Object>> getAllPets() throws SQLException {
+	public List<Map<String, Object>> getAllPets() {
 
 		String query = "select * from pets";
 
@@ -28,4 +26,14 @@ public class PetsController {
 
 		return results;
 	}
+	@GetMapping("/filters")
+	public List<Map<String, Object>> getAllFilters(){
+
+		String query = "select * from pets";
+
+		List<Map<String, Object>> results = jdbcTemplate.queryForList(query);
+
+		return results;
+	}
+	
 }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import FilterDisplay from "./FilterDisplay";
 import PetCard from "./PetCard";
 
 export default function Adopt() {
@@ -17,13 +18,8 @@ export default function Adopt() {
 
   return (
     <div className="adopt">
-      <div className="filter">
-        <ul>
-          <li>hola</li>
-          <li>hola</li>
-          <li>hola</li>
-          <li>hola</li>
-        </ul>
+      <div className="filterContainer">
+        <FilterDisplay />
       </div>
       <div className="petsContainer">
         {filteredPets && filteredPets.map((pet) => <PetCard content={pet} />)}
