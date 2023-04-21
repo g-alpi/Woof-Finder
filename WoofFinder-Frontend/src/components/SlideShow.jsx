@@ -1,57 +1,38 @@
 import React from 'react'
 import { useState } from 'react'
 import "../assets/styles/App.css"
-import headerPicture1 from '../assets/styles/sources/headerPicture1.jpg';
-import headerPicture2 from '../assets/styles/sources/headerPicture2.jpg';
-import headerPicture3 from '../assets/styles/sources/headerPicture3.jpg';
+import headerPicture1 from '../assets/styles/sources/headerPicture1.png';
+import WoofFinderLogo from '../assets/styles/sources/WoofFinderLogo.png';
+
 
 
 export default function SlideShow() {
-  let sliderData = [
-    
-    {
-      image: headerPicture1,
-      heading:"Woof Finder",
-      desc:"Tu mascota esta esperando por ti...Encuentra el mejor lugar para adoptar."
-    },
-
-    {
-      image:headerPicture2,
-      heading:"Woof Finder",
-      desc:"Tu mascota esta esperando por ti...Encuentra el mejor lugar para adoptar."
-    },
-
-    {
-      image:headerPicture3,
-      heading:"Woof Finder",
-      desc:"Tu mascota esta esperando por ti...Encuentra el mejor lugar para adoptar."
-    }
-  ]
-
-  const [currentSlide, setcurrentSlide] = useState(0)
 
   return (
-    <div className='slider'>
-      
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-      <i className="fa-solid fa-angle-left"></i>
-      <i className="fa-solid fa-angle-right"></i>
-      
-      {sliderData.map((slide, index) => {
-        return(
-          <div className={index === currentSlide ? "slide current" : slide} key ={index}>
-            {index === currentSlide && (
-              <>
-              <img src={slide.image} alt="slide"/>
-              <div className="content">
-                <h1 className='heading'>{slide.heading}</h1>
-                <p className='description'>{slide.desc}</p>
-                <button className="--btn--btn--primary">Ger Started</button>
-              </div>
-              </>
-            )}
-          </div>
-        )
-      })}
-    </div>
-  )}
+
+    <div className='header'>
+
+      <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a href="#news">Sobre nostros</a>
+        <a href="#contact">Sponsors</a>
+        <a href="#about">Contáctanos</a>
+        <a href="#about">Iniciar sesión</a>
+      </div>
+
+      <div className="Logo">
+        <img src={WoofFinderLogo} alt="picture" />
+      </div>
+
+      <img className="background" src={headerPicture1} alt="picture2" />
+
+      <div className="content">
+        <h1 className='heading'>{"Woof Finder"}</h1>
+        <p className='description'>{"Tu mascota esta esperando por ti...Encuentra el mejor lugar para adoptar."}</p>
+        <button className="--btn--btn--primary">Adoptar</button>
+      </div>
+
+    </div >
+  )
+}
+
