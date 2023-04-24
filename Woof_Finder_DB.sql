@@ -112,8 +112,8 @@ VALUES
 ("Luna", 1, "Hembra", "Pequeño", NULL, "Luna es una perrita muy cariñosa y juguetona", "En acogida", 2, 1, 1),
 ("Negro", 3, "Macho", "Mediano", "Problemas de piel", "Negro es un perro muy tranquilo y le gusta estar cerca de las personas", "En adopcion", NULL, 1, 2),
 ("Mishu", 1, "Hembra", "Pequeño", NULL, "Mishu es una gatita muy juguetona y curiosa", "En adopcion", NULL, 2, 5),
-("Garfield", 5, "Macho", "Grande", "Sobrepeso", "Garfield es un gato muy tranquilo y le gusta dormir", "Adoptado", 2, 2, 6),
-("Garfield2", 5, "Hembra", "Grande", "Sobrepeso", "Garfield es un gato muy tranquilo y le gusta dormir", "Adoptado", 2, 2, 6),
+("Garfield", 5, "Macho", "Grande", "Sobrepeso", "Garfield es un gato muy tranquilo y le gusta dormir", "En adopcion", 2, 2, 6),
+("Garfield2", 5, "Hembra", "Grande", "Sobrepeso", "Garfield es un gato muy tranquilo y le gusta dormir", "En adopcion", 2, 2, 6),
 ("Doge1", 9, "Hembra", "Pequeño", NULL, "Es un doge", "En adopcion", NULL, 1, 3),
 ("Doge2", 7, "Macho", "Pequeño", NULL, "Es un doge2", "En adopcion", NULL, 1, 3);
 

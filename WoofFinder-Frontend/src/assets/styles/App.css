@@ -4,8 +4,8 @@
   --light-gray: #666666; /*CopyRigths section*/
   --light-brown: #A3826C; /*Bottoms and slide arrows*/
   --beige: #BEBCB1; /*header menu*/
-
 }
+
 body{
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -18,23 +18,24 @@ body{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  margin: 0;
 }
 /* Adopt page */
 .adopt {
   display: flex;
-  gap: 5%;
-  margin: 1rem;
 }
 .petsContainer {
   display: grid;
   gap: 3%;
-  grid: auto-flow / repeat(4, 1fr) ;
-  width: 100%;
+  grid: auto-flow/ repeat(4, 2fr);
+  padding:0 2%;
+  margin-left: 2%;
+  max-height: 99vh;
+  overflow: auto;
+  background-image: linear-gradient(to right, var(--gray) 50%, white 50%);
 }
 .petCard {
-  width: 13vw;
   min-width: 100px;
-  max-height:358px ;
   padding: 1rem ;
   cursor: pointer;
   border-radius: 25px;
@@ -74,6 +75,7 @@ body{
   position: sticky;
   height: fit-content;
   top: 10px;
+  margin-left:1% ;
 }
 .filterContainer div{
   display: flex;

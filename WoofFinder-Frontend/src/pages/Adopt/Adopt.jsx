@@ -44,7 +44,10 @@ export default function Adopt() {
         <FilterDisplay onInputChange={handleInputChange} />
       </div>
       <div className="petsContainer">
-        {filteredPets && filteredPets.map((pet) => <PetCard content={pet} />)}
+        {filteredPets &&
+          filteredPets.map((pet, index) => (
+            <PetCard content={pet} index={index} />
+          ))}
       </div>
     </div>
   );
