@@ -19,55 +19,98 @@ body{
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+/* Adopt page */
 .adopt {
   display: flex;
   gap: 5%;
-  height: 100vh;
+  margin: 1rem;
 }
 .petsContainer {
-  display: flex;
+  display: grid;
   gap: 3%;
-  flex-wrap: wrap;
-
+  grid: auto-flow / repeat(4, 1fr) ;
+  width: 100%;
 }
-
 .petCard {
-  width: 15vw;
+  width: 13vw;
   min-width: 100px;
-  height: fit-content;
+  max-height:358px ;
   padding: 1rem ;
   cursor: pointer;
-}
-.petCard:hover {
-  transform: translate(0, 5px);
-  -webkit-box-shadow: 0px 8px 5px 0px rgba(0,0,0,0.5);
-  -moz-box-shadow: 0px 8px 5px 0px rgba(0,0,0,0.5);
-  box-shadow: 0px 8px 5px 0px rgba(0,0,0,0.5);
+  border-radius: 25px;
 }
 
+.petCard:hover {
+  transform: translate(0, 5px);
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.5);
+  filter: blur(0.1px);
+}
 .petCard img{
   border: solid 1px var(--gray);
   border-radius: 25%;
   width: 100%;
 }
 
+.petCard p {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
 .petPropierties {
   display: flex;
   justify-content: space-between;
 }
-
 .petPropierties div {
   display: flex;
   flex-direction: column;
 }
 
+/* filter */
 .filterContainer {
   width: 10vw;
+  position: sticky;
+  height: fit-content;
+  top: 10px;
 }
 .filterContainer div{
   display: flex;
   flex-direction: column;
 }
-.filterContainer span {
+.filterContainer .animalType {
   display: flex;
+  justify-content: space-between;
+  max-height: 30px;
+}
+.filterContainer .animalType i {
+  cursor: pointer;
+  transform: translateY(50%);
+}
+.filterContainer .breed {
+  padding-left: 30%;
+}
+.fadeIn {
+  animation: fadeIn 1.5s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0;
+      max-height: 0; }
+  100% { opacity: 1;
+      max-height: 100px; }
+}
+
+.fadeOut{
+    height: 100px;
+  animation: fadeOut 1.5s  forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    max-height: 50px; }
+100% {
+    max-height: 0; }
+  
 }
