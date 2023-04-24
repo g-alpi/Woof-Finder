@@ -34,7 +34,7 @@ export default function HomePageHeader() {
         <h1 className='heading'>{"Woof Finder"}</h1>
         <p className='description'>{"Tu mascota esta esperando por ti...Encuentra el mejor lugar para adoptar."}</p>
         <NavLink to="/Adopta">
-          <button className="--btn--btn--primary">Adoptar</button>
+          <button className="btnPrimary">Adoptar</button>
         </NavLink>
 
       </div>
@@ -42,4 +42,3 @@ export default function HomePageHeader() {
     </div >
   )
 }
-
