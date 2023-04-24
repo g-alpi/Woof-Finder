@@ -1,7 +1,10 @@
 import React from 'react'
+import Header from '../../components/Header.jsx'
 
 export default function Adopt() {
   return (
-    <div>Adopt</div>
+    <div>
+      <Header/>
+    </div>
   )
 }

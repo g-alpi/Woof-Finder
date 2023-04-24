@@ -24,7 +24,19 @@ body{
   margin: 0%;
 }
 
-.header{
+.Header{
+  background-image: url('../assets/styles/sources/headerPicture1.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 26vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.homeHeader{
   background-image: url('../assets/styles/sources/headerPicture1.jpg');
   background-size: cover;
   background-position: center;
@@ -61,18 +73,18 @@ body{
   color: #000000;
 }
 
-.header h1 {
+.Homeheader h1 {
   font-size: 36px;
   margin-bottom: -20px;
 }
 
-.header p {
+.homeHeader p {
   font-size: 18px;
   margin-bottom: 10px;
   opacity: 70%;
 }
 
-.header button {
+.homeHeader button {
   font-size: 10px;
   padding: 1px 12px;
   background-color: #A3826C;

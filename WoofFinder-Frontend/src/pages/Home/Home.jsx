@@ -1,10 +1,10 @@
 import React from 'react'
-import SlideShow from '../../components/SlideShow'
+import HomePageHeader from '../../components/homePageHeader.jsx'
 
 export default function Home() {
   return (
     <div>
-      <SlideShow/>
+      <HomePageHeader/>
     </div>
   )
 }
