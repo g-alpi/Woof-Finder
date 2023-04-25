@@ -8,7 +8,9 @@ export default function PetCard({ content }) {
       <p>{content.pet_name}</p>
       <div className="petPropierties">
         <div>
-          <span>{content.age} años</span>
+          <span>
+            {content.age <= 1 ? `${content.age} año` : `${content.age} años`}{" "}
+          </span>
           <span>{content.genre}</span>
           <span>{content.size}</span>
         </div>
