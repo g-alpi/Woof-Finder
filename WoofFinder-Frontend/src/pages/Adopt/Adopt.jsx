@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import FilterDisplay from "./FilterDisplay";
 import PetCard from "./PetCard";
+import PetPopUp from "./PetPopUp";
 
 export default function Adopt() {
   const [pets, setPets] = useState();
   const [types, setTypes] = useState({});
+  const [selectedPetFlag, setFlag] = useState(false);
+  const [selectedPetInfo, setSelectedPet] = useState();
 
   const GET_ALL_PETS = "http://localhost:8080/pet/all";
 
@@ -25,6 +28,13 @@ export default function Adopt() {
     }));
   };
 
+  const toggleFlag = () => {
+    selectedPetFlag === true ? setFlag(false) : setFlag(true);
+  };
+  const selectPet = (data) => {
+    setSelectedPet(data);
+    setFlag(true);
+  };
   let filteredPets;
   if (Object.keys(types).length === 0 || !Object.values(types).includes(true)) {
     filteredPets = pets;
@@ -39,16 +49,21 @@ export default function Adopt() {
   }
 
   return (
-    <div className="adopt">
-      <div className="filterContainer">
-        <FilterDisplay onInputChange={handleInputChange} />
+    <>
+      {selectedPetFlag && (
+        <PetPopUp selectedPet={selectedPetInfo} toggleFlag={toggleFlag} />
+      )}
+      <div className="adopt">
+        <div className="filterContainer">
+          <FilterDisplay onInputChange={handleInputChange} />
+        </div>
+        <div className="petsContainer">
+          {filteredPets &&
+            filteredPets.map((pet, index) => (
+              <PetCard content={pet} index={index} setPet={selectPet} />
+            ))}
+        </div>
       </div>
-      <div className="petsContainer">
-        {filteredPets &&
-          filteredPets.map((pet, index) => (
-            <PetCard content={pet} index={index} />
-          ))}
-      </div>
-    </div>
+    </>
   );
 }

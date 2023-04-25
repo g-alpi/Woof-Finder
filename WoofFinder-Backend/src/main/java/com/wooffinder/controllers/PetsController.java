@@ -52,5 +52,15 @@ public class PetsController {
 
 		return results;
 	}	
+	@CrossOrigin
+	@GetMapping("/vaccines")
+	public List<Map<String, Object>> getAllvaccines(){
+
+		String query = "select * from vaccines";
+
+		List<Map<String, Object>> results = jdbcTemplate.queryForList(query);
+
+		return results;
+	}
 	
 }

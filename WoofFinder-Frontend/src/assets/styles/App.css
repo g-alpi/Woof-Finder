@@ -161,9 +161,9 @@ body{
 
 .petCard:hover {
   transform: translate(0, 5px);
-  -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.5);
-  -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.5);
-  box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 5px 15px 15px rgba(0,0,0,0.5);
+  -moz-box-shadow: 5px 15px 15px rgba(0,0,0,0.5);
+  box-shadow: 5px 15px 15px rgba(0,0,0,0.5);
 }
 .petCard img{
   border: solid 1px var(--light-gray);
@@ -217,6 +217,9 @@ body{
   display: flex;
   flex-direction: column;
 }
+.filterContainer div section label{
+  padding-left: 7px;
+}
 .filterContainer .animalType {
   display: flex;
   justify-content: space-between;
@@ -250,4 +253,52 @@ body{
     max-height: 50px; }
 100% {
     max-height: 0; }
+}
+
+/* pet pop up */
+.popUpBackground{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0, 0, 0,.8);
+  backdrop-filter: blur(10px);
+  z-index: 1;
+}
+.popUp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70vw;
+  height: 80vh;
+  max-width: 1000px;
+  background-color: var(--beige);
+  /* box-shadow: 0 0 30px rgb(0, 0, 0,.5); */
+  border-radius: 25px;
+  z-index: 2;
+  animation: showPet .8s ease;
+}
+
+@keyframes showPet {
+  from {transform: translate(-50%, -50%) scale(0);}
+  to {transform: translate(-50%, -50%) scale(1);}
+}
+.popUp i {
+  position: absolute;
+  top: 5px;
+  right: 1.2rem;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.popUp i:hover {
+  color: #BEBCB1;
+  transform: translateY(3px);
+}
+.pet {
+  display: flex;
+  justify-content: space-around;
 }

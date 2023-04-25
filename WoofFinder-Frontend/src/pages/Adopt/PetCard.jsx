@@ -1,9 +1,14 @@
 import React from "react";
 
-export default function PetCard({ content }) {
+export default function PetCard({ content, setPet }) {
   const img = `/images/default${content.animal_type}.png`;
+
+  const handleClick = (e) => {
+    setPet(content);
+  };
+
   return (
-    <div className="petCard" key={content.pets_id}>
+    <div className="petCard" key={content.pets_id} onClick={handleClick}>
       <img src={img} alt={content.pet_name} />
       <p>{content.pet_name}</p>
       <div className="petPropierties">
