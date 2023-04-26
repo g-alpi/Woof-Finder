@@ -33,21 +33,21 @@ body {
 /* Header and HomePageHeader */
 
 .Header{
-
   background-image: url('../images/headerPicture1.png');
   background-size: cover;
   background-position: center;
   height: 20vh;
   width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
-  /* position: relative;
-  top: 0;
-  left: 0; */
-}
+  align-items: center;
+  }
+  .Header .topnav {
+    margin-left: 5%;
+  }
+  .Header .Logo {
+    width: 8%;
+    margin-left: 10%;
+  }
 
 .homeHeader {
   background-image: url('../images/headerPicture1.png');
@@ -68,7 +68,7 @@ body {
 .navBar .topnav {
   margin-left: 5%;
 }
-.Logo {
+.navBar .Logo {
   width: 11%;
   margin-left: 7%;
 }
