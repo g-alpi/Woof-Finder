@@ -1,7 +1,9 @@
+
 import React from "react";
 import { NavLink } from "react-router-dom";
 import WoofFinderLogo from "../assets/images/WoofFinderLogo.png";
 import "../assets/styles/App.css";
+
 
 export default function HomePageHeader() {
   return (
@@ -29,9 +31,10 @@ export default function HomePageHeader() {
           }
         </p>
         <NavLink to="/Adopta">
-          <button className="--btn--btn--primary">Adoptar</button>
+          <button className="btnPrimary">Adoptar</button>
         </NavLink>
       </div>
     </div>
   );
 }
+
