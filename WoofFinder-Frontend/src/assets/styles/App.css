@@ -210,16 +210,13 @@ body {
   flex-direction: column;
   justify-content: center;
   text-align: left;
-  overflow: hidden;
 }
 
 .fotterContactUs{
   display: flex;
-  flex-direction: column;
-  align-items: start;
-  margin-left: 10%;
-  position: relative;
-  height: 13vh;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 10%;
 }
 
 .fotterContactUs h1{
@@ -234,15 +231,32 @@ body {
 }
 
 .fotterLogo{
-  width: 40%;
-  height: 100%;
-  position: absolute;
-  top: -34%;
-  left: 69%;
-  transform: scale(0.15, 0.15);
+  width: 20vw;
+  display: flex;
+  align-items: center;
+}
+.filterLogo div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.fotterLogo img {
+  width: 30%;
+}
+.fotterLogo div  span {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.fotterLogo div span p {
+  font-weight: 700;
+  padding-left: 10px;
+  margin: 0;
 }
 
-.phone{
+
+/* .phone{
   width: 10%;
   height: 20%;
   transform: scale(8, 8);
@@ -271,18 +285,24 @@ body {
   position: relative;
   bottom: 645%;
   right: 199%;
-}
+} */
 
-.copyRights{
+ .copyRights{
   background-color: #666666;
-  position: relative;
   height: 2vh;
   display: flex;
+  height: 100%;
   flex-direction: column;
   justify-content: center;
   text-align: center;
 }
-
+.copyRights p {
+  margin: 0;
+  font-size: .9rem;
+  font-weight: 600;
+  font-style: italic;
+}
+/*
 .copyRights h2{
   font-size: 10px;
   opacity: 50%;
@@ -290,7 +310,7 @@ body {
 }
 
 .fotterContactUs h3{
-  font-size: 105px;
+  font-size: 1rem;
   margin-bottom: -14px;
 }
 
@@ -298,9 +318,9 @@ body {
   font-size: 15px;
   margin-bottom: -99px;
   margin-left: -15px;
-}
+} */
 
-.Autores{
+/* .Autores{
   position: relative;
   bottom: 95%;
   left: 39%;
@@ -310,7 +330,7 @@ body {
   margin-left: 27px;
   font-size: 20px;
   margin-bottom: -17px;
-
+} */
 
 /* Adopt page */
 .adopt {
