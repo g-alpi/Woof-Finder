@@ -61,14 +61,16 @@ body {
   overflow: hidden;
 }
 
+.navBar{
+  display: flex;
+  align-items: center;
+}
+.navBar .topnav {
+  margin-left: 5%;
+}
 .Logo {
-  width: 100%;
-  height: 100%;
-
-  position: absolute;
-  top: -22%;
-  right: 63%;
-  transform: scale(0.3, 0.3);
+  width: 11%;
+  margin-left: 7%;
 }
 
 .background {
@@ -82,7 +84,7 @@ body {
   background-image: url('../images/headerPicture1.png');
   background-size: cover;
   background-position: center;
-  height: 49vh;
+  height: 40vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -91,8 +93,6 @@ body {
 }
 
 .content {
-  position: absolute;
-  top: 23vmin;
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -127,9 +127,6 @@ body {
 .topnav {
   background-color: #BEBCB1;
   overflow: hidden;
-  position: absolute;
-  top: 10%;
-  left: 24%;
   opacity: 95%;
 }
 
@@ -159,7 +156,7 @@ body {
 /* AboutUs HomePage Section */
 .aboutUs{
   background-color: #3E3D3D;
-  height: 50vh;
+  height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
