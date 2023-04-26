@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
-import AboutUsPicture from '../assets/styles/sources/AboutUsPicture.jpg';
+import AboutUsPicture from '../assets/images/AboutUsPicture.jpg';
 
 export default function AboutUs() {
 

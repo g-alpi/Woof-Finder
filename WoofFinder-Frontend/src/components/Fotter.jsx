@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
-import WoofFinderLogo from '../assets/styles/sources/WoofFinderLogo.png';
+import WoofFinderLogo from '../assets/images/WoofFinderLogo.png';
 
 export default function Fotter() {
 
@@ -14,13 +14,13 @@ export default function Fotter() {
                 </NavLink>
 
                 <div className="Autores">
-                    <h3>Autores</h3>
+                    <h1>Autores</h1>
                     <p className='Autores'>
-                        Guillem
+                        Guillem Albo <a href="https://www.linkedin.com/in/guillem-albo-pintor/"><i class="fa-brands fa-linkedin"></i></a> <a href="https://github.com/g-alpi"><i class="fa-brands fa-square-github"></i></a>
                         <br />
-                        Andrès Rivera
+                        Andrès Rivera <a href="https://www.linkedin.com/in/arivera-c/"><i class="fa-brands fa-linkedin"></i></a> <a href="https://github.com/AndyRoca"><i class="fa-brands fa-square-github"></i></a>
                         <br />
-                        Jhon Garcia
+                        John Garcia <a href="https://www.linkedin.com/in/johngp97/"><i class="fa-brands fa-linkedin"></i></a> <a href="https://github.com/johngp97"><i class="fa-brands fa-square-github"></i></a>
                     </p>
                 </div>
 
@@ -28,14 +28,14 @@ export default function Fotter() {
                     <img src={WoofFinderLogo} alt="picture" />
 
                     <div className='phone'>
-                        <i class="fa-solid fa-phone"></i>
+                        <i className="fa-solid fa-phone"></i>
                     </div>
 
                     <div className='email'>
-                        <i class="fa-solid fa-envelope"></i>
+                        <i className="fa-solid fa-envelope"></i>
                     </div>
 
-                    <h3 className='phoneNumber'>{"  (+34) 613414845"}</h3>
+                    <h3 className='phoneNumber'>{"  (+34)613 414 243"}</h3>
                     <h3 className='emailDirection'>{"woofinder@gmail.org"}</h3>
                 </div>
             </div>

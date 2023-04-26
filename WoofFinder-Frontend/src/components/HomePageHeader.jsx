@@ -1,8 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import "../assets/styles/App.css"
-import headerPicture1 from '../assets/styles/sources/headerPicture1.png';
-import WoofFinderLogo from '../assets/styles/sources/WoofFinderLogo.png';
+import WoofFinderLogo from '../assets/images/WoofFinderLogo.png';
 
 
 
@@ -27,8 +26,6 @@ export default function HomePageHeader() {
       <div className="Logo">
         <img src={WoofFinderLogo} alt="picture" />
       </div>
-
-      <img className="background" src={headerPicture1} alt="picture2" />
 
       <div className="content">
         <h1 className='heading'>{"Woof Finder"}</h1>
