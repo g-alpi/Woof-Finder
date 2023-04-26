@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Header from "../../components/Header";
 import FilterDisplay from "./FilterDisplay";
 import PetCard from "./PetCard";
 import PetPopUp from "./PetPopUp";
@@ -50,6 +51,7 @@ export default function Adopt() {
 
   return (
     <>
+      <Header />
       {selectedPetFlag && (
         <PetPopUp selectedPet={selectedPetInfo} toggleFlag={toggleFlag} />
       )}
