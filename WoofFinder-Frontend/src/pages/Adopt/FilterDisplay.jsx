@@ -25,6 +25,10 @@ export default function FilterDisplay(props) {
 
   const handleInputChange = (e) => {
     const { value, checked } = e.target;
+    // const animalType =
+    //   e.target.parentElement.parentElement.previousElementSibling;
+    // console.log(animalType);
+    console.log(e.target.getAttribute("dataAnimalType"));
     props.onInputChange({
       value: value,
       checked: checked,
@@ -34,6 +38,7 @@ export default function FilterDisplay(props) {
   const displaySubTypes = (e, index) => {
     const target = e.target;
     const breeds = target.parentElement.nextSibling;
+
     if (target.classList.contains("fa-angle-down")) {
       target.classList.remove("fa-angle-down");
       target.classList.add("fa-angle-up");
@@ -88,6 +93,7 @@ export default function FilterDisplay(props) {
                   id={breed}
                   value={breed}
                   onInput={handleInputChange}
+                  dataAnimalType="dog"
                 />
                 <label htmlFor={breed}>{breed}</label>
               </section>
@@ -119,6 +125,7 @@ export default function FilterDisplay(props) {
                   id={breed}
                   value={breed}
                   onInput={handleInputChange}
+                  dataAnimalType="cat"
                 />
                 <label htmlFor={breed}>{breed}</label>
               </section>
