@@ -29,6 +29,13 @@ CREATE TABLE IF NOT EXISTS Species(
 	species_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 	animal_type ENUM ("Perro", "Gato")
 );
+CREATE TABLE IF NOT EXISTS Breed(
+	breed_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+	breed_type VARCHAR (255),
+	species_breed_id INTEGER UNSIGNED,
+	FOREIGN KEY (species_breed_id) 
+		REFERENCES Species(species_id)
+);
 
 CREATE TABLE IF NOT EXISTS Pets(
 	pets_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
@@ -39,11 +46,14 @@ CREATE TABLE IF NOT EXISTS Pets(
 	illness VARCHAR (255),
 	pet_description TEXT,
 	pet_status ENUM ("Adoptado", "En adopcion", "En acogida"),
-	users_pets_id INTEGER UNSIGNED NOT NULL,
+	users_pets_id INTEGER UNSIGNED,
+	breed_id INTEGER unsigned,
 	FOREIGN KEY (users_pets_id) REFERENCES Users(users_id),
 	species_pet_id INTEGER UNSIGNED NOT NULL,
 	FOREIGN KEY (species_pet_id) 
-		REFERENCES Species(species_id)
+		REFERENCES Species(species_id),
+    FOREIGN KEY (breed_id) 
+		REFERENCES Breed(breed_id)	
 );
 
 CREATE TABLE IF NOT EXISTS Pets_Org(
@@ -51,18 +61,11 @@ CREATE TABLE IF NOT EXISTS Pets_Org(
     org_pets_org_id INTEGER UNSIGNED NOT NULL,
 	FOREIGN KEY (org_pets_org_id) 
 		REFERENCES Organizations(organizations_id),
-	pets_pets_org_id INTEGER UNSIGNED NOT NULL,
+	pets_pets_org_id INTEGER UNSIGNED,
 	FOREIGN KEY (pets_pets_org_id) 
 		REFERENCES Pets(pets_id)
 );
 
-CREATE TABLE IF NOT EXISTS Breed(
-	breed_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-	breed_type VARCHAR (255),
-	species_breed_id INTEGER UNSIGNED NOT NULL,
-	FOREIGN KEY (species_breed_id) 
-		REFERENCES Species(species_id)
-);
 
 CREATE TABLE IF NOT EXISTS Vaccines(
 	vaccines_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
@@ -70,7 +73,7 @@ CREATE TABLE IF NOT EXISTS Vaccines(
 	admin_date DATE,
 	next_admin_date DATE,
 	category VARCHAR (20),
-	species_vac_id INTEGER UNSIGNED NOT NULL,
+	species_vac_id INTEGER UNSIGNED,
 	FOREIGN KEY (species_vac_id) 
 		REFERENCES Species(species_id)
 );
@@ -93,14 +96,26 @@ VALUES
 ("Perro"),
 ("Gato");
 
-INSERT INTO Pets (pet_name, age, genre, size, illness, pet_description, pet_status, users_pets_id, species_pet_id)
+INSERT INTO Breed (breed_type, species_breed_id)
 VALUES
-("Fido", 2, "Macho", "Mediano", NULL, "Fido es un perro muy amigable y activo", "En adopcion", NULL, 1),
-("Max", 4, "Macho", "Grande", "Ninguna", "Max es un perro tranquilo y le gusta dormir", "En adopcion", NULL, 1),
-("Luna", 1, "Hembra", "Pequeño", NULL, "Luna es una perrita muy cariñosa y juguetona", "En acogida", 2, 1),
-("Negro", 3, "Macho", "Mediano", "Problemas de piel", "Negro es un perro muy tranquilo y le gusta estar cerca de las personas", "En adopcion", NULL, 1),
-("Mishu", 1, "Hembra", "Pequeño", NULL, "Mishu es una gatita muy juguetona y curiosa", "En adopcion", NULL, 2),
-("Garfield", 5, "Macho", "Grande", "Sobrepeso", "Garfield es un gato muy tranquilo y le gusta dormir", "Adoptado", 2, 2);
+("Labrador", 1),
+("Pitbull", 1),
+("Doge",1),
+("Chihuahua",1),
+("Siamese", 2),
+("Persian", 2);
+
+INSERT INTO Pets (pet_name, age, genre, size, illness, pet_description, pet_status, users_pets_id, species_pet_id,breed_id)
+VALUES
+("Fido", 2, "Macho", "Mediano", NULL, "Fido es un perro muy amigable y activo", "En adopcion", NULL, 1, 1),
+("Max", 4, "Macho", "Grande", "Ninguna", "Max es un perro tranquilo y le gusta dormir", "En adopcion", NULL, 1, 2),
+("Luna", 1, "Hembra", "Pequeño", NULL, "Luna es una perrita muy cariñosa y juguetona", "En acogida", 2, 1, 1),
+("Negro", 3, "Macho", "Mediano", "Problemas de piel", "Negro es un perro muy tranquilo y le gusta estar cerca de las personas", "En adopcion", NULL, 1, 2),
+("Mishu", 1, "Hembra", "Pequeño", NULL, "Mishu es una gatita muy juguetona y curiosa", "En adopcion", NULL, 2, 5),
+("Garfield", 5, "Macho", "Grande", "Sobrepeso", "Garfield es un gato muy tranquilo y le gusta dormir", "En adopcion", 2, 2, 6),
+("Garfield2", 5, "Hembra", "Grande", "Sobrepeso", "Garfield es un gato muy tranquilo y le gusta dormir", "En adopcion", 2, 2, 6),
+("Doge1", 9, "Hembra", "Pequeño", NULL, "Es un doge", "En adopcion", NULL, 1, 3),
+("Doge2", 7, "Macho", "Pequeño", NULL, "Es un doge2", "En adopcion", NULL, 1, 3);
 
 INSERT INTO Pets_Org (org_pets_org_id, pets_pets_org_id)
 VALUES
@@ -111,12 +126,7 @@ VALUES
 (2, 5),
 (2, 6);
 
-INSERT INTO Breed (breed_type, species_breed_id)
-VALUES
-("Labrador", 1),
-("Pitbull", 1),
-("Siamese", 2),
-("Persian", 2);
+
 
 INSERT INTO Vaccines (vac_name, admin_date, next_admin_date, category, species_vac_id) VALUES
 ("Vacuna contra el parvovirus", "2022-01-01", "2023-01-01", "General", 1),
