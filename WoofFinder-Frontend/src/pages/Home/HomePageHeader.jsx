@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import WoofFinderLogo from "../assets/images/WoofFinderLogo.png";
-import "../assets/styles/App.css";
+import WoofFinderLogo from "../../assets/images/WoofFinderLogo.png";
+import "../../assets/styles/App.css";
 
 export default function HomePageHeader() {
   return (
