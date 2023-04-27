@@ -25,11 +25,23 @@ export default function FilterDisplay(props) {
 
   const handleInputChange = (e, parent) => {
     const { value, checked } = e.target;
+    const breedsInputs = document.querySelectorAll(`.breedInput.${parent}`);
+    let breedActivate = false;
+    breedsInputs.forEach((element) => {
+      if (element.checked === true) {
+        breedActivate = true;
+      }
+    });
     if (parent) {
-      props.onInputChange({
-        value: parent,
-        checked: false,
-      });
+      breedActivate === true
+        ? props.onInputChange({
+            value: parent,
+            checked: false,
+          })
+        : props.onInputChange({
+            value: parent,
+            checked: true,
+          });
     }
     props.onInputChange({
       value: value,
@@ -40,14 +52,6 @@ export default function FilterDisplay(props) {
   const displaySubTypes = (e, index) => {
     const target = e.target;
     const breeds = target.parentElement.nextSibling;
-    // const animalType = e.target.getAttribute("data-animal-type");
-    // const animalInput = document.querySelector(`#${animalType}`);
-    // props.onInputChange({
-    //   value: animalType,
-    //   checked: false,
-    // });
-    // // animalInput.disabled = true;
-    // console.log(animalType);
 
     if (target.classList.contains("fa-angle-down")) {
       target.classList.remove("fa-angle-down");
@@ -103,6 +107,7 @@ export default function FilterDisplay(props) {
                   type="checkbox"
                   id={breed}
                   value={breed}
+                  className="breedInput Perro"
                   onInput={(e) => {
                     handleInputChange(e, "Perro");
                   }}
@@ -137,7 +142,10 @@ export default function FilterDisplay(props) {
                   type="checkbox"
                   id={breed}
                   value={breed}
-                  onInput={handleInputChange}
+                  className="breedInput Gato"
+                  onInput={(e) => {
+                    handleInputChange(e, "Gato");
+                  }}
                 />
                 <label htmlFor={breed}>{breed}</label>
               </section>

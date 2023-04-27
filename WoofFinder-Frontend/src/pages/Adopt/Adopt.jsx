@@ -49,10 +49,6 @@ export default function Adopt() {
     );
   }
 
-  useEffect(() => {
-    console.log(types);
-  }, [types]);
-
   return (
     <>
       <Header />
