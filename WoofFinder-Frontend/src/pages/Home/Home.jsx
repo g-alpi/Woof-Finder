@@ -1,10 +1,14 @@
-import React from 'react'
-import HomePageHeader from '../../components/homePageHeader.jsx'
+import React from "react";
+import Fotter from "../../components/Fotter";
+import AboutUs from "./AboutUs";
+import HomePageHeader from "./HomePageHeader";
 
 export default function Home() {
   return (
     <div>
-      <HomePageHeader/>
+      <HomePageHeader />
+      <AboutUs />
+      <Fotter />
     </div>
-  )
+  );
 }
