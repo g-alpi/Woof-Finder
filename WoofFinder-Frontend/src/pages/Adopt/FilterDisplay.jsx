@@ -23,12 +23,14 @@ export default function FilterDisplay(props) {
       .catch((error) => console.error(error));
   }, []);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e, parent) => {
     const { value, checked } = e.target;
-    // const animalType =
-    //   e.target.parentElement.parentElement.previousElementSibling;
-    // console.log(animalType);
-    console.log(e.target.getAttribute("dataAnimalType"));
+    if (parent) {
+      props.onInputChange({
+        value: parent,
+        checked: false,
+      });
+    }
     props.onInputChange({
       value: value,
       checked: checked,
@@ -38,6 +40,14 @@ export default function FilterDisplay(props) {
   const displaySubTypes = (e, index) => {
     const target = e.target;
     const breeds = target.parentElement.nextSibling;
+    // const animalType = e.target.getAttribute("data-animal-type");
+    // const animalInput = document.querySelector(`#${animalType}`);
+    // props.onInputChange({
+    //   value: animalType,
+    //   checked: false,
+    // });
+    // // animalInput.disabled = true;
+    // console.log(animalType);
 
     if (target.classList.contains("fa-angle-down")) {
       target.classList.remove("fa-angle-down");
@@ -82,6 +92,7 @@ export default function FilterDisplay(props) {
             onClick={(e) => {
               displaySubTypes(e, 0);
             }}
+            data-animal-type="Perro"
           ></i>
         </section>
         <div>
@@ -92,8 +103,9 @@ export default function FilterDisplay(props) {
                   type="checkbox"
                   id={breed}
                   value={breed}
-                  onInput={handleInputChange}
-                  dataAnimalType="dog"
+                  onInput={(e) => {
+                    handleInputChange(e, "Perro");
+                  }}
                 />
                 <label htmlFor={breed}>{breed}</label>
               </section>
@@ -114,6 +126,7 @@ export default function FilterDisplay(props) {
             onClick={(e) => {
               displaySubTypes(e, 1);
             }}
+            data-animal-type="Gato"
           ></i>
         </section>
         <div>
@@ -125,7 +138,6 @@ export default function FilterDisplay(props) {
                   id={breed}
                   value={breed}
                   onInput={handleInputChange}
-                  dataAnimalType="cat"
                 />
                 <label htmlFor={breed}>{breed}</label>
               </section>
