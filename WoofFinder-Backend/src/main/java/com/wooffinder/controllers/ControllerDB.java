@@ -1,6 +1,5 @@
 package com.wooffinder.controllers;
 
-
 import org.json.JSONObject;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -9,8 +8,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-
 
 @RestController
 public class ControllerDB {
@@ -44,9 +41,6 @@ public class ControllerDB {
         jdbcTemplate.update(sql, username, rol, email, user_password, phone, address);
         
         return ResponseEntity.ok(response);
-        
-        
-
     }
 }
 
