@@ -23,12 +23,26 @@ export default function FilterDisplay(props) {
       .catch((error) => console.error(error));
   }, []);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e, parent) => {
     const { value, checked } = e.target;
-    // const animalType =
-    //   e.target.parentElement.parentElement.previousElementSibling;
-    // console.log(animalType);
-    console.log(e.target.getAttribute("dataAnimalType"));
+    const breedsInputs = document.querySelectorAll(`.breedInput.${parent}`);
+    let breedActivate = false;
+    breedsInputs.forEach((element) => {
+      if (element.checked === true) {
+        breedActivate = true;
+      }
+    });
+    if (parent) {
+      breedActivate === true
+        ? props.onInputChange({
+            value: parent,
+            checked: false,
+          })
+        : props.onInputChange({
+            value: parent,
+            checked: true,
+          });
+    }
     props.onInputChange({
       value: value,
       checked: checked,
@@ -82,6 +96,7 @@ export default function FilterDisplay(props) {
             onClick={(e) => {
               displaySubTypes(e, 0);
             }}
+            data-animal-type="Perro"
           ></i>
         </section>
         <div>
@@ -92,8 +107,10 @@ export default function FilterDisplay(props) {
                   type="checkbox"
                   id={breed}
                   value={breed}
-                  onInput={handleInputChange}
-                  dataAnimalType="dog"
+                  className="breedInput Perro"
+                  onInput={(e) => {
+                    handleInputChange(e, "Perro");
+                  }}
                 />
                 <label htmlFor={breed}>{breed}</label>
               </section>
@@ -114,6 +131,7 @@ export default function FilterDisplay(props) {
             onClick={(e) => {
               displaySubTypes(e, 1);
             }}
+            data-animal-type="Gato"
           ></i>
         </section>
         <div>
@@ -124,8 +142,10 @@ export default function FilterDisplay(props) {
                   type="checkbox"
                   id={breed}
                   value={breed}
-                  onInput={handleInputChange}
-                  dataAnimalType="cat"
+                  className="breedInput Gato"
+                  onInput={(e) => {
+                    handleInputChange(e, "Gato");
+                  }}
                 />
                 <label htmlFor={breed}>{breed}</label>
               </section>
