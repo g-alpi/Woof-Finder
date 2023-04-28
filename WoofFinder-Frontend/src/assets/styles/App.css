@@ -29,6 +29,19 @@ body {
   margin: 0;
 }
 
+*::-webkit-scrollbar {
+  width: 12px;
+  /* background-color: #F5F5F5; */
+  background: transparent;
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: #909090;
+}
+
 
 /* Header and HomePageHeader */
 
@@ -252,38 +265,6 @@ body {
   margin: 0;
 }
 
-
-/* .phone{
-  width: 10%;
-  height: 20%;
-  transform: scale(8, 8);
-  position: relative;
-  bottom: 369%;
-  right: 195%;
-}
-
-.email{
-  width: 10%;
-  height: 20%;
-  transform: scale(8, 8);
-  position: relative;
-  bottom: 210%;
-  right: 195%;
-}
-
-.phoneNumber{
-  position: relative;
-  bottom: 569%;
-  right: 187%;
-  width: 160%;
-}
-
-.emailDirection{
-  position: relative;
-  bottom: 645%;
-  right: 199%;
-} */
-
  .copyRights{
   background-color: #666666;
   height: 2vh;
@@ -299,35 +280,6 @@ body {
   font-weight: 600;
   font-style: italic;
 }
-/*
-.copyRights h2{
-  font-size: 10px;
-  opacity: 50%;
-  font-style: italic;
-}
-
-.fotterContactUs h3{
-  font-size: 1rem;
-  margin-bottom: -14px;
-}
-
-.fotterContactUs p{
-  font-size: 15px;
-  margin-bottom: -99px;
-  margin-left: -15px;
-} */
-
-/* .Autores{
-  position: relative;
-  bottom: 95%;
-  left: 39%;
-}
-
-.Autores h1{
-  margin-left: 27px;
-  font-size: 20px;
-  margin-bottom: -17px;
-} */
 
 /* Adopt page */
 .adopt {
@@ -345,6 +297,7 @@ body {
   gap: 3%;
   padding: 0 2%;
   margin: 0 2%;
+  width: 100%;
   max-height: 98vh;
   overflow: hidden;
   border-radius: 25px;
@@ -353,19 +306,7 @@ body {
   overflow: auto;
 }
 
-*::-webkit-scrollbar {
-  width: 12px;
-  /* background-color: #F5F5F5; */
-  background: transparent;
-  border-radius: 10px;
-}
 
-*::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-  background-color: #909090;
-
-}
 
 @media screen and (min-width: 1160px) {
   .petsContainer {
@@ -399,6 +340,7 @@ body {
   border: solid 1px rgb(255, 255, 255,.5);
   border-radius: 25%;
   width: 100%;
+  height: 65%;
 }
 
 .petCard p {
@@ -423,12 +365,14 @@ body {
   flex-direction: column;
 }
 
-/* filter */
+/* filter */  
 .filterContainer {
   width: 15vw;
   max-width: 220px;
   min-width: 150px;
   padding-left: 1%;
+  display: flex;
+  flex-direction: column;
 }
 
 .filterContainer h1 {
@@ -503,7 +447,40 @@ body {
   }
 }
 
-/* pet pop up */
+/* Insert pet button */
+.insertButton {
+  width: 100px;
+  height: 100px;
+  margin-top: 35vh;
+  border-radius: 100%;
+  transition: background-color,color 1.5s ease;
+  cursor: pointer;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.insertButton:hover {
+  background-color: var(--light-brown);
+  color: var(--white);
+}
+.insertButton:active{
+  transform: translateY(5px);
+}
+
+.insertButton .fa-paw {
+  font-size: 4rem;
+}
+.insertButton .fa-plus {
+  position: absolute;
+  margin-top: 20px;
+  filter: invert(100%);
+  font-size: 1rem;
+
+}
+
+
+/* pop up */
 .popUpBackground {
   position: fixed;
   width: 100%;
@@ -519,17 +496,15 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 70vw;
-  height: 80vh;
-  max-width: 1000px;
+
   background-color: var(--beige);
   /* box-shadow: 0 0 30px rgb(0, 0, 0,.5); */
   border-radius: 25px;
   z-index: 2;
-  animation: showPet .8s ease;
+  animation: showPopUp .8s ease;
 }
 
-@keyframes showPet {
+@keyframes showPopUp {
   from {
     transform: translate(-50%, -50%) scale(0);
   }
@@ -553,8 +528,37 @@ body {
   transform: translateY(3px);
 }
 
+/* pet popup */
+
+.popUp .petPopUP {
+  width: 70vw;
+  height: 80vh;
+  max-width: 1000px;
+}
 .pet {
   display: flex;
   justify-content: space-around;
 
+}
+
+/* insert form pop up */
+.popUp .insertForm {
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+  max-width: 1000px;
+}
+
+.popUp .insertForm span{
+  margin:0 20%;
+  display: flex;
+  flex-direction: column;
+}
+.insertForm label, .insertForm input, .insertForm select{
+  font-size: 2rem;
+  font-weight: 200;
+}
+
+.insertForm input ,.insertForm select {
+  border-radius: 15px;
 }

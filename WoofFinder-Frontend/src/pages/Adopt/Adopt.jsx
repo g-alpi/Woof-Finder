@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import FilterDisplay from "./FilterDisplay";
+import InsertPopUp from "./InsertPopUp";
 import PetCard from "./PetCard";
 import PetPopUp from "./PetPopUp";
 
 export default function Adopt() {
   const [pets, setPets] = useState();
   const [types, setTypes] = useState({});
-  const [selectedPetFlag, setFlag] = useState(false);
+  const [selectedPetFlag, setSelectedPetFlag] = useState(false);
   const [selectedPetInfo, setSelectedPet] = useState();
+  const [insertFlag, setInsertFlag] = useState(false);
 
   const GET_ALL_PETS = "http://localhost:8080/pet/all";
 
@@ -29,12 +31,17 @@ export default function Adopt() {
     }));
   };
 
-  const toggleFlag = () => {
-    selectedPetFlag === true ? setFlag(false) : setFlag(true);
+  const toggleInsertFlag = () => {
+    insertFlag === true ? setInsertFlag(false) : setInsertFlag(true);
+  };
+  const togglePetFlag = () => {
+    selectedPetFlag === true
+      ? setSelectedPetFlag(false)
+      : setSelectedPetFlag(true);
   };
   const selectPet = (data) => {
     setSelectedPet(data);
-    setFlag(true);
+    setSelectedPetFlag(true);
   };
   let filteredPets;
   if (Object.keys(types).length === 0 || !Object.values(types).includes(true)) {
@@ -53,11 +60,18 @@ export default function Adopt() {
     <>
       <Header />
       {selectedPetFlag && (
-        <PetPopUp selectedPet={selectedPetInfo} toggleFlag={toggleFlag} />
+        <PetPopUp selectedPet={selectedPetInfo} toggleFlag={togglePetFlag} />
       )}
+      {insertFlag && <InsertPopUp toggleFlag={toggleInsertFlag} />}
+
       <div className="adopt">
+        <div></div>
         <div className="filterContainer">
           <FilterDisplay onInputChange={handleInputChange} />
+          <button className="insertButton" onClick={toggleInsertFlag}>
+            <i class="fa-solid fa-paw"></i>
+            <i class="fa-solid fa-plus"></i>
+          </button>
         </div>
         <div className="petsContainer">
           {filteredPets &&
