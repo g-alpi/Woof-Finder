@@ -29,7 +29,7 @@ export default function HomePageHeader() {
           }
         </p>
         <NavLink to="/Adopta">
-          <button className="--btn--btn--primary">Adoptar</button>
+          <button className="btnPrimary">Adoptar</button>
         </NavLink>
       </div>
     </div>
