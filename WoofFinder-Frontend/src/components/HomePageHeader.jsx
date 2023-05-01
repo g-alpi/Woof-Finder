@@ -10,11 +10,11 @@ export default function HomePageHeader() {
         the otherones are just have a good view in the explorer and should be replace in future */}
       <div className="topnav">
         <NavLink to="/">Inicio</NavLink>
-        <NavLink to="sobreNosotros">Sobre nostros</NavLink>
+        <NavLink to="/sobreNosotros">Sobre nostros</NavLink>
         <NavLink to="/Adopta">Adopta</NavLink>
         <NavLink to="/Patrocinadores">Patrocinadores</NavLink>
         <NavLink to="/Contactanos">Contáctanos</NavLink>
-        <NavLink to="/iniciarSesion">Iniciar sesión</NavLink>
+        <NavLink to="/Login">Iniciar sesión</NavLink>
       </div>
 
       <div className="Logo">
