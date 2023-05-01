@@ -417,10 +417,10 @@ body {
 }
 
 .fadeIn {
-  animation: fadeIn 1.5s;
+  animation: height 1.5s;
 }
 
-@keyframes fadeIn {
+@keyframes height {
   0% {
     opacity: 0;
     max-height: 0;
@@ -530,7 +530,7 @@ body {
 
 /* pet popup */
 
-.popUp .petPopUP {
+.popUp.petPopUp {
   width: 70vw;
   height: 80vh;
   max-width: 1000px;
@@ -547,13 +547,34 @@ body {
   flex-direction: column;
   width: 70vw;
   max-width: 1000px;
+  max-height: 80vh;
+  overflow: auto;
+  transition: height .2;
+}
+.insertForm > div{
+  display: flex;
+  gap: 10%;
+  margin:0 20%;
+}
+.insertForm > div span{
+  width: 50%;
+  animation: fadeIn .5s ease;
+  margin-top: 2%;
+}
+@keyframes fadeIn {
+  0% {
+    transform: scaleY(0);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}
+.insertForm > div span select,.insertForm >div  span input,
+.insertForm >div  span textarea{
+  width: 100%;
 }
 
-.popUp .insertForm span{
-  margin:0 20%;
-  display: flex;
-  flex-direction: column;
-}
 .insertForm label, .insertForm input, .insertForm select{
   font-size: 2rem;
   font-weight: 200;
@@ -561,4 +582,57 @@ body {
 
 .insertForm input ,.insertForm select {
   border-radius: 15px;
+}
+
+.fileButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px 8px 16px;
+  gap: 8px;
+  height: 40px;
+  width: 128px;
+  border: none;
+  background: #056bfa27;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.lable {
+  margin-top: 1px;
+  font-size: 19px;
+  line-height: 22px;
+  color: #056DFA;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+}
+
+.fileButton:hover {
+  background: #056bfa49;
+}
+
+.fileButton:hover .svg-icon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-8deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  75% {
+    transform: rotate(8deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
 }
