@@ -21,17 +21,11 @@ export default function InsertPopUp({ toggleFlag }) {
       });
   }, []);
 
-  useEffect(() => {
-    console.log(contador);
-  }, [contador]);
+  // useEffect(() => {
+  //   console.log(contador);
+  // }, [contador]);
 
   const nextInput = (e, input) => {
-    // const input = e.target.previousElementSibling.lastChild.lastChild;
-    // const value = input.value;
-    // if (value != "") {
-    //   setContador((contador) => contador + 1);
-    //   // input.disabled = true;
-    // }
     switch (input) {
       case "type":
         setContador(1);
@@ -39,14 +33,20 @@ export default function InsertPopUp({ toggleFlag }) {
       case "name":
         setContador(2);
         break;
+      case "breed":
+        setContador(3);
+        break;
+      case "genre":
+        setContador(5);
+        break;
+      case "size":
+        setContador(6);
+        break;
       default:
+        setContador((contador) => contador + 1);
         break;
     }
-    console.log(e.target);
-    setContador((contador) => contador + 1);
   };
-  // const previousInput = () => {};
-
   const handleType = (e) => {
     const value = e.target.value;
     setBreed(value);
@@ -69,21 +69,21 @@ export default function InsertPopUp({ toggleFlag }) {
 
   const nameInput = (
     <span>
-      <label htmlFor="">Nombre: </label>
-      <input type="text" placeholder="Sanbenito" />
+      <label htmlFor="name">Nombre: </label>
+      <input type="text" id="name" placeholder="Sanbenito" />
     </span>
   );
   const ageInput = (
     <span>
-      <label htmlFor="">Edad: </label>
-      <input type="number" />
+      <label htmlFor="age">Edad: </label>
+      <input type="number" id="age" />
     </span>
   );
 
   const genreInput = (
     <span>
-      <label htmlFor="">Género: </label>
-      <select name="" id="">
+      <label htmlFor="genre">Género: </label>
+      <select name="genre" id="genre" onInput={(e) => nextInput(e, "genre")}>
         <option value="" hidden></option>
         <option value="Macho">Macho</option>
         <option value="Hembra">Hembra</option>
@@ -93,8 +93,8 @@ export default function InsertPopUp({ toggleFlag }) {
 
   const sizeInput = (
     <span>
-      <label htmlFor="">Tamaño: </label>
-      <select name="" id="">
+      <label htmlFor="size">Tamaño: </label>
+      <select name="size" id="size" onInput={(e) => nextInput(e, "size")}>
         <option value="" hidden></option>
         <option value="Pequeño">Pequeño</option>
         <option value="Mediano">Mediano</option>
@@ -119,7 +119,7 @@ export default function InsertPopUp({ toggleFlag }) {
   let breedDogInput = (
     <span>
       <label htmlFor="breed">Raza: </label>
-      <select name="breed" id="breed">
+      <select name="breed" id="breed" onInput={(e) => nextInput(e, "breed")}>
         <option value="" hidden></option>
         {breed &&
           breeds.dog.map((breed) => (
@@ -133,7 +133,7 @@ export default function InsertPopUp({ toggleFlag }) {
   const breedCatInput = (
     <span>
       <label htmlFor="breed">Raza: </label>
-      <select name="breed" id="breed">
+      <select name="breed" id="breed" onInput={(e) => nextInput(e, "breed")}>
         <option value="" hidden></option>
         {breeds &&
           breeds.cat.map((breed) => (
@@ -144,34 +144,63 @@ export default function InsertPopUp({ toggleFlag }) {
       </select>
     </span>
   );
+
+  function handleFileUpload(event) {
+    const file = event.target.files[0];
+    const formData = new FormData();
+    formData.append("file", file);
+
+    // Envía el archivo al servidor
+    fetch("http://localhost:8080/pet/upload", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
   const imgInput = (
-    // <input
-    //   type="file"
-    //   id="avatar"
-    //   name="avatar"
-    //   accept="image/png, image/jpeg"
-    // />
-    <button class="fileButton">
-      <svg
-        class="svg-icon"
-        width="24"
-        viewBox="0 0 24 24"
-        height="24"
-        fill="none"
-      >
-        <g
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke="#056dfa"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+    <>
+      <input
+        type="file"
+        id="avatar"
+        name="avatar"
+        accept="image/png, image/jpeg"
+        hidden
+        onChange={(e) => {
+          handleFileUpload(e);
+          const fileChosen = document.getElementById("fileChosen");
+          fileChosen.textContent = e.target.files[0].name;
+        }}
+      />
+      <label htmlFor="avatar" class="fileButton">
+        <svg
+          class="svg-icon"
+          width="24"
+          viewBox="0 0 24 24"
+          height="24"
+          fill="none"
         >
-          <path d="m3 7h17c.5523 0 1 .44772 1 1v11c0 .5523-.4477 1-1 1h-16c-.55228 0-1-.4477-1-1z"></path>
-          <path d="m3 4.5c0-.27614.22386-.5.5-.5h6.29289c.13261 0 .25981.05268.35351.14645l2.8536 2.85355h-10z"></path>
-        </g>
-      </svg>
-      <span class="lable">Archive</span>
-    </button>
+          <g
+            strokeWidth="2"
+            strokeLinecap="round"
+            stroke="#056dfa"
+            fillRule="evenodd"
+            clipRule="evenodd"
+          >
+            <path d="m3 7h17c.5523 0 1 .44772 1 1v11c0 .5523-.4477 1-1 1h-16c-.55228 0-1-.4477-1-1z"></path>
+            <path d="m3 4.5c0-.27614.22386-.5.5-.5h6.29289c.13261 0 .25981.05268.35351.14645l2.8536 2.85355h-10z"></path>
+          </g>
+        </svg>
+        <span class="lable">Archive</span>
+      </label>
+      <span id="fileChosen">Selecciona un fichero</span>
+    </>
   );
 
   return (

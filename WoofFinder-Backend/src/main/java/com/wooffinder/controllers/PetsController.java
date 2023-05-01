@@ -1,14 +1,23 @@
 package com.wooffinder.controllers;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/pet")
@@ -62,5 +71,17 @@ public class PetsController {
 
 		return results;
 	}
+	@CrossOrigin
+	@PostMapping("/upload")
+	public ResponseEntity<String> handleFileUpload(@RequestParam("file") MultipartFile file) {
+	    try {
+	        Path path = Paths.get("..\\WoofFinder-Frontend\\public\\images\\" + file.getOriginalFilename());
+	        Files.write(path, file.getBytes());
+	        return ResponseEntity.ok("Archivo subido con éxito");
+	    } catch (IOException e) {
+	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al subir el archivo: " + e.getMessage());
+	    }
+	}
+
 	
 }
