@@ -17,7 +17,7 @@ export default function HomePageHeader() {
           <NavLink to="/Adopta">Adopta</NavLink>
           <NavLink to="/Patrocinadores">Patrocinadores</NavLink>
           <NavLink to="/Contactanos">Contáctanos</NavLink>
-          <NavLink to="/iniciarSesion">Iniciar sesión</NavLink>
+          <NavLink to="/Login">Iniciar sesión</NavLink>
         </div>
       </div>
 
