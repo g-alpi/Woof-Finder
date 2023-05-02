@@ -1,7 +1,11 @@
 import React from "react";
 
 export default function PetCard({ content, setPet }) {
-  const img = `/images/default${content.animal_type}.png`;
+  let img = `/images/default${content.animal_type}.png`;
+
+  if (content.avatar_path !== null) {
+    img = `/images/${content.avatar_path}`;
+  }
 
   const handleClick = (e) => {
     setPet(content);

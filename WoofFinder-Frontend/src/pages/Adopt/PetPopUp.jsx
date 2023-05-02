@@ -11,13 +11,17 @@ export default function PetPopUp({ selectedPet, toggleFlag }) {
     pet_status,
     breed_type,
     animal_type,
+    avatar_path,
   } = selectedPet;
-  const img = `/images/default${animal_type}.png`;
+  let img = `/images/default${animal_type}.png`;
+  if (avatar_path !== null) {
+    img = `/images/${avatar_path}`;
+  }
 
   return (
     <>
       <div className="popUpBackground" onClick={toggleFlag}></div>
-      <div className="popUp ">
+      <div className="popUp petPopUp">
         <i class="fa-solid fa-xmark" onClick={toggleFlag}></i>
         <div className="pet">
           <img src={img} alt={pet_name} />
