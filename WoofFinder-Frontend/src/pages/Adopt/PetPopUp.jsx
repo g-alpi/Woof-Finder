@@ -11,8 +11,12 @@ export default function PetPopUp({ selectedPet, toggleFlag }) {
     pet_status,
     breed_type,
     animal_type,
+    avatar_path,
   } = selectedPet;
-  const img = `/images/default${animal_type}.png`;
+  let img = `/images/default${animal_type}.png`;
+  if (avatar_path !== null) {
+    img = `/images/${avatar_path}`;
+  }
 
   return (
     <>

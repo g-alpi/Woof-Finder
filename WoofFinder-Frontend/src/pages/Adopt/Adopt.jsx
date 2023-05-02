@@ -69,8 +69,8 @@ export default function Adopt() {
         <div className="filterContainer">
           <FilterDisplay onInputChange={handleInputChange} />
           <button className="insertButton" onClick={toggleInsertFlag}>
-            <i class="fa-solid fa-paw"></i>
-            <i class="fa-solid fa-plus"></i>
+            <i className="fa-solid fa-paw"></i>
+            <i className="fa-solid fa-plus"></i>
           </button>
         </div>
         <div className="petsContainer">
