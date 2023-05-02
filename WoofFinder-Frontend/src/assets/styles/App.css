@@ -42,6 +42,25 @@ body {
   background-color: #909090;
 }
 
+/* alerts */
+.alert {
+  position: fixed;
+  top:8vh;
+  left: 50%;
+  width: 500px;
+  z-index: 3;
+  transform: translateX(-50%);
+  padding: 15px;
+  border-radius: 15px;
+  background: rgb(230, 61, 61);
+  text-align: center;
+  font-size: 900;
+  font-weight: 2rem;
+  animation: alert 1s ease;
+}
+@keyframes alert {
+  from{top:-10px}to{top: 8vh;}
+}
 
 /* Header and HomePageHeader */
 
@@ -340,7 +359,7 @@ body {
   border: solid 1px rgb(255, 255, 255,.5);
   border-radius: 25%;
   width: 100%;
-  height: 65%;
+  max-height: 240px;
 }
 
 .petCard p {
