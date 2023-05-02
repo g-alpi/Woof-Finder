@@ -33,9 +33,9 @@ export default function Login(props) {
           match_password.innerHTML = data.response;
         } else {
           if (data.response == "correct password") {
-            localStorage.setItem("username", )
             localStorage.setItem("storageName", data.id)
-            console.log(data.response);
+            localStorage.setItem("username", data.username)
+            console.log(data.response, data.username);
             navigate("/");
 
           } else {
@@ -61,14 +61,10 @@ export default function Login(props) {
   return (
     <>
       <div className="containerlogin">
-        <div className="portadalogin">
-          <img src="https://user-images.githubusercontent.com/126191500/233391957-a087c376-c4d1-4066-a941-8a03ae14c137.png" />
-        </div>
-        <div className="subcontainerlogin">
 
           <form className="formlogin">
             <img className="logologin" src="https://user-images.githubusercontent.com/126191500/233391957-a087c376-c4d1-4066-a941-8a03ae14c137.png" />
-            <h2>Login</h2><br />
+            <h2>Iniciar sesión</h2><br />
             <h5 id="login_fallido"></h5>
             <div className="input-div">
               <div className="i">
@@ -83,16 +79,15 @@ export default function Login(props) {
               </div>
               <div>
                 <h5></h5>
-                <input id="password" className="inputlogin" type="password" placeholder="password" value={password} onChange={handleInputChange2} />
+                <input id="password" className="inputlogin" type="password" placeholder="Contraseña" value={password} onChange={handleInputChange2} />
               </div>
             </div>
 
-            <a id="create_account" href="/registro">Create account</a>
-            <input id="boton" type="submit" className="btn" value="Login" name="send_message_button2" onClick={handleSubmit} />
+            <a id="create_account" href="/registro">Registrarse</a>
+            <input id="boton" type="submit" className="btn" value="Iniciar sesión" name="send_message_button2" onClick={handleSubmit} />
           </form>
 
         </div>
-      </div>
     </>
   )
 }

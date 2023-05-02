@@ -1,14 +1,22 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import WoofFinderLogo from "../../assets/images/WoofFinderLogo.png";
 import "../../assets/styles/App.css";
 
-
-
 export default function HomePageHeader() {
+
+  const [username, setTexto] = useState(null);
+
+  useEffect(() => {
+    var username = localStorage.getItem("username");
+    setTexto(username);
+  }, []);
   
-  // console.log(localStorage.getItem("storageUser").id);
+  console.log(username)
+
   return (
+
     <div className="homeHeader">
       <div className="navBar">
         <img src={WoofFinderLogo} alt="picture" className="Logo" />
@@ -22,7 +30,11 @@ export default function HomePageHeader() {
           <NavLink to="/Adopta">Adopta</NavLink>
           <NavLink to="/Patrocinadores">Patrocinadores</NavLink>
           <NavLink to="/Contactanos">Contáctanos</NavLink>
-          <NavLink to="/Login">Iniciar sesión</NavLink>
+          {username !== null ? (
+            <NavLink to="/Perfil">Perfil</NavLink>
+          ) : (
+            <NavLink to="/Login">Iniciar sesión</NavLink>
+          )}
 
         </div>
       </div>

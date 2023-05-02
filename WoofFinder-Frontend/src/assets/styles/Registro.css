@@ -4,12 +4,11 @@
   backdrop-filter: blur(11px) saturate(200%);
   -webkit-backdrop-filter: blur(11px) saturate(200%);
   background-color: rgba(255, 255, 255, 0.65);
-  border-radius: 12px;
+  border-radius: 25px;
   padding: 20px;
   border: 1px solid black;
   max-width: 700px;
   width: 100%;
-  font-family: 'Poppins', sans-serif;
 }
 
 .inputregistro {
@@ -29,7 +28,7 @@
   display: block;
   text-align: center;
   text-decoration: none;
-  color: #999;
+  color: #3E3D3D;
   font-size: 0.9rem;
   transition: 0.3s;
 }
@@ -42,12 +41,10 @@
   padding: 10px;
   background: linear-gradient(135deg, #a0826475, #A08264);
 
-  background: linear-gradient(rgba(255, 255, 255, .3), rgba(255, 255, 255, .3)), url("https://elcorreoweb.es/binrepository/761x401/52c0/675d400/none/10703/SGOE/eca-cachorros-de-perro_20692860_20210902111624.jpg");
+  background-image: url('../images/registerImage.jpg');
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .containerregistro .titleregistro {
@@ -97,11 +94,6 @@
   transition: all 0.3s ease;
 }
 
-.inputregistro:focus,
-.inputregistro:valid {
-  border-color: #a06464;
-}
-
 .formregistro .gender-details .gender-titleregistro {
   font-size: 20px;
   font-weight: 500;
@@ -125,7 +117,7 @@
   width: 18px;
   border-radius: 50%;
   margin-right: 10px;
-  background: #d9d9d9;
+  background: #3E3D3D;
   border: 5px solid transparent;
   transition: all 0.3s ease;
 }
@@ -158,7 +150,6 @@
   background-image: linear-gradient(to right, #A08264, #A08264, #a082646d);
   cursor: pointer;
   color: #fff;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-size: 200%;
   text-transform: uppercase;
   transition: 0.5s;

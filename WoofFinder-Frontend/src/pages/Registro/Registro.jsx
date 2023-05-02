@@ -76,12 +76,12 @@ export default function Registro() {
           <div className="user-details-registro">
 
             <div className="input-box-registro">
-              <span className="details-registro">Username</span>
+              <span className="details-registro">Nombre de usuario</span>
               <input className="inputregistro" id="username" type="text" placeholder="Enter your name" value={username} onChange={handleInputChange} />
             </div>
 
             <div className="input-box-registro">
-              <span className="details-registro">Phone Number</span>
+              <span className="details-registro">Teléfono</span>
               <input className="inputregistro" id="phone" type="text" placeholder="Enter your phone" value={phone} onChange={handleInputChange5} />
             </div>
 
@@ -91,18 +91,18 @@ export default function Registro() {
             </div>
 
             <div className="input-box-registro">
-              <span className="details-registro">Address</span>
+              <span className="details-registro">Dirección</span>
               <input className="inputregistro" id="address" type="text" placeholder="Enter your address" value={address} onChange={handleInputChange6} />
 
             </div>
             <div className="input-box-registro">
-              <span className="details-registro">Password</span>
+              <span className="details-registro">Contraseña</span>
               <input className="inputregistro" id="user_password" type="password" placeholder="Enter your password" value={user_password} onChange={handleInputChange3} />
 
             </div>
 
             <div className="input-box-registro">
-              <span className="details-registro">Confirm Password</span>
+              <span className="details-registro">Confirmar contraseña</span>
               <input className="inputregistro" id="user_password2" type="password" placeholder="Enter your password" value={user_password2} onChange={handleInputChange4} />
 
             </div>
@@ -112,8 +112,8 @@ export default function Registro() {
           <h5 id="registro_fallido"></h5>
 
           <div className="button-registro">
-            <a id="login_account" href="/login">Do you have an account ?</a>
-            <input id="boton" type="submit" className="btn" value="Register" name="send_message_button2" onClick={handleSubmit} />
+            <a id="login_account" href="/login">¿Ya tienes una cuenta? Inicia Sesión</a>
+            <input id="boton" type="submit" className="btn" value="Registrase" name="send_message_button2" onClick={handleSubmit} />
 
           </div>
         </form>

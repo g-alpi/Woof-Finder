@@ -3,14 +3,10 @@ package com.wooffinder.controllers;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import org.springframework.web.bind.annotation.CrossOrigin;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-
 import org.json.JSONObject;
-
 import org.springframework.jdbc.core.JdbcTemplate;
 
 
@@ -47,6 +43,7 @@ public class ControllerDB {
 			String email_login = jsonObject.getString("email_db");
 			String user_password_login = jsonObject.getString("user_password_db");
 
+
 			String sql_email_login = "SELECT COUNT(*) FROM Users WHERE email = ?";
 			int count_email_login = jdbcTemplate.queryForObject(sql_email_login, Integer.class, email_login);
 
@@ -58,9 +55,13 @@ public class ControllerDB {
 						String.class, email_login);
 				Integer id = jdbcTemplate.queryForObject("SELECT users_id FROM Users WHERE email = ?",
 						Integer.class, email_login);
+				String username = jdbcTemplate.queryForObject("SELECT username FROM Users WHERE users_id = ?",
+						String.class, id);
+				
 				if (password.equals(user_password_login)) {
 					json.put("id", id);
-					json.put("response", "correct password");
+					json.put("response", "correct password"); 
+					json.put("username", username);
 					response = json.toString();
 				} else {
 					json.put("response", "incorrect password");
