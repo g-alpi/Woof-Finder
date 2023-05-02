@@ -19,26 +19,26 @@ export default function Fotter() {
             <p className="Autores">
               Guillem Albo{" "}
               <a href="https://www.linkedin.com/in/guillem-albo-pintor/">
-                <i class="fa-brands fa-linkedin"></i>
+                <i className="fa-brands fa-linkedin"></i>
               </a>{" "}
               <a href="https://github.com/g-alpi">
-                <i class="fa-brands fa-square-github"></i>
+                <i className="fa-brands fa-square-github"></i>
               </a>
               <br />
               Andrès Rivera{" "}
               <a href="https://www.linkedin.com/in/arivera-c/">
-                <i class="fa-brands fa-linkedin"></i>
+                <i className="fa-brands fa-linkedin"></i>
               </a>{" "}
               <a href="https://github.com/AndyRoca">
-                <i class="fa-brands fa-square-github"></i>
+                <i className="fa-brands fa-square-github"></i>
               </a>
               <br />
               John Garcia{" "}
               <a href="https://www.linkedin.com/in/johngp97/">
-                <i class="fa-brands fa-linkedin"></i>
+                <i className="fa-brands fa-linkedin"></i>
               </a>{" "}
               <a href="https://github.com/johngp97">
-                <i class="fa-brands fa-square-github"></i>
+                <i className="fa-brands fa-square-github"></i>
               </a>
             </p>
           </div>
