@@ -9,6 +9,7 @@
   border: 1px solid black;
   max-width: 700px;
   width: 100%;
+  margin-right: 307px;
 }
 
 .inputregistro {
@@ -41,7 +42,7 @@
   padding: 10px;
   background: linear-gradient(135deg, #a0826475, #A08264);
 
-  background-image: url('../images/registerImage.jpg');
+  background-image: url('../images/registerImage.png');
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
