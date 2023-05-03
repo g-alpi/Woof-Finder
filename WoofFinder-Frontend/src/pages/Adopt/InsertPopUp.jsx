@@ -25,9 +25,6 @@ export default function InsertPopUp({ toggleFlag }) {
     setAnimalTypeSelected(value);
   };
 
-  useEffect(() => {
-    console.log(animalTypeSelected);
-  }, [animalTypeSelected]);
   const animalTypeInput = (
     <span>
       <label htmlFor="type">Tipo de animal: </label>
@@ -141,29 +138,39 @@ export default function InsertPopUp({ toggleFlag }) {
     const description = inputs[7].value;
     const avatar = inputs[8].files[0];
 
-    const formData = new FormData();
-    formData.append("animalType", animalType);
-    formData.append("name", name);
-    formData.append("breed", parseInt(breed));
-    formData.append("age", age);
-    formData.append("genre", genre);
-    formData.append("size", size);
-    formData.append("illness", illness);
-    formData.append("description", description);
-    formData.append("avatar", avatar);
+    if ((name, breed, age, genre, size !== "" && avatar !== undefined)) {
+      const formData = new FormData();
+      formData.append("animalType", animalType);
+      formData.append("name", name);
+      formData.append("breed", parseInt(breed));
+      formData.append("age", age);
+      formData.append("genre", genre);
+      formData.append("size", size);
+      formData.append("illness", illness);
+      formData.append("description", description);
+      formData.append("avatar", avatar);
 
-    // Envía el archivo al servidor
-    fetch("http://localhost:8080/pet/upload", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
+      // Envía el archivo al servidor
+      fetch("http://localhost:8080/pet/upload", {
+        method: "POST",
+        body: formData,
       })
-      .catch((error) => {
-        console.error(error);
-      });
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } else {
+      let div = document.createElement("div");
+      div.classList.add("alert");
+      div.append("Tienes que rellenar todos los campos");
+      document.querySelector("body").append(div);
+      setTimeout(() => {
+        document.querySelector(".alert").remove();
+      }, 5000);
+    }
   }
 
   const imgInput = (
@@ -235,13 +242,7 @@ export default function InsertPopUp({ toggleFlag }) {
           </div>
           <div>{imgInput}</div>
         </div>
-        <button
-          className="btnPrimary submitButton"
-          onClick={(e) => {
-            handleFileUpload(e);
-            location.reload();
-          }}
-        >
+        <button className="btnPrimary submitButton" onClick={handleFileUpload}>
           Enviar
         </button>
       </div>

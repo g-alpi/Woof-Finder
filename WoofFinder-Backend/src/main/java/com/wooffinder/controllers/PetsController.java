@@ -61,6 +61,19 @@ public class PetsController {
 
 		return results;
 	}
+	@CrossOrigin
+	@GetMapping("/breeds/adopted")
+	public List<Map<String, Object>> getAdoptedBreeds() {
+
+		String query = "select distinct breed_type, species.animal_type from breed\r\n"
+				+ "inner join species on breed.species_breed_id = species.species_id\r\n"
+				+ "inner join pets on pets.breed_id = breed.breed_id\r\n"
+				+ "where pets.pet_status ='En adopcion';";
+
+		List<Map<String, Object>> results = jdbcTemplate.queryForList(query);
+
+		return results;
+	}
 
 	@CrossOrigin
 	@GetMapping("/vaccines")
