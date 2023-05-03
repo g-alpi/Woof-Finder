@@ -48,6 +48,7 @@ CREATE TABLE IF NOT EXISTS Pets(
 	pet_status ENUM ("Adoptado", "En adopcion", "En acogida"),
 	users_pets_id INTEGER UNSIGNED,
 	breed_id INTEGER unsigned,
+    avatar_path VARCHAR(255),
 	FOREIGN KEY (users_pets_id) REFERENCES Users(users_id),
 	species_pet_id INTEGER UNSIGNED NOT NULL,
 	FOREIGN KEY (species_pet_id) 
@@ -105,17 +106,17 @@ VALUES
 ("Siamese", 2),
 ("Persian", 2);
 
-INSERT INTO Pets (pet_name, age, genre, size, illness, pet_description, pet_status, users_pets_id, species_pet_id,breed_id)
+INSERT INTO Pets (pet_name, age, genre, size,avatar_path, illness, pet_description, pet_status, users_pets_id, species_pet_id,breed_id)
 VALUES
-("Fido", 2, "Macho", "Mediano", NULL, "Fido es un perro muy amigable y activo", "En adopcion", NULL, 1, 1),
-("Max", 4, "Macho", "Grande", "Ninguna", "Max es un perro tranquilo y le gusta dormir", "En adopcion", NULL, 1, 2),
-("Luna", 1, "Hembra", "Pequeño", NULL, "Luna es una perrita muy cariñosa y juguetona", "En acogida", 2, 1, 1),
-("Negro", 3, "Macho", "Mediano", "Problemas de piel", "Negro es un perro muy tranquilo y le gusta estar cerca de las personas", "En adopcion", NULL, 1, 2),
-("Mishu", 1, "Hembra", "Pequeño", NULL, "Mishu es una gatita muy juguetona y curiosa", "En adopcion", NULL, 2, 5),
-("Garfield", 5, "Macho", "Grande", "Sobrepeso", "Garfield es un gato muy tranquilo y le gusta dormir", "En adopcion", 2, 2, 6),
-("Garfield2", 5, "Hembra", "Grande", "Sobrepeso", "Garfield es un gato muy tranquilo y le gusta dormir", "En adopcion", 2, 2, 6),
-("Doge1", 9, "Hembra", "Pequeño", NULL, "Es un doge", "En adopcion", NULL, 1, 3),
-("Doge2", 7, "Macho", "Pequeño", NULL, "Es un doge2", "En adopcion", NULL, 1, 3);
+("Fido", 2, "Macho", "Mediano", NULL, NULL, "Fido es un perro muy amigable y activo", "En adopcion", NULL, 1, 1),
+("Max", 4, "Macho", "Grande", NULL,"Ninguna", "Max es un perro tranquilo y le gusta dormir", "En adopcion", NULL, 1, 2),
+("Luna", 1, "Hembra", "Pequeño",NULL, NULL, "Luna es una perrita muy cariñosa y juguetona", "En acogida", 2, 1, 1),
+("Negro", 3, "Macho", "Mediano",NULL, "Problemas de piel", "Negro es un perro muy tranquilo y le gusta estar cerca de las personas", "En adopcion", NULL, 1, 2),
+("Mishu", 1, "Hembra", "Pequeño",NULL, NULL, "Mishu es una gatita muy juguetona y curiosa", "En adopcion", NULL, 2, 5),
+("Garfield", 5, "Macho", "Grande",NULL, "Sobrepeso", "Garfield es un gato muy tranquilo y le gusta dormir", "En adopcion", 2, 2, 6),
+("Garfield2", 5, "Hembra", "Grande",NULL, "Sobrepeso", "Garfield es un gato muy tranquilo y le gusta dormir", "En adopcion", 2, 2, 6),
+("Doge1", 9, "Hembra", "Pequeño",NULL, NULL, "Es un doge", "En adopcion", NULL, 1, 3),
+("Doge2", 7, "Macho", "Pequeño",NULL, NULL, "Es un doge2", "En adopcion", NULL, 1, 3);
 
 INSERT INTO Pets_Org (org_pets_org_id, pets_pets_org_id)
 VALUES
