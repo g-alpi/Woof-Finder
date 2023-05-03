@@ -24,10 +24,7 @@ export default function InsertPopUp({ toggleFlag }) {
     const value = e.target.value;
     setAnimalTypeSelected(value);
   };
-
-  useEffect(() => {
-    console.log(animalTypeSelected);
-  }, [animalTypeSelected]);
+  
   const animalTypeInput = (
     <span>
       <label htmlFor="type">Tipo de animal: </label>

@@ -33,7 +33,7 @@ export default function Login(props) {
           match_password.innerHTML = data.response;
         } else {
           if (data.response == "correct password") {
-            localStorage.setItem("storageName", data.id)
+            localStorage.setItem("userId", data.id)
             localStorage.setItem("username", data.username)
             console.log(data.response, data.username);
             navigate("/");

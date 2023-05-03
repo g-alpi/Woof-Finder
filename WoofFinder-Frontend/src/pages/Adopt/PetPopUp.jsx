@@ -2,6 +2,7 @@ import React from "react";
 
 export default function PetPopUp({ selectedPet, toggleFlag }) {
   const {
+    pets_id,
     pet_name,
     age,
     genre,
@@ -13,16 +14,33 @@ export default function PetPopUp({ selectedPet, toggleFlag }) {
     animal_type,
     avatar_path,
   } = selectedPet;
+  
   let img = `/images/default${animal_type}.png`;
   if (avatar_path !== null) {
     img = `/images/${avatar_path}`;
+  }
+
+  function handleAdopt (){
+    const formData = new FormData();
+    formData.append("user_id", localStorage.userId)
+    formData.append("pets_id", pets_id);
+    fetch ("http://localhost:8080/pet/adopt",{
+      method: "POST",
+      body: formData
+    }).then((response)=> response.json)
+    .then((data)=>{
+      console.log(data);
+    })
+    .catch((error)=>{
+      console.error(error);
+    })
   }
 
   return (
     <>
       <div className="popUpBackground" onClick={toggleFlag}></div>
       <div className="popUp petPopUp">
-        <i class="fa-solid fa-xmark" onClick={toggleFlag}></i>
+        <i className="fa-solid fa-xmark" onClick={toggleFlag}></i>
         <div className="pet">
           <img src={img} alt={pet_name} />
           <div className="petInfo">
@@ -42,7 +60,11 @@ export default function PetPopUp({ selectedPet, toggleFlag }) {
               <div className="description">
                 <p>{pet_description}</p>
               </div>
-              <button className="btnPrimary">Adoptar</button>
+              <button className="btnPrimary" onClick={(e)=>{
+                handleAdopt();
+                location.reload();
+              }
+              }>Adoptar</button>
             </div>
 
           </div>
