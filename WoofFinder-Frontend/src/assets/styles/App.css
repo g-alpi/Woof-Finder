@@ -27,6 +27,7 @@ body {
   -webkit-text-size-adjust: 100%;
   padding: 0;
   margin: 0;
+  overflow: overlay;
 }
 
 *::-webkit-scrollbar {
@@ -143,13 +144,9 @@ body {
   opacity: 70%;
 }
 
-.btnPrimary {
-  font-size: 12px;
-  padding: 3px 15px;
-  background-color: #A3826C;
-  border-radius: 4px;
-  border-color: #A3826C;
-  opacity: 90%;
+.homeHeader button {
+  font-size: 11px;
+  padding: 7px 12px;
 }
 
 /* NavBar Menu */
@@ -306,11 +303,12 @@ body {
 }
 
 /* Display animals */
-.adopt{
+.adopt {
   background-color: var(--beige);
   padding-top: 2%;
   height: 99vh;
 }
+
 .petsContainer {
   display: grid;
   gap: 3%;
@@ -321,6 +319,7 @@ body {
   overflow: hidden;
   border-radius: 25px;
 }
+
 .petsContainer:hover {
   overflow: auto;
 }
@@ -330,7 +329,7 @@ body {
 @media screen and (min-width: 1160px) {
   .petsContainer {
     grid: auto-flow/ repeat(4, 1fr);
-    background-image: linear-gradient(to right,var(--gray),var(--light-gray));
+    background-image: linear-gradient(to right, var(--gray), var(--light-gray));
   }
 }
 
@@ -346,18 +345,22 @@ body {
   padding: 1rem;
   cursor: pointer;
   border-radius: 25px;
-}
-
-.petCard:hover {
+  /* border: 1px solid var(--beige); */
   transform: translate(0, 5px);
   -webkit-box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
   box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
 }
 
+.petCard:hover {
+  border: 3px solid var(--beige);
+  /* transform: translate(0, 5px);
+  -webkit-box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5); */
+}
+
 .petCard img {
-  border: solid 1px rgb(255, 255, 255,.5);
-  border-radius: 25%;
   width: 100%;
   max-height: 205px;
 }
@@ -366,11 +369,13 @@ body {
   font-weight: 500;
   font-size: 1.5rem;
   margin: 0;
+  color: var(--white);
 }
 
 .petPropierties {
   display: flex;
   justify-content: space-between;
+  color: var(--beige);
 }
 
 .petPropierties span {
@@ -507,7 +512,7 @@ body {
   position: fixed;
   width: 100%;
   top: 0;
-  height:100vh;
+  height: 100vh;
   background-color: rgb(0, 0, 0, .8);
   backdrop-filter: blur(10px);
   z-index: 1;
@@ -518,7 +523,6 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   background-color: var(--beige);
   /* box-shadow: 0 0 30px rgb(0, 0, 0,.5); */
   border-radius: 25px;
@@ -550,17 +554,100 @@ body {
   transform: translateY(3px);
 }
 
-/* pet popup */
 
 .popUp.petPopUp {
   width: 70vw;
-  height: 80vh;
   max-width: 1000px;
+  display: flex;
+  min-height: 541px;
+  max-height: 603px;
+  
 }
+
 .pet {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-self: center;
+}
 
+.pet img {
+  width: 50%;
+  height: fit-content;
+  border: 3px solid;
+  margin-right: 22px;
+  margin-top: 21px;
+  margin-left: 36px;
+  border-radius: 70px;
+}
+
+.pet ul {
+  list-style: none;
+  display: inline;
+  margin: 0;
+  font-size: x-large;
+}
+
+.petInfo {
+  width: 40%;
+}
+
+.petInfo li span {
+  font-weight: 700;
+}
+
+.petInfo h1 {
+  display: initial;
+  width: 100%;
+  text-align: center;
+  font-size: xxx-large;
+  text-transform: capitalize;
+  letter-spacing: 3.5px;
+}
+
+.description {
+  max-height: 153px;
+  font-size: larger;
+  overflow: auto;
+}
+
+.petInfo h2 {
+  margin-top: 5px;
+  margin-bottom: -1px;
+}
+
+/* Adopt Buttom */
+
+.btnPrimary {
+  padding: 1.3em 3em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: var(--light-brown);
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.petInfo button {
+  margin-top: 12px;
+  margin-left: 47%;
+}
+
+.btnPrimary:hover {
+  background-color: var(--light-brown);
+  box-shadow: 0px 15px 20px rgba(255, 255, 255, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+
+.btnPrimary:active {
+  transform: translateY(-1px);
 }
 
 /* insert form pop up */
@@ -664,4 +751,5 @@ body {
   100% {
     transform: rotate(0deg);
   }
+
 }
