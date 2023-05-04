@@ -39,7 +39,7 @@ export default function InsertPopUp({ toggleFlag }) {
   const nameInput = (
     <span>
       <label htmlFor="name">Nombre: </label>
-      <input type="text" id="name" placeholder="Sanbenito" />
+      <input type="text" id="name" />
     </span>
   );
   const ageInput = (

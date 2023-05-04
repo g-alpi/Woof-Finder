@@ -56,7 +56,7 @@ body {
   background: rgb(231 57 57);
   text-align: center;
   animation: alert 1s linear;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight:500 ;
 }
 @keyframes alert {
@@ -654,7 +654,7 @@ body {
 .popUp.insertPet h1{
   font-weight: 600;
   font-size: 2.5rem;
-  padding-left: 3%;
+  padding-left: 10%;
 }
 .popUp .insertForm {
   display: flex;
@@ -668,7 +668,7 @@ body {
 .insertForm > div{
   display: flex;
   gap: 10%;
-  margin:0 20%;
+  margin:0 10%;
 }
 .insertForm > div span{
   width: 50%;
@@ -760,7 +760,7 @@ body {
 }
 .submitButton{
   position: relative;
-  left: 65%;
+  left: 78%;
   margin-bottom: 2%;
 
 }
