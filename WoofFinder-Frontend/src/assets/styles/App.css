@@ -46,21 +46,21 @@ body {
 /* alerts */
 .alert {
   position: fixed;
-  top:8vh;
+  top:10vh;
   left: 50%;
   width: 500px;
   z-index: 3;
   transform: translateX(-50%);
   padding: 15px;
   border-radius: 15px;
-  background: rgb(230, 61, 61);
+  background: rgb(231 57 57);
   text-align: center;
-  font-size: 900;
-  font-weight: 2rem;
-  animation: alert 1s ease;
+  animation: alert 1s linear;
+  font-size: 1.5rem;
+  font-weight:500 ;
 }
 @keyframes alert {
-  from{top:-10px}to{top: 8vh;}
+  from{top:-10px}to{top: 10vh;}
 }
 
 /* Header and HomePageHeader */
@@ -362,7 +362,7 @@ body {
 
 .petCard img {
   width: 100%;
-  max-height: 205px;
+  max-height: 200px;
 }
 
 .petCard p {
@@ -615,7 +615,7 @@ body {
   margin-bottom: -1px;
 }
 
-/* Adopt Buttom */
+/* Adopt Button */
 
 .btnPrimary {
   padding: 1.3em 3em;
@@ -651,6 +651,11 @@ body {
 }
 
 /* insert form pop up */
+.popUp.insertPet h1{
+  font-weight: 600;
+  font-size: 2.5rem;
+  padding-left: 3%;
+}
 .popUp .insertForm {
   display: flex;
   flex-direction: column;
@@ -709,7 +714,7 @@ body {
   gap: 8px;
   width: 128px;
   border: none;
-  background: #056bfa27;
+  background: #683a0627;
   border-radius: 20px;
   cursor: pointer;
 }
@@ -718,13 +723,13 @@ body {
   margin-top: 1px;
   font-size: 19px;
   line-height: 22px;
-  color: #056DFA;
+  color: var(--black);
   font-family: sans-serif;
   letter-spacing: 1px;
 }
 
 .fileButton:hover {
-  background: #056bfa49;
+  background: #6b3c05ad;
 }
 
 .fileButton:hover .svg-icon {
@@ -751,5 +756,11 @@ body {
   100% {
     transform: rotate(0deg);
   }
+
+}
+.submitButton{
+  position: relative;
+  left: 65%;
+  margin-bottom: 2%;
 
 }
