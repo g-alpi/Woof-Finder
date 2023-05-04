@@ -208,6 +208,28 @@ body {
   opacity: 70%;
 }
 
+/* Sponsors Section */
+
+.Sponsors{
+  background-color: var(--beige);
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.sponsorImg{
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 50px;
+}
+
+.sponsorImg img{
+  width: 15%;
+}
+
 /* Fotter Section */
 
 .Fotter{
@@ -260,6 +282,14 @@ body {
   font-weight: 700;
   padding-left: 10px;
   margin: 0;
+}
+
+.linkedin{
+  color: #056DFA;
+}
+
+.github{
+  color: mediumslateblue;
 }
 
  .copyRights{

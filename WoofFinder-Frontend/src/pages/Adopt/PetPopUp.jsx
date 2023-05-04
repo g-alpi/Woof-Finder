@@ -21,9 +21,11 @@ export default function PetPopUp({ selectedPet, toggleFlag }) {
   }
 
   function handleAdopt (){
+    console.log(localStorage.userId, pets_id);
     const formData = new FormData();
     formData.append("user_id", localStorage.userId)
     formData.append("pets_id", pets_id);
+
     fetch ("http://localhost:8080/pet/adopt",{
       method: "POST",
       body: formData
@@ -62,9 +64,9 @@ export default function PetPopUp({ selectedPet, toggleFlag }) {
               </div>
               <button className="btnPrimary" onClick={(e)=>{
                 handleAdopt();
-                location.reload();
+                location = "/Perfil"
               }
-              }>Adoptar</button>
+              } >Adoptar</button>
             </div>
 
           </div>

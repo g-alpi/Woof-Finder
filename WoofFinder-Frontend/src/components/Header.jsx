@@ -13,7 +13,7 @@ export default function Header() {
   }, []);
 
   return (
-    <div className="Header">
+    <header className="Header">
 
       <img src={WoofFinderLogo} alt="picture" className="Logo" />
 
@@ -34,7 +34,7 @@ export default function Header() {
 
       </div>
 
-    </div>
+    </header>
 
   );
 
