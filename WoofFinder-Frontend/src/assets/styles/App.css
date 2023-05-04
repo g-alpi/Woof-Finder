@@ -310,14 +310,12 @@ body {
 @media screen and (min-width: 1160px) {
   .petsContainer {
     grid: auto-flow/ repeat(4, 1fr);
-    background-image: linear-gradient(to right, var(--gray), var(--light-gray));
   }
 }
 
 @media screen and (max-width: 1159px) {
   .petsContainer {
     grid: auto-flow/ repeat(2, 48%);
-    background-image: linear-gradient(to right, var(--gray) 48.5%, white 47%);
   }
 }
 
@@ -331,10 +329,12 @@ body {
   -webkit-box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
   box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
+  background-color: darkslategray;
 }
 
 .petCard:hover {
   border: 3px solid var(--beige);
+  border: 3px solid #696969;
   /* transform: translate(0, 5px);
   -webkit-box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
@@ -344,6 +344,7 @@ body {
 .petCard img {
   width: 100%;
   height: 65%;
+  border-radius: 25px;
 }
 
 .petCard p {
