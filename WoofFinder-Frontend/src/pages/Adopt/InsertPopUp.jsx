@@ -165,11 +165,11 @@ export default function InsertPopUp({ toggleFlag }) {
     } else {
       let div = document.createElement("div");
       div.classList.add("alert");
-      div.append("Tienes que rellenar todos los campos");
+      div.append("¡Tienes que rellenar todos los campos!");
       document.querySelector("body").append(div);
       setTimeout(() => {
         document.querySelector(".alert").remove();
-      }, 5000);
+      }, 4000);
     }
   }
 
@@ -198,7 +198,7 @@ export default function InsertPopUp({ toggleFlag }) {
             <g
               strokeWidth="2"
               strokeLinecap="round"
-              stroke="#056dfa"
+              stroke="#a3826c"
               fillRule="evenodd"
               clipRule="evenodd"
             >
@@ -216,7 +216,7 @@ export default function InsertPopUp({ toggleFlag }) {
   return (
     <>
       <div className="popUpBackground" onClick={toggleFlag}></div>
-      <div className="popUp">
+      <div className="popUp insertPet">
         <i className="fa-solid fa-xmark" onClick={toggleFlag}></i>
         <h1>Registro de un animal</h1>
         <div className="insertForm">
