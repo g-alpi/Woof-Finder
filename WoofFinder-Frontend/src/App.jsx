@@ -6,6 +6,7 @@ import Adopt from "./pages/Adopt/Adopt";
 import Login from "./pages/Login/Login";
 import Registro from "./pages/Registro/Registro";
 import Home from "./pages/Home/Home";
+import Editar from "./pages/Editar/Editar";
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
           <Route path="adopta" element={<Adopt />} />
           <Route path="login" element={<Login />} />
           <Route path="registro" element={<Registro />} />
+          <Route path="editar" element={<Editar />} />
         </Route>
       </Routes>
     </div>
