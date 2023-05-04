@@ -100,7 +100,7 @@ VALUES
 INSERT INTO Breed (breed_type, species_breed_id)
 VALUES
 ("Labrador", 1),
-("Pitbull", 1),
+("Collie", 1),
 ("Doge",1),
 ("Chihuahua",1),
 ("Siamese", 2),
@@ -108,15 +108,16 @@ VALUES
 
 INSERT INTO Pets (pet_name, age, genre, size,avatar_path, illness, pet_description, pet_status, users_pets_id, species_pet_id,breed_id)
 VALUES
-("Fido", 2, "Macho", "Mediano", NULL, NULL, "Fido es un perro muy amigable y activo", "En adopcion", NULL, 1, 1),
-("Max", 4, "Macho", "Grande", NULL,"Ninguna", "Max es un perro tranquilo y le gusta dormir", "En adopcion", NULL, 1, 2),
-("Luna", 1, "Hembra", "Pequeño",NULL, NULL, "Luna es una perrita muy cariñosa y juguetona", "En acogida", 2, 1, 1),
-("Negro", 3, "Macho", "Mediano",NULL, "Problemas de piel", "Negro es un perro muy tranquilo y le gusta estar cerca de las personas", "En adopcion", NULL, 1, 2),
-("Mishu", 1, "Hembra", "Pequeño",NULL, NULL, "Mishu es una gatita muy juguetona y curiosa", "En adopcion", NULL, 2, 5),
-("Garfield", 5, "Macho", "Grande",NULL, "Sobrepeso", "Garfield es un gato muy tranquilo y le gusta dormir", "En adopcion", 2, 2, 6),
-("Garfield2", 5, "Hembra", "Grande",NULL, "Sobrepeso", "Garfield es un gato muy tranquilo y le gusta dormir", "En adopcion", 2, 2, 6),
-("Doge1", 9, "Hembra", "Pequeño",NULL, NULL, "Es un doge", "En adopcion", NULL, 1, 3),
-("Doge2", 7, "Macho", "Pequeño",NULL, NULL, "Es un doge2", "En adopcion", NULL, 1, 3);
+
+("Fido", 2, "Macho", "Mediano", "fido.jpg", NULL, "Fido es un perro muy amigable y activo. Le encanta jugar a la pelota y salir a correr en el parque. También es muy cariñoso y le gusta estar cerca de las personas. Es un compañero ideal para alguien que busque un perro activo y leal.", "En adopcion", NULL, 1, 1),
+("Max", 4, "Macho", "Grande", "max.jpg", "Ninguna", "Max es un perro tranquilo y le gusta dormir. Disfruta de los paseos al aire libre y es muy obediente. Es un compañero fiel y protector, ideal para una familia con niños.", "En adopcion", NULL, 1, 2),
+("Luna", 1, "Hembra", "Pequeño", "luna.jpg", NULL, "Luna es una perrita muy cariñosa y juguetona. Le encanta jugar con peluches y dar largas caminatas. Es un compañera ideal para alguien que busque una perrita activa y divertida.", "En adopcion", 2, 1, 1),
+("Negro", 3, "Macho", "Mediano", "negro.jpg", "Problemas de piel", "Negro es un perro muy tranquilo y le gusta estar cerca de las personas. Le encanta tomar el sol y recibir caricias. Es un compañero ideal para alguien que busque un perro cariñoso y relajado.", "En adopcion", NULL, 1, 2),
+("Mishu", 1, "Hembra", "Pequeño", "mishu.jpg", NULL, "Mishu es una gatita muy juguetona y curiosa. Le encanta explorar su entorno y jugar con todo lo que encuentra. Es un compañera ideal para alguien que busque una gata activa y entretenida.", "En adopcion", NULL, 2, 5),
+("Garfield", 5, "Macho", "Grande", "garfield.jpg", "Sobrepeso", "Garfield es un gato muy tranquilo y le gusta dormir. Es muy cariñoso y le gusta que le acaricien la barriga. Es un compañero ideal para alguien que busque un gato tranquilo y amoroso.", "En adopcion", 2, 2, 6),
+("Simba", 0.5, "Hembra", "pequeño", "simba.jpg", "Sobrepeso", "Simba es una gata muy tranquila y le gusta dormir. Es muy curiosa y le gusta jugar con juguetes. Es un compañera ideal para alguien que busque una gata joven y divertida.", "En adopcion", 2, 2, 6),
+("Doge", 9, "Hembra", "Pequeño","doge.jpg", NULL, "Es un doge", "En adopcion", NULL, 1, 3),
+("Dogoberto", 7, "Macho", "Pequeño","dogoberto.jpg", NULL, "Es un doge", "En adopcion", NULL, 1, 3);
 
 INSERT INTO Pets_Org (org_pets_org_id, pets_pets_org_id)
 VALUES
