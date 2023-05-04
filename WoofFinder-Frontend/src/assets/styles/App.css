@@ -333,8 +333,9 @@ body {
 }
 
 .petCard:hover {
-  border: 3px solid var(--beige);
-  border: 3px solid #696969;
+  border: 5px solid rgb(216 217 58 / 66%);
+  transform: translateY(10px);
+
   /* transform: translate(0, 5px);
   -webkit-box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
