@@ -116,8 +116,8 @@ VALUES
 ("Mishu", 1, "Hembra", "Pequeño", "mishu.jpg", NULL, "Mishu es una gatita muy juguetona y curiosa. Le encanta explorar su entorno y jugar con todo lo que encuentra. Es un compañera ideal para alguien que busque una gata activa y entretenida.", "En adopcion", NULL, 2, 5),
 ("Garfield", 5, "Macho", "Grande", "garfield.jpg", "Sobrepeso", "Garfield es un gato muy tranquilo y le gusta dormir. Es muy cariñoso y le gusta que le acaricien la barriga. Es un compañero ideal para alguien que busque un gato tranquilo y amoroso.", "En adopcion", 2, 2, 6),
 ("Simba", 0.5, "Hembra", "pequeño", "simba.jpg", "Sobrepeso", "Simba es una gata muy tranquila y le gusta dormir. Es muy curiosa y le gusta jugar con juguetes. Es un compañera ideal para alguien que busque una gata joven y divertida.", "En adopcion", 2, 2, 6),
-("Doge", 9, "Hembra", "Pequeño","doge.jpg", NULL, "Es un doge", "En adopcion", NULL, 1, 3),
-("Dogoberto", 7, "Macho", "Pequeño","dogoberto.jpg", NULL, "Es un doge", "En adopcion", NULL, 1, 3);
+("Doge", 9, "Hembra", "Pequeño","doge.jpg", NULL, "Doge es una perrita muy cariñosa y juguetona. Le encanta correr en el parque y jugar con otros perros. Es muy obediente y aprende rápidamente nuevos trucos. Está vacunada y esterilizada, y está buscando una familia amorosa que le brinde mucho amor y cuidados.", "En adopcion", NULL, 1, 3),
+("Dogoberto", 7, "Macho", "Pequeño","dogoberto.jpg", NULL, "Dogoberto es un perrito muy dulce y simpático. Le encanta estar cerca de las personas y recibir cariño. Es muy inteligente y aprende rápidamente nuevos trucos. Está vacunado y esterilizado, y está buscando una familia amorosa que le brinde mucho amor y cuidados.", "En adopcion", NULL, 1, 3);
 
 INSERT INTO Pets_Org (org_pets_org_id, pets_pets_org_id)
 VALUES
