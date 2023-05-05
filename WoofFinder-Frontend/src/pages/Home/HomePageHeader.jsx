@@ -33,6 +33,7 @@ export default function HomePageHeader() {
           ) : (
             <NavLink to="/Login">Iniciar sesión</NavLink>
           )}
+          <NavLink to="/Editar">Editar</NavLink>
 
         </div>
       </div>
