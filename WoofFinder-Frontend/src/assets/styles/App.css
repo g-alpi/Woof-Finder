@@ -61,6 +61,7 @@ body {
   .Header .Logo {
     width: 8%;
     margin-left: 10%;
+    opacity: 90%;
   }
 
 .homeHeader {
@@ -85,6 +86,7 @@ body {
 .navBar .Logo {
   width: 11%;
   margin-left: 7%;
+  opacity: 90%;
 }
 
 .background {
@@ -174,6 +176,7 @@ body {
   overflow: hidden;
 }
 
+
 .aboutUs img{
   position: relative;
   right: 23%;
@@ -228,6 +231,7 @@ body {
 
 .sponsorImg img{
   width: 15%;
+  border-radius: 100%;
 }
 
 /* Fotter Section */
@@ -289,7 +293,7 @@ body {
 }
 
 .github{
-  color: mediumslateblue;
+  color: #6e5494;
 }
 
  .copyRights{

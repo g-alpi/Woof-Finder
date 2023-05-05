@@ -1,4 +1,5 @@
-import React from "react";
+import React, { createElement } from "react";
+import { useEffect, useState } from "react";
 
 export default function PetPopUp({ selectedPet, toggleFlag }) {
   const {
@@ -14,28 +15,48 @@ export default function PetPopUp({ selectedPet, toggleFlag }) {
     animal_type,
     avatar_path,
   } = selectedPet;
-  
+
   let img = `/images/default${animal_type}.png`;
   if (avatar_path !== null) {
     img = `/images/${avatar_path}`;
   }
 
-  function handleAdopt (){
+  function handleAdopt() {
     console.log(localStorage.userId, pets_id);
     const formData = new FormData();
     formData.append("user_id", localStorage.userId)
     formData.append("pets_id", pets_id);
 
-    fetch ("http://localhost:8080/pet/adopt",{
+    fetch("http://localhost:8080/pet/adopt", {
       method: "POST",
       body: formData
-    }).then((response)=> response.json)
-    .then((data)=>{
-      console.log(data);
-    })
-    .catch((error)=>{
-      console.error(error);
-    })
+    }).then((response) => response.json)
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+  }
+
+  const [username, setTexto] = useState(null);
+
+  useEffect(() => {
+    var username = localStorage.getItem("username");
+    setTexto(username);
+  }, []);
+
+  function handleClick (){
+    if (localStorage.length>0) {
+      handleAdopt()
+      location="/Perfil"
+    }else{
+
+      
+
+
+      
+    }
   }
 
   return (
@@ -62,13 +83,18 @@ export default function PetPopUp({ selectedPet, toggleFlag }) {
               <div className="description">
                 <p>{pet_description}</p>
               </div>
-              <button className="btnPrimary" onClick={(e)=>{
-                handleAdopt();
-                location = "/Perfil"
-              }
-              } >Adoptar</button>
-            </div>
 
+              {/* {localStorage.length >0 ? (
+                <button className="btnPrimary" onClick={(e) => {
+                  handleAdopt();
+                  location = "/Perfil"
+                }} >Adoptar</button>
+              ) : (
+                <button className="btnPrimary" onClick = {location="/Login"}>Adoptar</button>
+              )} */}
+              <button className="btnPrimary" onClick = {handleClick}>Adoptar</button>
+
+            </div>
           </div>
         </div>
       </div>

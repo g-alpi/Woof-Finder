@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import WoofFinderLogo from "../../assets/images/WoofFinderLogo.png";
 import "../../assets/styles/Login.css";
 
 //import "https://kit.fontawesome.com/a81368914c.js"
@@ -63,7 +64,7 @@ export default function Login(props) {
       <div className="containerlogin">
 
           <form className="formlogin">
-            <img className="logologin" src="https://user-images.githubusercontent.com/126191500/233391957-a087c376-c4d1-4066-a941-8a03ae14c137.png" />
+            <img src={WoofFinderLogo} alt="picture" className="logologin" />
             <h2>Iniciar sesión</h2><br />
             <h5 id="login_fallido"></h5>
             <div className="input-div">
@@ -83,8 +84,8 @@ export default function Login(props) {
               </div>
             </div>
 
-            <a id="create_account" href="/registro">Registrarse</a>
             <input id="boton" type="submit" className="btn" value="Iniciar sesión" name="send_message_button2" onClick={handleSubmit} />
+            <a id="create_account" href="/registro">Registrarse</a>
           </form>
 
         </div>

@@ -112,8 +112,9 @@ export default function Registro() {
           <h5 id="registro_fallido"></h5>
 
           <div className="button-registro">
-            <a id="login_account" href="/login">¿Ya tienes una cuenta? Inicia Sesión</a>
+
             <input id="boton" type="submit" className="btn" value="Registrase" name="send_message_button2" onClick={handleSubmit} />
+            <a id="login_account" href="/login">¿Ya tienes una cuenta? Inicia Sesión</a>
 
           </div>
         </form>
