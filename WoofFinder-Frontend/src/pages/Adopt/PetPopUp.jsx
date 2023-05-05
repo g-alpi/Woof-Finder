@@ -1,5 +1,6 @@
 import React, { createElement } from "react";
 import { useEffect, useState } from "react";
+import Alert from "../../components/alert";
 
 export default function PetPopUp({ selectedPet, toggleFlag }) {
   const {
@@ -46,12 +47,27 @@ export default function PetPopUp({ selectedPet, toggleFlag }) {
     setTexto(username);
   }, []);
 
-  function handleClick (){
-    if (localStorage.length>0) {
+  function handleClick() {
+    if (localStorage.length > 0) {
       handleAdopt()
       location = "/Perfil"
-    }else{
-      location = "/Login"
+    } else {
+      let div = document.createElement("div");
+      div.classList.add("alert");
+      div.append("¡Es necesario iniciar sesión!");
+
+      let link = document.createElement("a");
+      link.setAttribute("href", "/Login");
+      link.innerText = "Iniciar sesión";
+
+      div.appendChild(document.createElement("br"));
+      div.appendChild(link);
+
+      document.querySelector("body").append(div);
+
+      setTimeout(() => {
+        document.querySelector(".alert").remove();
+      }, 4000);
     }
   }
 
@@ -80,7 +96,7 @@ export default function PetPopUp({ selectedPet, toggleFlag }) {
                 <p>{pet_description}</p>
               </div>
 
-              <button className="btnPrimary" onClick = {handleClick}>Adoptar</button>
+              <button className="btnPrimary" onClick={handleClick}>Adoptar</button>
 
             </div>
           </div>
