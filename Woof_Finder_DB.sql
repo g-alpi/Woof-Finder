@@ -103,8 +103,25 @@ VALUES
 ("Pitbull", 1),
 ("Doge",1),
 ("Chihuahua",1),
-("Siamese", 2),
-("Persian", 2);
+("Bulldog", 1),
+("Husky", 1),
+("Poodle", 1),
+("Beagle", 1),
+("Boxer", 1),
+("Dálmata", 1),
+("Doberman", 1),
+("Rottweiler", 1),
+("Shar Pei", 1),
+("Siamés", 2),
+("Persa", 2),
+("Bengalí", 2),
+("Abisinio", 2),
+("Burmés", 2),
+("Bombay", 2),
+("Sphynx", 2),
+("Siberiano", 2),
+("Sagrado de Birmania", 2),
+("Devon Rex", 2);
 
 INSERT INTO Pets (pet_name, age, genre, size,avatar_path, illness, pet_description, pet_status, users_pets_id, species_pet_id,breed_id)
 VALUES

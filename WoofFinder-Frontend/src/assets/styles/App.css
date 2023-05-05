@@ -199,7 +199,7 @@ body {
   position: relative;
   right: 23%;
   opacity: 65%;
-  transform: scale(0.2, 0.2);
+  transform: scale(0.22, 0.22) translateX(-10%);
   border-radius: 100%;   
 }
 
