@@ -80,6 +80,7 @@ body {
   .Header .Logo {
     width: 8%;
     margin-left: 10%;
+    opacity: 90%;
   }
 
 .homeHeader {
@@ -104,6 +105,7 @@ body {
 .navBar .Logo {
   width: 11%;
   margin-left: 7%;
+  opacity: 90%;
 }
 
 .background {
@@ -193,6 +195,7 @@ body {
   overflow: hidden;
 }
 
+
 .aboutUs img{
   position: relative;
   right: 23%;
@@ -225,6 +228,29 @@ body {
   font-size: 18px;
   margin-bottom: 2px;
   opacity: 70%;
+}
+
+/* Sponsors Section */
+
+.Sponsors{
+  background-color: var(--beige);
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.sponsorImg{
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 50px;
+}
+
+.sponsorImg img{
+  width: 15%;
+  border-radius: 100%;
 }
 
 /* Fotter Section */
@@ -281,6 +307,14 @@ body {
   margin: 0;
 }
 
+.linkedin{
+  color: #056DFA;
+}
+
+.github{
+  color: #6e5494;
+}
+
  .copyRights{
   background-color: #666666;
   height: 2vh;
@@ -329,14 +363,12 @@ body {
 @media screen and (min-width: 1160px) {
   .petsContainer {
     grid: auto-flow/ repeat(4, 1fr);
-    background-image: linear-gradient(to right, var(--gray), var(--light-gray));
   }
 }
 
 @media screen and (max-width: 1159px) {
   .petsContainer {
     grid: auto-flow/ repeat(2, 48%);
-    background-image: linear-gradient(to right, var(--gray) 48.5%, white 47%);
   }
 }
 
@@ -350,10 +382,13 @@ body {
   -webkit-box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
   box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
+  background-color: darkslategray;
 }
 
 .petCard:hover {
-  border: 3px solid var(--beige);
+  border: 5px solid rgb(216 217 58 / 66%);
+  transform: translateY(10px);
+
   /* transform: translate(0, 5px);
   -webkit-box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
@@ -362,6 +397,7 @@ body {
 
 .petCard img {
   width: 100%;
+  border-radius: 25px;
   max-height: 200px;
 }
 

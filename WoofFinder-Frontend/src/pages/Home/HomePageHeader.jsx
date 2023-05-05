@@ -12,8 +12,6 @@ export default function HomePageHeader() {
     var username = localStorage.getItem("username");
     setTexto(username);
   }, []);
-  
-  console.log(username)
 
   return (
 
