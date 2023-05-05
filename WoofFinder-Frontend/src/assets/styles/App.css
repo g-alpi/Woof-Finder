@@ -383,6 +383,8 @@ body {
   -moz-box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
   box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
   background-color: darkslategray;
+  max-height: fit-content;
+  height: fit-content;
 }
 
 .petCard:hover {

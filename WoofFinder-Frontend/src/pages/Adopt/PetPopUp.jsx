@@ -49,13 +49,9 @@ export default function PetPopUp({ selectedPet, toggleFlag }) {
   function handleClick (){
     if (localStorage.length>0) {
       handleAdopt()
-      location="/Perfil"
+      location = "/Perfil"
     }else{
-
-      
-
-
-      
+      location = "/Login"
     }
   }
 
@@ -84,14 +80,6 @@ export default function PetPopUp({ selectedPet, toggleFlag }) {
                 <p>{pet_description}</p>
               </div>
 
-              {/* {localStorage.length >0 ? (
-                <button className="btnPrimary" onClick={(e) => {
-                  handleAdopt();
-                  location = "/Perfil"
-                }} >Adoptar</button>
-              ) : (
-                <button className="btnPrimary" onClick = {location="/Login"}>Adoptar</button>
-              )} */}
               <button className="btnPrimary" onClick = {handleClick}>Adoptar</button>
 
             </div>
