@@ -19,7 +19,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 @RestController
 public class ControllerDB {
 
-	@CrossOrigin(origins = "http://localhost:5173")
+	@CrossOrigin()
 	@PostMapping("/login")
 	public ResponseEntity<String> ejemplo(@RequestBody String mensaje) {
 
