@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 
-export default function FilterDisplay(props) {
+export default function FilterDisplay({ types, updateFilterField }) {
   const [breeds, setBreeds] = useState({});
   const [showComponent, setShowComponent] = useState([]);
+  const [breedsFlag, setBreedsFlag] = useState(false);
 
   const GET_ALL_BREEDS = "http://localhost:8080/pet/breeds/adopted";
 
@@ -18,129 +19,92 @@ export default function FilterDisplay(props) {
             breedsList[element.animal_type].push(element.breed_type);
           }
           setBreeds(breedsList);
+          setBreedsFlag(true);
         });
       })
       .catch((error) => console.error(error));
   }, []);
 
-  const handleInputChange = (e, parent) => {
-    const { value, checked } = e.target;
-    const parentInput = document.querySelector(`input[value="${parent}"]`);
-    let breedActivate = false;
-    let breedsInputs = document.querySelectorAll(`.breedInput.${value}`);
+  const handleInputChange = (e, field, parent) => {
+    const { value } = e.target;
 
     if (parent) {
-      breedsInputs = document.querySelectorAll(`.breedInput.${parent}`);
-      breedsInputs.forEach((element) => {
-        if (element.checked === true) {
-          breedActivate = true;
-        }
-      });
-      parentInput.checked = true;
-      if (breedActivate === true) {
-        props.onInputChange({
-          value: parent,
-          checked: false,
-        });
-      } else {
-        props.onInputChange({
-          value: parent,
-          checked: true,
-        });
-      }
+      updateFilterField(field, value, parent);
     } else {
-      breedsInputs.forEach((element) => {
-        element.checked = checked;
-        element.checked === true
-          ? props.onInputChange({ value: element.value, checked: true })
-          : props.onInputChange({ value: element.value, checked: false });
-      });
+      updateFilterField(field, value);
     }
+    // const parentInput = document.querySelector(`input[value="${parent}"]`);
+    // let breedActivate = false;
+    // let breedsInputs = document.querySelectorAll(`.breedInput.${value}`);
 
-    props.onInputChange({
-      value: value,
-      checked: checked,
-    });
+    // if (parent) {
+    //   breedsInputs = document.querySelectorAll(`.breedInput.${parent}`);
+    //   breedsInputs.forEach((element) => {
+    //     if (element.checked === true) {
+    //       breedActivate = true;
+    //     }
+    //   });
+    //   parentInput.checked = true;
+    //   if (breedActivate === true) {
+    //     updateFilterField({
+    //       value: parent,
+    //       checked: false,
+    //     });
+    //   } else {
+    //     updateFilterField({
+    //       value: parent,
+    //       checked: true,
+    //     });
+    //   }
+    // } else {
+    //   breedsInputs.forEach((element) => {
+    //     element.checked = checked;
+    //     element.checked === true
+    //       ? updateFilterField({ value: element.value, checked: true })
+    //       : updateFilterField({ value: element.value, checked: false });
+    //   });
+    // }
   };
 
-  const [dogBreedsInputs, setDogBreedsInputs] = useState();
-  const [catBreedsInputs, setCatBreedsInputs] = useState();
+  const dogBreedsInputs =
+    breedsFlag &&
+    breeds["Perro"].map((breed) => (
+      <section className="breed">
+        <span>
+          <input
+            type="checkbox"
+            id={breed}
+            value={breed}
+            className="breedInput Perro"
+            checked={types.breed.includes(breed)}
+            onChange={(event) => handleInputChange(event, "breed", "Perro")}
+          />
+          <label htmlFor={breed}>{breed}</label>
+        </span>
+      </section>
+    ));
+  const catBreedsInputs =
+    breedsFlag &&
+    breeds["Gato"].map((breed) => (
+      <section className="breed">
+        <span>
+          <input
+            type="checkbox"
+            id={breed}
+            value={breed}
+            className="breedInput Perro"
+            checked={types.breed.includes(breed)}
+            onChange={(event) => handleInputChange(event, "breed", "Gato")}
+          />
+          <label htmlFor={breed}>{breed}</label>
+        </span>
+      </section>
+    ));
 
   const displaySubTypes = (e, index) => {
     const target = e.target;
     const breedsInputsContainer = target.parentElement.nextSibling;
     const parent = e.target.parentElement.firstChild.firstChild;
-    if (parent.checked === true) {
-      target.getAttribute("data-animal-type") === "Perro"
-        ? setDogBreedsInputs(
-            breeds.Perro.map((breed) => (
-              <section className="breed">
-                <input
-                  type="checkbox"
-                  id={breed}
-                  value={breed}
-                  className="breedInput Perro"
-                  onInput={(e) => {
-                    handleInputChange(e, "Perro");
-                  }}
-                  checked
-                />
-                <label htmlFor={breed}>{breed}</label>
-              </section>
-            ))
-          )
-        : setCatBreedsInputs(
-            breeds.Gato.map((breed) => (
-              <section className="breed">
-                <input
-                  type="checkbox"
-                  id={breed}
-                  value={breed}
-                  className="breedInput Gato"
-                  onInput={(e) => {
-                    handleInputChange(e, "Gato");
-                  }}
-                  checked
-                />
-                <label htmlFor={breed}>{breed}</label>
-              </section>
-            ))
-          );
-    } else {
-      target.getAttribute("data-animal-type") === "Perro"
-        ? setDogBreedsInputs(
-            breeds.Perro.map((breed) => (
-              <section className="breed">
-                <input
-                  type="checkbox"
-                  id={breed}
-                  value={breed}
-                  className="breedInput Perro"
-                  onInput={(e) => {
-                    handleInputChange(e, "Perro");
-                  }}
-                />
-                <label htmlFor={breed}>{breed}</label>
-              </section>
-            ))
-          )
-        : setCatBreedsInputs(
-            breeds.Gato.map((breed) => (
-              <section className="breed">
-                <input
-                  type="checkbox"
-                  id={breed}
-                  value={breed}
-                  className="breedInput Gato"
-                  onInput={(e) => {
-                    handleInputChange(e, "Gato");
-                  }}
-                />
-                <label htmlFor={breed}>{breed}</label>
-              </section>
-            ))
-          );
-    }
 
     if (target.classList.contains("fa-angle-down")) {
       target.classList.remove("fa-angle-down");
@@ -153,17 +117,26 @@ export default function FilterDisplay(props) {
       target.classList.remove("fa-angle-up");
       target.classList.add("fa-angle-down");
       breedsInputsContainer.classList.remove("fadeIn");
-      breedsInputsContainer.classList.add("fadeOut");
+      // breedsInputsContainer.classList.add("fadeOut");
     }
 
-    setShowComponent((prevState) => {
-      const updateState = [...prevState];
-      updateState[index] === true
-        ? (updateState[index] = false)
-        : (updateState[index] = true);
-      return updateState;
-    });
+    showComponent[index] === true
+      ? setTimeout(() => {
+          setShowComponent((prevState) => {
+            const updateState = [...prevState];
+            updateState[index] = false;
+            return updateState;
+          });
+        }, 0)
+      : setShowComponent((prevState) => {
+          const updateState = [...prevState];
+          updateState[index] = true;
+          return updateState;
+        });
   };
+  useEffect(() => {
+    console.log(showComponent);
+  }, [showComponent]);
 
   return (
     <>
@@ -176,7 +149,8 @@ export default function FilterDisplay(props) {
               type="checkbox"
               id="dog"
               value="Perro"
-              onInput={handleInputChange}
+              checked={types.animal_type.includes("Perro")}
+              onChange={(event) => handleInputChange(event, "animal_type")}
             />
             <label htmlFor="dog">Perro</label>
           </span>
@@ -188,14 +162,17 @@ export default function FilterDisplay(props) {
             data-animal-type="Perro"
           ></i>
         </section>
-        <div>{showComponent[0] && dogBreedsInputs}</div>
+        <div className="breedsContainer">
+          {showComponent[0] && dogBreedsInputs}
+        </div>
         <section className="animalType">
           <span>
             <input
               type="checkbox"
               id="cat"
               value="Gato"
-              onInput={handleInputChange}
+              checked={types.animal_type.includes("Gato")}
+              onChange={(event) => handleInputChange(event, "animal_type")}
             />
             <label htmlFor="cat">Gato</label>
           </span>
@@ -207,14 +184,17 @@ export default function FilterDisplay(props) {
             data-animal-type="Gato"
           ></i>
         </section>
-        <div>{showComponent[1] && catBreedsInputs}</div>
+        <div className="breedsContainer">
+          {showComponent[1] && catBreedsInputs}
+        </div>
         <h3>Tamaño</h3>
         <section>
           <input
             type="checkbox"
             id="big"
             value="Grande"
-            onInput={handleInputChange}
+            checked={types.size.includes("Grande")}
+            onChange={(event) => handleInputChange(event, "size")}
           />
           <label htmlFor="big">Grande</label>
         </section>
@@ -223,7 +203,8 @@ export default function FilterDisplay(props) {
             type="checkbox"
             id="medium"
             value="Mediano"
-            onInput={handleInputChange}
+            checked={types.size.includes("Mediano")}
+            onChange={(event) => handleInputChange(event, "size")}
           />
           <label htmlFor="medium">Mediano</label>
         </section>
@@ -232,7 +213,8 @@ export default function FilterDisplay(props) {
             type="checkbox"
             id="small"
             value="Pequeño"
-            onInput={handleInputChange}
+            checked={types.size.includes("Pequeño")}
+            onChange={(event) => handleInputChange(event, "size")}
           />
           <label htmlFor="small">Pequeño</label>
         </section>
@@ -243,7 +225,8 @@ export default function FilterDisplay(props) {
             type="checkbox"
             id="male"
             value="Macho"
-            onInput={handleInputChange}
+            checked={types.genre.includes("Macho")}
+            onChange={(event) => handleInputChange(event, "genre")}
           />
           <label htmlFor="male">Macho</label>
         </section>
@@ -252,11 +235,24 @@ export default function FilterDisplay(props) {
             type="checkbox"
             id="female"
             value="Hembra"
-            onInput={handleInputChange}
+            checked={types.genre.includes("Hembra")}
+            onChange={(event) => handleInputChange(event, "genre")}
           />
           <label htmlFor="female">Hembra</label>
         </section>
       </div>
+      {/* <section className="breed">
+        <input
+          type="checkbox"
+          id="Doge"
+          value="Doge"
+          className="breedInput Perro"
+          checked={types.breed.includes("Doge")}
+          onChange={(event) => handleInputChange(event, "breed", "Perro")}
+        />
+        <label htmlFor="Doge">Doge</label>
+      </section> */}
+      {/* {breedsInputs} */}
     </>
   );
 }
