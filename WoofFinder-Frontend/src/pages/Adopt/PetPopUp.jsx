@@ -1,6 +1,5 @@
 import React, { createElement } from "react";
 import { useEffect, useState } from "react";
-import Alert from "../../components/alert";
 
 export default function PetPopUp({ selectedPet, toggleFlag }) {
   const {
