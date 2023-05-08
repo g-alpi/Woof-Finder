@@ -22,6 +22,7 @@ export default function PetPopUp({ selectedPet, toggleFlag }) {
   }
 
   function handleAdopt() {
+    console.log("entro a handle funcion");
     console.log(localStorage.userId, pets_id);
     const formData = new FormData();
     formData.append("user_id", localStorage.userId)
@@ -49,7 +50,7 @@ export default function PetPopUp({ selectedPet, toggleFlag }) {
   function handleClick() {
     if (localStorage.length > 0) {
       handleAdopt()
-      location = "/Perfil"
+      setTimeout (()=>{location = "/Perfil"},1000)
     } else {
       let div = document.createElement("div");
       div.classList.add("alert");
