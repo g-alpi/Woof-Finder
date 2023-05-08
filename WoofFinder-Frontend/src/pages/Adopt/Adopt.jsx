@@ -28,11 +28,11 @@ export default function Adopt() {
       .catch((error) => console.error(error));
   }, []);
 
-  const updateFilterField = (field, value, parent) => {
+  const updateFilterField = (field, value, parent, breedActivate, breeds) => {
     if (parent) {
-      const parentValues = types["animal_type"].includes(parent)
-        ? types["animal_type"].filter((v) => v !== parent)
-        : [...types["animal_type"], parent];
+      let parentValues = breedActivate
+        ? [...types["animal_type"], parent]
+        : types["animal_type"].filter((v) => v !== parent);
       setTypes((prevFilter) => ({
         ...prevFilter,
         animal_type: parentValues,
@@ -46,6 +46,21 @@ export default function Adopt() {
       ...prevFilter,
       [field]: updatedValues,
     }));
+
+    if (field === "animal_type") {
+      console.log("mira");
+      console.log(...breeds);
+      const breedsValues = breeds.every((element) =>
+        types["breed"].includes(element)
+      )
+        ? types["breed"].filter((v) => !breeds.includes(v))
+        : [...types["breed"], ...breeds];
+
+      setTypes((prevFilter) => ({
+        ...prevFilter,
+        breed: breedsValues,
+      }));
+    }
   };
 
   const togglePetFlag = () => {
@@ -68,11 +83,6 @@ export default function Adopt() {
         (!types.genre.length || types.genre.includes(pet.genre))
       );
     });
-
-  useEffect(() => {
-    console.log(types);
-    console.log(pets);
-  }, [types]);
 
   return (
     <>

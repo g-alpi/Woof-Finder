@@ -27,43 +27,25 @@ export default function FilterDisplay({ types, updateFilterField }) {
 
   const handleInputChange = (e, field, parent) => {
     const { value } = e.target;
+    const parentInput = document.querySelector(`input[value="${parent}"]`);
+    let breedActivate = false;
+    let breedsInputs = document.querySelectorAll(`.breedInput.${value}`);
 
     if (parent) {
-      updateFilterField(field, value, parent);
+      breedsInputs = document.querySelectorAll(`.breedInput.${parent}`);
+      breedsInputs.forEach((element) => {
+        if (element.checked === true) {
+          breedActivate = true;
+        }
+      });
+      updateFilterField(field, value, parent, breedActivate);
     } else {
-      updateFilterField(field, value);
+      if (["Perro", "Gato"].includes(value)) {
+        updateFilterField(field, value, null, null, breeds[value]);
+      } else {
+        updateFilterField(field, value);
+      }
     }
-    // const parentInput = document.querySelector(`input[value="${parent}"]`);
-    // let breedActivate = false;
-    // let breedsInputs = document.querySelectorAll(`.breedInput.${value}`);
-
-    // if (parent) {
-    //   breedsInputs = document.querySelectorAll(`.breedInput.${parent}`);
-    //   breedsInputs.forEach((element) => {
-    //     if (element.checked === true) {
-    //       breedActivate = true;
-    //     }
-    //   });
-    //   parentInput.checked = true;
-    //   if (breedActivate === true) {
-    //     updateFilterField({
-    //       value: parent,
-    //       checked: false,
-    //     });
-    //   } else {
-    //     updateFilterField({
-    //       value: parent,
-    //       checked: true,
-    //     });
-    //   }
-    // } else {
-    //   breedsInputs.forEach((element) => {
-    //     element.checked = checked;
-    //     element.checked === true
-    //       ? updateFilterField({ value: element.value, checked: true })
-    //       : updateFilterField({ value: element.value, checked: false });
-    //   });
-    // }
   };
 
   const dogBreedsInputs =
@@ -92,7 +74,7 @@ export default function FilterDisplay({ types, updateFilterField }) {
             type="checkbox"
             id={breed}
             value={breed}
-            className="breedInput Perro"
+            className="breedInput Gato"
             checked={types.breed.includes(breed)}
             onChange={(event) => handleInputChange(event, "breed", "Gato")}
           />
@@ -105,6 +87,7 @@ export default function FilterDisplay({ types, updateFilterField }) {
     const target = e.target;
     const breedsInputsContainer = target.parentElement.nextSibling;
     const parent = e.target.parentElement.firstChild.firstChild;
+    console.log(breedsInputsContainer);
 
     if (target.classList.contains("fa-angle-down")) {
       target.classList.remove("fa-angle-down");
@@ -117,7 +100,7 @@ export default function FilterDisplay({ types, updateFilterField }) {
       target.classList.remove("fa-angle-up");
       target.classList.add("fa-angle-down");
       breedsInputsContainer.classList.remove("fadeIn");
-      // breedsInputsContainer.classList.add("fadeOut");
+      breedsInputsContainer.classList.add("fadeOut");
     }
 
     showComponent[index] === true
@@ -241,18 +224,6 @@ export default function FilterDisplay({ types, updateFilterField }) {
           <label htmlFor="female">Hembra</label>
         </section>
       </div>
-      {/* <section className="breed">
-        <input
-          type="checkbox"
-          id="Doge"
-          value="Doge"
-          className="breedInput Perro"
-          checked={types.breed.includes("Doge")}
-          onChange={(event) => handleInputChange(event, "breed", "Perro")}
-        />
-        <label htmlFor="Doge">Doge</label>
-      </section> */}
-      {/* {breedsInputs} */}
     </>
   );
 }

@@ -447,16 +447,64 @@ body {
   padding-left: 30%;
 }
 
-.breedsContainer{
-  /* opacity: 0;
-  height: 0; */
-  /* transition: all 1s; */
+/* .breedsContainer{
+  opacity: 0;
+  height: 0;
+  transition: all 1s;
 }
 .fadeIn {
-  /* opacity: 1;
-  height: 100%; */
+  opacity: 1;
+  height: 100%;
+} */
+/* Define los estilos para la animación */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 100%;
+  }
 }
 
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 200px;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+    max-height: 0;
+  }
+}
+
+/* Aplica los estilos a la lista de inputs */
+.breedsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Aplica la animación de entrada */
+.breedsContainer.fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Aplica la animación de salida */
+.breedsContainer.fadeOut {
+  animation: fadeOut 0.5s ease-in-out;
+}
+
+/* Aplica la transición de opacidad durante la animación */
+.breedsContainer.fadeIn,
+.breedsContainer.fadeOut {
+  transition: opacity 0.5s ease-in-out;
+}
 
 /* Insert pet button */
 .insertButton {
