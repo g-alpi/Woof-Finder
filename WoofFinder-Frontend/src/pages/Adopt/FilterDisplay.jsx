@@ -41,7 +41,21 @@ export default function FilterDisplay({ types, updateFilterField }) {
       updateFilterField(field, value, parent, breedActivate);
     } else {
       if (["Perro", "Gato"].includes(value)) {
-        updateFilterField(field, value, null, null, breeds[value]);
+        let activeBreedsList = [];
+        breedsInputs.forEach((element) => {
+          if (element.checked === true) {
+            activeBreedsList.push(element.value);
+          }
+        });
+        activeBreedsList.length > 0
+          ? updateFilterField(
+              field,
+              value,
+              null,
+              breedActivate,
+              activeBreedsList
+            )
+          : updateFilterField(field, value, null, breedActivate, breeds[value]);
       } else {
         updateFilterField(field, value);
       }
@@ -87,7 +101,6 @@ export default function FilterDisplay({ types, updateFilterField }) {
     const target = e.target;
     const breedsInputsContainer = target.parentElement.nextSibling;
     const parent = e.target.parentElement.firstChild.firstChild;
-    console.log(breedsInputsContainer);
 
     if (target.classList.contains("fa-angle-down")) {
       target.classList.remove("fa-angle-down");
@@ -117,9 +130,6 @@ export default function FilterDisplay({ types, updateFilterField }) {
           return updateState;
         });
   };
-  useEffect(() => {
-    console.log(showComponent);
-  }, [showComponent]);
 
   return (
     <>

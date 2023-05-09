@@ -48,8 +48,6 @@ export default function Adopt() {
     }));
 
     if (field === "animal_type") {
-      console.log("mira");
-      console.log(...breeds);
       const breedsValues = breeds.every((element) =>
         types["breed"].includes(element)
       )
