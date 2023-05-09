@@ -15,32 +15,44 @@ export default function Fotter() {
             </NavLink>
           </div>
           <div className="Autores">
+
             <h1>Autores</h1>
-            <p className="Autores">
+            <p>
+
               Guillem Albo{" "}
               <a href="https://www.linkedin.com/in/guillem-albo-pintor/">
-                <i className="fa-brands fa-linkedin"></i>
+                <i className="fa-brands fa-linkedin linkedin"></i>
               </a>{" "}
+
               <a href="https://github.com/g-alpi">
-                <i className="fa-brands fa-square-github"></i>
+                <i className="fa-brands fa-square-github github"></i>
               </a>
+
               <br />
+
               Andrès Rivera{" "}
               <a href="https://www.linkedin.com/in/arivera-c/">
-                <i className="fa-brands fa-linkedin"></i>
+                <i className="fa-brands fa-linkedin linkedin"></i>
               </a>{" "}
+
               <a href="https://github.com/AndyRoca">
-                <i className="fa-brands fa-square-github"></i>
+                <i className="fa-brands fa-square-github github"></i>
               </a>
+
               <br />
+
+
               John Garcia{" "}
+
               <a href="https://www.linkedin.com/in/johngp97/">
-                <i className="fa-brands fa-linkedin"></i>
+                <i className="fa-brands fa-linkedin linkedin"></i>
               </a>{" "}
+
               <a href="https://github.com/johngp97">
-                <i className="fa-brands fa-square-github"></i>
+                <i className="fa-brands fa-square-github github"></i>
               </a>
             </p>
+
           </div>
 
           <div className="fotterLogo">

@@ -85,7 +85,26 @@ public class PetsController {
 
 		return results;
 	}
+	
+	@CrossOrigin
+	@PostMapping("/adopt")
+	public ResponseEntity <String> handleAdopt(@RequestParam("user_id") int user_id, @RequestParam("pets_id") int petsId) {
 
+		try {
+			String query = "update Pets \r\n"
+					+ "set users_pets_id = "+ user_id + ", pet_status = 'Adoptado'\r\n"
+					+ "where pets_id = "+ petsId +" and pet_status = 'En adopcion';";
+			jdbcTemplate.update(query);
+			
+			return ResponseEntity.ok("Adopciòn realizada con exito");
+			
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+					.body("No se pudo completar la adopciòn" + e.getMessage());
+		}
+	
+	}
+	
 	@CrossOrigin
 	@PostMapping("/upload")
 	public ResponseEntity<String> handleFileUpload(@RequestParam("animalType") int animalType,
