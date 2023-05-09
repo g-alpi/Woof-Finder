@@ -24,7 +24,7 @@ export default function InsertPopUp({ toggleFlag }) {
     const value = e.target.value;
     setAnimalTypeSelected(value);
   };
-  
+
   const animalTypeInput = (
     <span>
       <label htmlFor="type">Tipo de animal: </label>
@@ -162,6 +162,9 @@ export default function InsertPopUp({ toggleFlag }) {
         .catch((error) => {
           console.error(error);
         });
+      setTimeout(() => {
+        location.reload();
+      }, 1000);
     } else {
       let div = document.createElement("div");
       div.classList.add("alert");
