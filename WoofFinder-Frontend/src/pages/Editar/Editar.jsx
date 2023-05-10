@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "../../assets/styles/Registro.css";
-//import "https://kit.fontawesome.com/a81368914c.js"
 
 export default function Editar() {
   var [username, setTexto] = useState("");

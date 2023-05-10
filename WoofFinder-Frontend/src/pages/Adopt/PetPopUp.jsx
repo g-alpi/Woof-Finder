@@ -22,7 +22,7 @@ export default function PetPopUp({ selectedPet, toggleFlag }) {
 
   function handleAdopt() {
     const formData = new FormData();
-    formData.append("user_id", localStorage.userId);
+    formData.append("user_id", parseInt(localStorage.user_id));
     formData.append("pets_id", pets_id);
 
     fetch("http://localhost:8080/pet/adopt", {
