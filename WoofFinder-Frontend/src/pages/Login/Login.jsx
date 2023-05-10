@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import WoofFinderLogo from "../../assets/images/WoofFinderLogo.png";
 import "../../assets/styles/Login.css";
 
@@ -63,7 +63,9 @@ export default function Login(props) {
     <>
       <div className="containerlogin">
         <form className="formlogin">
-          <img src={WoofFinderLogo} alt="picture" className="logologin" />
+          <NavLink to="/">
+            <img src={WoofFinderLogo} alt="picture" className="logologin" />
+          </NavLink>
           <h2>Iniciar sesión</h2>
           <br />
           <h5 id="login_fallido"></h5>
