@@ -24,53 +24,44 @@ export default function Registro() {
       phone != "" &&
       address != ""
     ) {
-      let data0 = {
-        page_request: "register",
-        username_db: username,
-        email_db: email,
-        user_password_db: user_password,
-        phone_db: phone,
-        address_db: address,
-      };
+      if (user_password == user_password2) {
+        let data0 = {
+          page_request: "register",
+          username_db: username,
+          email_db: email,
+          user_password_db: user_password,
+          phone_db: phone,
+          address_db: address,
+        };
 
-      fetch("http://127.0.0.1:8080/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data0),
-      })
-        .then((response) => {
-          return response.json();
+        fetch("http://127.0.0.1:8080/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data0),
         })
-        .then((data) => {
-          if (data.response == "registro exitoso") {
-            localStorage.setItem("username", username);
-            localStorage.setItem("email", email);
-            localStorage.setItem("user_password", user_password);
-            localStorage.setItem("phone", phone);
-            localStorage.setItem("address", address);
-
-            navigate("/Login");
-            console.log(data.response);
-          } else {
-            console.log(data.response);
-            var email_registrado = document.getElementById("registro_fallido");
-            email_registrado.innerHTML = "Este email ya esta registrado";
-          }
-
-          if (data.response == "registro exitoso") {
-            navigate("/Login");
-            console.log(data.response);
-          } else {
-            console.log(data.response);
-            var email_registrado = document.getElementById("registro_fallido");
-            email_registrado.innerHTML = "Este email ya esta registrado";
-          }
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            if (data.response == "registro exitoso") {
+              navigate("/Login");
+              console.log(data.response);
+            } else {
+              console.log(data.response);
+              var email_registrado =
+                document.getElementById("registro_fallido");
+              email_registrado.innerHTML = "Este email ya esta registrado";
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      } else {
+        var email_registrado = document.getElementById("registro_fallido");
+        email_registrado.innerHTML = "Las contraseñas deben coincidir";
+      }
     }
   };
 
