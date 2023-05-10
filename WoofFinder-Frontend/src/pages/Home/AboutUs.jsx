@@ -2,9 +2,9 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import AboutUsPicture from "../../assets/images/AboutUsPicture.jpg";
 
-export default function AboutUs() {
+export default function AboutUs({ aboutUs }) {
   return (
-    <div className="aboutUs">
+    <div className="aboutUs" ref={aboutUs} id="aboutUs">
       <img src={AboutUsPicture} />
 
       <div className="aboutUsContent">
@@ -31,7 +31,7 @@ export default function AboutUs() {
         </p>
 
         <NavLink to="/Adopta">
-          <button className="btnPrimary">Leer más</button>
+          <button className="btnPrimary">Adoptar</button>
         </NavLink>
       </div>
     </div>

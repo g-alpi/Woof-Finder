@@ -11,6 +11,9 @@
   /*header menu*/
   --black: #000;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -77,9 +80,15 @@ body {
   .Header .topnav {
     margin-left: 5%;
   }
+  .Header >a:first-child{
+    width: 153px;
+    margin-left: 10vw;
+  }
+  .Header .topnav a{
+    width: 5vw;
+  }
   .Header .Logo {
-    width: 8%;
-    margin-left: 10%;
+    width: 100%;
     opacity: 90%;
   }
 
@@ -147,11 +156,7 @@ body {
   opacity: 90%;
 }
 
-.homeHeader button {
-  font-size: 11px;
-  padding: 7px 12px;
-  margin-bottom: 20px;
-}
+
 
 /* NavBar Menu */
 
@@ -171,6 +176,7 @@ body {
   padding: 8px 50px;
   text-decoration: none;
   font-size: 15px;
+  cursor: pointer;
 }
 
 /* Change the color of links on hover */
@@ -399,11 +405,6 @@ body {
 .petCard:hover {
   border: 5px solid rgb(216 217 58 / 66%);
   transform: translateY(10px);
-
-  /* transform: translate(0, 5px);
-  -webkit-box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
-  box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5); */
 }
 
 .petCard img {
