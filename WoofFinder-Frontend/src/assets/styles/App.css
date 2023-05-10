@@ -12,6 +12,7 @@
   --black: #000;
 }
 
+
 body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -279,9 +280,99 @@ body {
 
 .fotterContactUs h1{
   font-size: 24px;
+  margin-bottom: -23px;
+  margin-top: 7px;
+}
+
+.fotterContactUs h2{
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.fotterLogo{
+  width: 20vw;
+  display: flex;
+  align-items: center;
+}
+.filterLogo div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.fotterLogo img {
+  width: 30%;
+}
+.fotterLogo div  span {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.fotterLogo div span p {
+  font-weight: 700;
+  padding-left: 10px;
+  margin: 0;
+}
+
+.linkedin{
+  color: #056DFA;
+}
+
+.github{
+  color: #6e5494;
+}
+
+ .copyRights{
+  background-color: #666666;
+  height: 2vh;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.sponsorImg{
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 50px;
+}
+
+.sponsorImg img{
+  width: 15%;
+  border-radius: 100%;
+}
+
+/* Fotter Section */
+
+/* .Fotter{
+  background-color: #ffffff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.fotterContactUs{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 10%;
+}
+
+.fotterContactUs h1{
+  font-size: 24px;
   margin: 0;
   margin-bottom: 6px;
 }
+.copyRights p {
+  margin: 0;
+  font-size: .9rem;
+  font-weight: 600;
+  font-style: italic;
+} */
 
 .fotterContactUs h2{
   font-size: 14px;
@@ -505,6 +596,7 @@ body {
     transform: translateY(-10px);
     max-height: 0;
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -523,6 +615,119 @@ body {
     transform: translateY(-10px);
     max-height: 0;
   }
+
+  100% {
+    transform: rotate(0deg);
+  }
+
+}
+.submitButton{
+  position: relative;
+  left: 78%;
+  margin-bottom: 2%;
+
+}
+
+
+
+/*DISEÑO DE LA PAGINA DE PERFIL*/
+.btnPrimaryPerfil {
+  text-align: center;
+  width:150px;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #BEBCB1;
+  border: none;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.btnPrimaryPerfil:hover {
+  background-color: #BEBCB1;
+  box-shadow: 0px 15px 20px rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+
+
+/*DISEÑO DEl BOTON LOGOUT*/
+.btnPrimaryPerfilLogout {
+  text-align: center;
+  width:150px;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: var(--light-brown);
+  border: none;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.btnPrimaryPerfilLogout:hover {
+  background-color: var(--light-brown);
+  box-shadow: 0px 15px 20px rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+
+
+/*descripcion de la mascota en la pagina de perfil*/
+.petPopUpPerfil {
+  width: 70vw;
+  max-width: 1000px;
+  display: flex;
+  min-height: 541px;
+  max-height: 603px;
+  
+}
+.petInfoPerfil {
+  width: 20%;
+}
+.descriptionPetPerfil {
+  max-height: 153px;
+  font-size: larger;
+}
+
+.petPerfil {
+  display: flex;
+}
+
+.petPerfil img {
+  width: 20%;
+  height: fit-content;
+  border: 3px solid;
+  margin-right: 22px;
+  margin-top: 21px;
+  margin-left: 36px;
+  border-radius: 70px;
+}
+
+.petPerfil ul {
+  list-style: none;
+  display: inline;
+  margin: 0;
+  font-size:large;
+}
+
+.petsContainerPerfil {
+  display: grid;
+  gap: 3%;
+  padding: 0 2%;
+  margin: 0 2%;
+  width: 100%;
+  max-height: 98vh;
+  border-radius: 25px;
 }
 
 /* Aplica los estilos a la lista de inputs */
