@@ -1,32 +1,29 @@
-import React, { useState, useEffect,useRef } from "react";
+import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router";
 import "./assets/styles/App.css";
 import Adopt from "./pages/Adopt/Adopt";
-import Login from "./pages/Login/Login";
-import Registro from "./pages/Registro/Registro";
-import Editar from "./pages/Editar/Editar";
-import Home from "./pages/Home/Home";
-import Modal from "./pages/Login/Modal";
-import Editar from "./pages/Editar/Editar";
+import { Editar } from "./pages/Editar/Editar";
 import EditarPerfil from "./pages/EditarPerfil/EditarPerfil";
+import Home from "./pages/Home/Home";
+import Login from "./pages/Login/Login";
+import Modal from "./pages/Login/Modal";
 import Perfil from "./pages/Perfil/Perfil";
-
+import Registro from "./pages/Registro/Registro";
 
 function App() {
-  
   const [closing, setClosing] = useState(false);
 
   useEffect(() => {
     const handleBeforeUnload = (event) => {
       event.preventDefault();
       setClosing(true);
-    }
+    };
 
-    window.addEventListener('unload', handleBeforeUnload);
+    window.addEventListener("unload", handleBeforeUnload);
 
     return () => {
-      window.removeEventListener('unload', handleBeforeUnload);
-    }
+      window.removeEventListener("unload", handleBeforeUnload);
+    };
   }, []);
 
   useEffect(() => {
@@ -34,7 +31,6 @@ function App() {
       localStorage.clear();
     }
   }, [closing]);
-  
 
   return (
     <div className="App">
@@ -54,4 +50,3 @@ function App() {
 }
 
 export default App;
-

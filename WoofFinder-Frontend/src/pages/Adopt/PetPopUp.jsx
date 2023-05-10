@@ -1,5 +1,4 @@
-import React, { createElement } from "react";
-import { useEffect, useState } from "react";
+import React, { createElement, useEffect, useState } from "react";
 
 export default function PetPopUp({ selectedPet, toggleFlag }) {
   const {
@@ -22,22 +21,21 @@ export default function PetPopUp({ selectedPet, toggleFlag }) {
   }
 
   function handleAdopt() {
-    var id=localStorage.getItem("user_id")
-    console.log(id, pets_id);
     const formData = new FormData();
-    formData.append("user_id", id)
+    formData.append("user_id", localStorage.userId);
     formData.append("pets_id", pets_id);
 
     fetch("http://localhost:8080/pet/adopt", {
       method: "POST",
-      body: formData
-    }).then((response) => response.json)
+      body: formData,
+    })
+      .then((response) => response.json)
       .then((data) => {
         console.log(data);
       })
       .catch((error) => {
         console.error(error);
-      })
+      });
   }
 
   const [username, setTexto] = useState(null);
@@ -47,17 +45,32 @@ export default function PetPopUp({ selectedPet, toggleFlag }) {
     setTexto(username);
   }, []);
 
-  function handleClick (){
-    if (localStorage.length>0) {
-      handleAdopt()
-      setTimeout (()=>{location = "/Perfil"},1000)
-      location = "/Perfil"
-    }else{
-      location = "/Login"
+  function handleClick() {
+    if (localStorage.length > 0) {
+      handleAdopt();
+      setTimeout(() => {
+        location = "/Perfil";
+      }, 1000);
+    } else {
+      let div = document.createElement("div");
+      div.classList.add("alert");
+      div.append("¡Es necesario iniciar sesión!");
+
+      let link = document.createElement("a");
+      link.setAttribute("href", "/Login");
+      link.innerText = "Iniciar sesión";
+
+      div.appendChild(document.createElement("br"));
+      div.appendChild(link);
+
+      document.querySelector("body").append(div);
+
+      setTimeout(() => {
+        document.querySelector(".alert").remove();
+      }, 4000);
     }
   }
 
-  
   return (
     <>
       <div className="popUpBackground" onClick={toggleFlag}></div>
@@ -69,11 +82,21 @@ export default function PetPopUp({ selectedPet, toggleFlag }) {
             <h1>{pet_name}</h1>
 
             <ul>
-              <li key="age"><span>Edad:</span> {age} años</li>
-              <li key="genre"><span>Genero: </span> {genre}</li>
-              <li key="size"><span>Tamaño: </span> {size}</li>
-              <li key="status"><span>Estado: </span> {pet_status}</li>
-              <li key="breed"><span>Raza: </span> {breed_type}</li>
+              <li key="age">
+                <span>Edad:</span> {age} años
+              </li>
+              <li key="genre">
+                <span>Genero: </span> {genre}
+              </li>
+              <li key="size">
+                <span>Tamaño: </span> {size}
+              </li>
+              <li key="status">
+                <span>Estado: </span> {pet_status}
+              </li>
+              <li key="breed">
+                <span>Raza: </span> {breed_type}
+              </li>
             </ul>
 
             <h2>Descripción</h2>
@@ -83,8 +106,9 @@ export default function PetPopUp({ selectedPet, toggleFlag }) {
                 <p>{pet_description}</p>
               </div>
 
-              <button className="btnPrimary" onClick = {handleClick}>Adoptar</button>
-
+              <button className="btnPrimary" onClick={handleClick}>
+                Adoptar
+              </button>
             </div>
           </div>
         </div>

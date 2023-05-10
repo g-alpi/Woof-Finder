@@ -1,11 +1,9 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import WoofFinderLogo from "../../assets/images/WoofFinderLogo.png";
 import "../../assets/styles/App.css";
 
 export default function HomePageHeader() {
-
   const [username, setTexto] = useState(null);
 
   useEffect(() => {
@@ -14,7 +12,6 @@ export default function HomePageHeader() {
   }, []);
 
   return (
-
     <div className="homeHeader">
       <div className="navBar">
         <img src={WoofFinderLogo} alt="picture" className="Logo" />
@@ -32,7 +29,6 @@ export default function HomePageHeader() {
           ) : (
             <NavLink to="/Login">Iniciar sesión</NavLink>
           )}
-
         </div>
       </div>
 

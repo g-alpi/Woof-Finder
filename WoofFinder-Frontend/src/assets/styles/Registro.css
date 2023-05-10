@@ -65,7 +65,6 @@
   background: linear-gradient(135deg, #A08264, #a082646d);
 }
 
-
 .contentregistro .formregistro .user-details-registro {
   display: flex;
   flex-wrap: wrap;
@@ -185,35 +184,3 @@
     width: 5px;
   }
 }
-
-
-
-.containerregistroPerfil{
-  
-  /*position:relative;
-  left:20%;*/
-  display:flex;
-  justify-content: center;
-
-}
-.containerregistroPerfil2{
-  position:absolute;
-  left:25%;
-  display: flex;
-  justify-content: center;
-
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-
-/*Pagina informacion del perfil*/
-.contentregistroPerfil .formregistro .user-details-registro {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content:center;
-  margin: 20px 0 12px 0;
-}
-
-

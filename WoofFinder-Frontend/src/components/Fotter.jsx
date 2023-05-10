@@ -16,7 +16,7 @@ export default function Fotter() {
           </div>
           <div className="Autores">
             <h1>Autores</h1>
-            <p className="Autores">
+            <p>
               Guillem Albo{" "}
               <a href="https://www.linkedin.com/in/guillem-albo-pintor/">
                 <i className="fa-brands fa-linkedin linkedin"></i>
@@ -25,7 +25,7 @@ export default function Fotter() {
                 <i className="fa-brands fa-square-github github"></i>
               </a>
               <br />
-              Andrès Rivera{" "}
+              Andrés Rivera{" "}
               <a href="https://www.linkedin.com/in/arivera-c/">
                 <i className="fa-brands fa-linkedin linkedin"></i>
               </a>{" "}
