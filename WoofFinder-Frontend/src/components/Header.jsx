@@ -6,6 +6,7 @@ import "../assets/styles/App.css";
 export default function Header() {
   return (
     <div className="Header">
+      <img src={WoofFinderLogo} alt="picture" className="Logo" />
       {/*The only 2 real paths are "/" and "/Adopta", 
             the otherones are just have a good view in the explorer and should be replace in future */}
       <div className="topnav">
@@ -15,10 +16,6 @@ export default function Header() {
         <NavLink to="/Patrocinadores">Patrocinadores</NavLink>
         <NavLink to="/Contactanos">Contáctanos</NavLink>
         <NavLink to="/Login">Iniciar sesión</NavLink>
-      </div>
-
-      <div className="Logo">
-        <img src={WoofFinderLogo} alt="picture" />
       </div>
     </div>
   );

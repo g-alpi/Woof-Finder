@@ -37,8 +37,14 @@ export default function Registro () {
           
           if (data.response=="registro exitoso")
           {
+            localStorage.setItem("username",username);
+            localStorage.setItem("email",email);
+            localStorage.setItem("user_password",user_password);
+            localStorage.setItem("phone",phone);
+            localStorage.setItem("address",address);
+
             navigate("/Login");
-            console.log(data.response)
+            console.log(data.response);
           }else{
             console.log(data.response);
             var email_registrado = document.getElementById("registro_fallido");

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function PetPopUp({ selectedPet, toggleFlag }) {
+export default function LoginPopUp({ selectedPet, toggleFlag }) {
   const {
     pet_name,
     age,
@@ -14,7 +14,6 @@ export default function PetPopUp({ selectedPet, toggleFlag }) {
   } = selectedPet;
   const img = `/images/default${animal_type}.png`;
 
-  
   return (
     <>
       <div className="popUpBackground" onClick={toggleFlag}></div>
