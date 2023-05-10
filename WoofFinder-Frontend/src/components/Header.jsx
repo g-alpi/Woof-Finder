@@ -21,10 +21,9 @@ export default function Header() {
             the otherones are just have a good view in the explorer and should be replace in future */}
       <div className="topnav">
         <NavLink to="/">Inicio</NavLink>
-        <NavLink to="/#aboutUs">Sobre nostros</NavLink>
+        <NavLink to="/">Sobre nostros</NavLink>
         <NavLink to="/Adopta">Adopta</NavLink>
-        {/* <NavLink to="/#sponsors">Patrocinadores</NavLink> */}
-        <a href="/#sponsors">Patrocinadores</a>
+        <NavLink to="/">Patrocinadores</NavLink>
         <NavLink to="/Contactanos">Contáctanos</NavLink>
         {username !== null ? (
           <NavLink to="/Perfil">Perfil</NavLink>

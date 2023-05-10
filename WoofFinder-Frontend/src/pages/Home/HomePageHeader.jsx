@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import WoofFinderLogo from "../../assets/images/WoofFinderLogo.png";
 import "../../assets/styles/App.css";
 
-export default function HomePageHeader() {
+export default function HomePageHeader({ scrollToAboutUs, scrollToSponsors }) {
   const [username, setTexto] = useState(null);
 
   useEffect(() => {
@@ -20,9 +20,9 @@ export default function HomePageHeader() {
   the otherones are just have a good view in the explorer and should be replace in future */}
         <div className="topnav">
           <NavLink to="/">Inicio</NavLink>
-          <NavLink to="/">Sobre nosotros</NavLink>
+          <a onClick={scrollToAboutUs}>Sobre nosotros</a>
           <NavLink to="/Adopta">Adopta</NavLink>
-          <NavLink to="/">Patrocinadores</NavLink>
+          <a onClick={scrollToSponsors}>Patrocinadores</a>
           <NavLink to="/Contactanos">Contáctanos</NavLink>
           {username !== null ? (
             <NavLink to="/Perfil">Perfil</NavLink>
