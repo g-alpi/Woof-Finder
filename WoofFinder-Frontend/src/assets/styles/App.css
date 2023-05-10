@@ -16,7 +16,7 @@ body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
+  overflow: overlay;
   color-scheme: light dark;
   color: rgba(0, 0, 0, 0.87);
 
@@ -27,23 +27,61 @@ body {
   -webkit-text-size-adjust: 100%;
   padding: 0;
   margin: 0;
+  overflow: overlay;
 }
 
-.Header {
+*::-webkit-scrollbar {
+  width: 12px;
+  /* background-color: #F5F5F5; */
+  background: transparent;
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: #909090;
+}
+
+/* alerts */
+.alert {
+  position: fixed;
+  top:10vh;
+  left: 50%;
+  width: 500px;
+  z-index: 3;
+  transform: translateX(-50%);
+  padding: 15px;
+  border-radius: 15px;
+  background: rgb(231 57 57);
+  text-align: center;
+  animation: alert 1s linear;
+  font-size: 1.2rem;
+  font-weight:500 ;
+}
+@keyframes alert {
+  from{top:-10px}to{top: 10vh;}
+}
+
+/* Header and HomePageHeader */
+
+.Header{
   background-image: url('../images/headerPicture1.png');
   background-size: cover;
   background-position: center;
   height: 20vh;
   width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
-  /* position: relative;
-  top: 0;
-  left: 0; */
-}
+  align-items: center;
+  }
+  .Header .topnav {
+    margin-left: 5%;
+  }
+  .Header .Logo {
+    width: 8%;
+    margin-left: 10%;
+    opacity: 90%;
+  }
 
 .homeHeader {
   background-image: url('../images/headerPicture1.png');
@@ -57,13 +95,17 @@ body {
   overflow: hidden;
 }
 
-.Logo {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: -32%;
-  right: 36%;
-  transform: scale(0.3, 0.3);
+.navBar{
+  display: flex;
+  align-items: center;
+}
+.navBar .topnav {
+  margin-left: 5%;
+}
+.navBar .Logo {
+  width: 11%;
+  margin-left: 7%;
+  opacity: 90%;
 }
 
 .background {
@@ -71,10 +113,21 @@ body {
   height: auto;
 }
 
+/* HomePageHeader */
+
+.homeHeader{
+  background-image: url('../images/headerPicture1.png');
+  background-size: cover;
+  background-position: center;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
 
 .content {
-  position: absolute;
-  top: 23vmin;
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -82,34 +135,29 @@ body {
   color: #000000;
 }
 
-.Homeheader h1 {
+.heading {
   font-size: 36px;
-  margin-bottom: -20px;
+  margin-bottom: -24px;
 }
 
 .homeHeader p {
   font-size: 18px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   opacity: 70%;
 }
 
 .homeHeader button {
-  font-size: 10px;
-  padding: 1px 12px;
-  background-color: #A3826C;
-  border-radius: 4px;
-  border-color: #A3826C;
-  opacity: 90%;
+  font-size: 11px;
+  padding: 7px 12px;
 }
+
+/* NavBar Menu */
 
 
 /* Add a black background color to the top navigation */
 .topnav {
   background-color: #BEBCB1;
   overflow: hidden;
-  position: absolute;
-  top: 10%;
-  left: 24%;
   opacity: 95%;
 }
 
@@ -136,46 +184,191 @@ body {
 }
 
 
+/* AboutUs HomePage Section */
+.aboutUs{
+  background-color: #3E3D3D;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  overflow: hidden;
+}
+
+
+.aboutUs img{
+  position: relative;
+  right: 23%;
+  opacity: 65%;
+  transform: scale(0.2, 0.2);
+}
+
+.aboutUsContent {
+  position: absolute;
+  top: 53vmin;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-left: 41%;
+  color: #ffffff;
+}
+
+.aboutUsContent h1 {
+  font-size: 36px;
+  margin-bottom: -20px;
+}
+
+.aboutUsContent h2 {
+  font-size: 24px;
+  opacity: 85%;
+  margin-bottom: -20px;
+}
+
+.aboutUsContent p {
+  font-size: 18px;
+  margin-bottom: 2px;
+  opacity: 70%;
+}
+
+/* Sponsors Section */
+
+.Sponsors{
+  background-color: var(--beige);
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.sponsorImg{
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 50px;
+}
+
+.sponsorImg img{
+  width: 15%;
+  border-radius: 100%;
+}
+
+/* Fotter Section */
+
+.Fotter{
+  background-color: #ffffff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.fotterContactUs{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 10%;
+}
+
+.fotterContactUs h1{
+  font-size: 24px;
+  margin-bottom: -23px;
+  margin-top: 7px;
+}
+
+.fotterContactUs h2{
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.fotterLogo{
+  width: 20vw;
+  display: flex;
+  align-items: center;
+}
+.filterLogo div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.fotterLogo img {
+  width: 30%;
+}
+.fotterLogo div  span {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.fotterLogo div span p {
+  font-weight: 700;
+  padding-left: 10px;
+  margin: 0;
+}
+
+.linkedin{
+  color: #056DFA;
+}
+
+.github{
+  color: #6e5494;
+}
+
+ .copyRights{
+  background-color: #666666;
+  height: 2vh;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.copyRights p {
+  margin: 0;
+  font-size: .9rem;
+  font-weight: 600;
+  font-style: italic;
+}
+
 /* Adopt page */
 .adopt {
   display: flex;
 }
 
 /* Display animals */
+.adopt {
+  background-color: var(--beige);
+  padding-top: 2%;
+  height: 99vh;
+}
+
 .petsContainer {
   display: grid;
   gap: 3%;
   padding: 0 2%;
   margin: 0 2%;
+  width: 100%;
   max-height: 98vh;
-  overflow: auto;
+  overflow: hidden;
   border-radius: 25px;
 }
 
-.petsContainer::-webkit-scrollbar {
-  width: 12px;
-  background-color: #F5F5F5;
-  border-radius: 10px;
+.petsContainer:hover {
+  overflow: auto;
 }
 
-.petsContainer::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-  background-color: #909090;
 
-}
 
 @media screen and (min-width: 1160px) {
   .petsContainer {
     grid: auto-flow/ repeat(4, 1fr);
-    background-image: linear-gradient(to right, var(--gray) 50%, #ccc5c5 50%);
   }
 }
 
 @media screen and (max-width: 1159px) {
   .petsContainer {
     grid: auto-flow/ repeat(2, 48%);
-    background-image: linear-gradient(to right, var(--gray) 48.5%, white 47%);
   }
 }
 
@@ -184,30 +377,43 @@ body {
   padding: 1rem;
   cursor: pointer;
   border-radius: 25px;
-}
-
-.petCard:hover {
+  /* border: 1px solid var(--beige); */
   transform: translate(0, 5px);
   -webkit-box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
   box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
+  background-color: darkslategray;
+  max-height: fit-content;
+  height: fit-content;
+}
+
+.petCard:hover {
+  border: 5px solid rgb(216 217 58 / 66%);
+  transform: translateY(10px);
+
+  /* transform: translate(0, 5px);
+  -webkit-box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.5); */
 }
 
 .petCard img {
-  border: solid 1px var(--light-gray);
-  border-radius: 25%;
   width: 100%;
+  border-radius: 25px;
+  max-height: 200px;
 }
 
 .petCard p {
   font-weight: 500;
   font-size: 1.5rem;
   margin: 0;
+  color: var(--white);
 }
 
 .petPropierties {
   display: flex;
   justify-content: space-between;
+  color: var(--beige);
 }
 
 .petPropierties span {
@@ -221,12 +427,15 @@ body {
   flex-direction: column;
 }
 
-/* filter */
+/* filter */  
 .filterContainer {
   width: 15vw;
   max-width: 220px;
   min-width: 150px;
+  height: 99vh;
   padding-left: 1%;
+  display: flex;
+  flex-direction: column;
 }
 
 .filterContainer h1 {
@@ -271,10 +480,10 @@ body {
 }
 
 .fadeIn {
-  animation: fadeIn 1.5s;
+  animation: height 1.5s;
 }
 
-@keyframes fadeIn {
+@keyframes height {
   0% {
     opacity: 0;
     max-height: 0;
@@ -301,12 +510,46 @@ body {
   }
 }
 
-/* pet pop up */
-.popUpBackground {
+/* Insert pet button */
+.insertButton {
   position: absolute;
+  top: 100%;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  transition: background-color,color 1.5s ease;
+  cursor: pointer;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.insertButton:hover {
+  background-color: var(--light-brown);
+  color: var(--white);
+}
+.insertButton:active{
+  transform: translateY(5px);
+}
+
+.insertButton .fa-paw {
+  font-size: 4rem;
+}
+.insertButton .fa-plus {
+  position: absolute;
+  margin-top: 20px;
+  filter: invert(100%);
+  font-size: 1rem;
+
+}
+
+
+/* pop up */
+.popUpBackground {
+  position: fixed;
+  width: 100%;
   top: 0;
-  left: 0;
-  width: 100vw;
   height: 100vh;
   background-color: rgb(0, 0, 0, .8);
   backdrop-filter: blur(10px);
@@ -314,21 +557,18 @@ body {
 }
 
 .popUp {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 70vw;
-  height: 80vh;
-  max-width: 1000px;
   background-color: var(--beige);
   /* box-shadow: 0 0 30px rgb(0, 0, 0,.5); */
   border-radius: 25px;
   z-index: 2;
-  animation: showPet .8s ease;
+  animation: showPopUp .8s ease;
 }
 
-@keyframes showPet {
+@keyframes showPopUp {
   from {
     transform: translate(-50%, -50%) scale(0);
   }
@@ -352,7 +592,323 @@ body {
   transform: translateY(3px);
 }
 
+
+.popUp.petPopUp {
+  width: 70vw;
+  max-width: 1000px;
+  display: flex;
+  min-height: 541px;
+  max-height: 603px;
+  
+}
+
 .pet {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-self: center;
+}
+
+.pet img {
+  width: 50%;
+  height: fit-content;
+  border: 3px solid;
+  margin-right: 22px;
+  margin-top: 21px;
+  margin-left: 36px;
+  border-radius: 70px;
+}
+
+.pet ul {
+  list-style: none;
+  display: inline;
+  margin: 0;
+  font-size: x-large;
+}
+
+.petInfo {
+  width: 40%;
+}
+
+.petInfo li span {
+  font-weight: 700;
+}
+
+.petInfo h1 {
+  display: initial;
+  width: 100%;
+  text-align: center;
+  font-size: xxx-large;
+  text-transform: capitalize;
+  letter-spacing: 3.5px;
+}
+
+.description {
+  max-height: 153px;
+  font-size: larger;
+  overflow: auto;
+}
+
+.petInfo h2 {
+  margin-top: 5px;
+  margin-bottom: -1px;
+}
+
+/* Adopt Button */
+
+.btnPrimary {
+  padding: 1.3em 3em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: var(--light-brown);
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.petInfo button {
+  margin-top: 12px;
+  margin-left: 47%;
+}
+
+.btnPrimary:hover {
+  background-color: var(--light-brown);
+  box-shadow: 0px 15px 20px rgba(255, 255, 255, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+
+.btnPrimary:active {
+  transform: translateY(-1px);
+}
+
+/* insert form pop up */
+.popUp.insertPet h1{
+  font-weight: 600;
+  font-size: 2.5rem;
+  padding-left: 10%;
+}
+.popUp .insertForm {
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+  max-width: 1000px;
+  max-height: 80vh;
+  overflow: auto;
+  transition: height .2;
+}
+.insertForm > div{
+  display: flex;
+  gap: 10%;
+  margin:0 10%;
+}
+.insertForm > div span{
+  width: 50%;
+  animation: fadeIn .5s ease;
+  margin-top: 2%;
+}
+@keyframes fadeIn {
+  0% {
+    transform: scaleY(0);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}
+.insertForm > div span select,.insertForm >div  span input,
+.insertForm >div  span textarea{
+  width: 100%;
+}
+
+.insertForm label, .insertForm input, .insertForm select{
+  font-size: 2rem;
+  font-weight: 200;
+}
+
+.insertForm input ,.insertForm select {
+  border-radius: 15px;
+}
+
+.fileButtonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center ;
+  gap: 10px;
+
+}
+
+.fileButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px 8px 16px;
+  gap: 8px;
+  width: 128px;
+  border: none;
+  background: #683a0627;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.lable {
+  margin-top: 1px;
+  font-size: 19px;
+  line-height: 22px;
+  color: var(--black);
+  font-family: sans-serif;
+  letter-spacing: 1px;
+}
+
+.fileButton:hover {
+  background: #6b3c05ad;
+}
+
+.fileButton:hover .svg-icon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-8deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  75% {
+    transform: rotate(8deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+
+}
+.submitButton{
+  position: relative;
+  left: 78%;
+  margin-bottom: 2%;
+
+}
+
+
+
+/*DISEÑO DE LA PAGINA DE PERFIL*/
+.btnPrimaryPerfil {
+  text-align: center;
+  width:150px;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #BEBCB1;
+  border: none;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.btnPrimaryPerfil:hover {
+  background-color: #BEBCB1;
+  box-shadow: 0px 15px 20px rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+
+
+/*DISEÑO DEl BOTON LOGOUT*/
+.btnPrimaryPerfilLogout {
+  text-align: center;
+  width:150px;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: var(--light-brown);
+  border: none;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.btnPrimaryPerfilLogout:hover {
+  background-color: var(--light-brown);
+  box-shadow: 0px 15px 20px rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+
+
+/*descripcion de la mascota en la pagina de perfil*/
+.petPopUpPerfil {
+  width: 70vw;
+  max-width: 1000px;
+  display: flex;
+  min-height: 541px;
+  max-height: 603px;
+  
+}
+.petInfoPerfil {
+  width: 20%;
+}
+.descriptionPetPerfil {
+  max-height: 153px;
+  font-size: larger;
+}
+
+.petPerfil {
+  display: flex;
+}
+
+.petPerfil img {
+  width: 20%;
+  height: fit-content;
+  border: 3px solid;
+  margin-right: 22px;
+  margin-top: 21px;
+  margin-left: 36px;
+  border-radius: 70px;
+}
+
+.petPerfil ul {
+  list-style: none;
+  display: inline;
+  margin: 0;
+  font-size:large;
+}
+
+.petsContainerPerfil {
+  display: grid;
+  gap: 3%;
+  padding: 0 2%;
+  margin: 0 2%;
+  width: 100%;
+  max-height: 98vh;
+  border-radius: 25px;
+}
+
+.popUpBackgroundPerfil {
+  width: 50%;
+}
+
+.bloque-info{
+  padding-left: 2%;
 }
