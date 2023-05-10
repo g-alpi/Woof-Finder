@@ -24,6 +24,39 @@ import org.springframework.web.multipart.MultipartFile;
 public class PetsController {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
+	
+	@GetMapping("/mismascotas")
+	@CrossOrigin
+	public List<Map<String, Object>> getAllMisMascotas() {
+
+		String query = "select pets_id, pet_name, age, genre, size,avatar_path, illness, pet_description, pet_status, users_pets_id, breed.breed_type, species.animal_type from pets\r\n"
+				+ "inner join breed on pets.breed_id = breed.breed_id\r\n"
+				+ "inner join species on pets.species_pet_id = species.species_id\r\n";
+
+		List<Map<String, Object>> results = jdbcTemplate.queryForList(query);
+
+		return results;
+	}
+	
+	
+	@CrossOrigin
+	@PostMapping("/borrarmascota")
+	public ResponseEntity <String> handleDelete(@RequestParam("user_id") String user_id, @RequestParam("pets_id") String petsId) {
+
+		try {
+			String query = "update Pets \r\n"
+					+ "set users_pets_id = "+ "NULL" + ", pet_status = 'En adopcion'\r\n"
+					+ "where pets_id = "+ petsId +" and pet_status = 'Adoptado';";
+			jdbcTemplate.update(query);
+			
+			return ResponseEntity.ok("Adopciòn realizada con exito");
+			
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+					.body("No se pudo completar la adopciòn" + e.getMessage());
+		}
+	
+	}
 
 	@GetMapping("/all")
 	@CrossOrigin
@@ -96,11 +129,11 @@ public class PetsController {
 					+ "where pets_id = "+ petsId +" and pet_status = 'En adopcion';";
 			jdbcTemplate.update(query);
 			
-			return ResponseEntity.ok("Adopciòn realizada con exito");
+			return ResponseEntity.ok("Adopción realizada con exito");
 			
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-					.body("No se pudo completar la adopciòn" + e.getMessage());
+					.body("No se pudo completar la adopción" + e.getMessage());
 		}
 	
 	}

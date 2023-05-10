@@ -29,7 +29,6 @@ export default function HomePageHeader({ scrollToAboutUs, scrollToSponsors }) {
           ) : (
             <NavLink to="/Login">Iniciar sesión</NavLink>
           )}
-          <NavLink to="/Editar">Editar</NavLink>
         </div>
       </div>
 

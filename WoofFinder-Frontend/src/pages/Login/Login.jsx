@@ -35,7 +35,7 @@ export default function Login(props) {
             match_password.innerHTML = data.response;
           } else {
             if (data.response == "correct password") {
-              localStorage.setItem("userId", data.id);
+              localStorage.setItem("user_id", data.id);
               localStorage.setItem("username", data.username);
               console.log(data.response, data.username);
               navigate("/");
@@ -66,7 +66,6 @@ export default function Login(props) {
           <NavLink to="/">
             <img src={WoofFinderLogo} alt="picture" className="logologin" />
           </NavLink>
-
           <h2>Iniciar sesión</h2>
           <br />
           <h5 id="login_fallido"></h5>
