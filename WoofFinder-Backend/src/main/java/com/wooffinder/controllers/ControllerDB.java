@@ -13,7 +13,6 @@ import org.json.JSONObject;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
-
 @RestController
 public class ControllerDB {
 
