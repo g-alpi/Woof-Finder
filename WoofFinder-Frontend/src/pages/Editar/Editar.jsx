@@ -12,7 +12,7 @@ export default function Editar () {
   var [phone, setTexto5] = useState("");
   var [address, setTexto6] = useState("");
   
-  var id = localStorage.getItem("storageName");
+  var id = localStorage.getItem("user_id");
   
   const loaddata = async()=>{
     let mostrar = { page_request: "mostrar", id_db:id};
@@ -76,7 +76,7 @@ export default function Editar () {
           
           if (data.response=="cambio exitoso")
           {
-            navigate("/Login");
+            navigate("/Perfil");
             console.log(data.response);
             console.log("editar");
           }else{
@@ -108,7 +108,7 @@ export default function Editar () {
   };
 
   return (
-    <div className="containerregistro">
+    <div className="containerregistroPerfil2">
     
     <div className="contentregistro">
       

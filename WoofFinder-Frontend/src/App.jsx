@@ -7,8 +7,34 @@ import Registro from "./pages/Registro/Registro";
 import Editar from "./pages/Editar/Editar";
 import Home from "./pages/Home/Home";
 import Modal from "./pages/Login/Modal";
+import Editar from "./pages/Editar/Editar";
+import EditarPerfil from "./pages/EditarPerfil/EditarPerfil";
+import Perfil from "./pages/Perfil/Perfil";
+
 
 function App() {
+  
+  const [closing, setClosing] = useState(false);
+
+  useEffect(() => {
+    const handleBeforeUnload = (event) => {
+      event.preventDefault();
+      setClosing(true);
+    }
+
+    window.addEventListener('unload', handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener('unload', handleBeforeUnload);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (closing) {
+      localStorage.clear();
+    }
+  }, [closing]);
+  
 
   return (
     <div className="App">
@@ -19,6 +45,8 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="registro" element={<Registro />} />
           <Route path="editar" element={<Editar />} />
+          <Route path="editarperfil" element={<EditarPerfil />} />
+          <Route path="perfil" element={<Perfil />} />
         </Route>
       </Routes>
     </div>
