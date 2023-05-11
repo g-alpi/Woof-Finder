@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,13 +26,14 @@ public class PetsController {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	
-	@GetMapping("/mismascotas")
+	@GetMapping("/mismascotas/{user_id}")
 	@CrossOrigin
-	public List<Map<String, Object>> getAllMisMascotas() {
+	public List<Map<String, Object>> getAllMisMascotas(@PathVariable int user_id) {
 
 		String query = "select pets_id, pet_name, age, genre, size,avatar_path, illness, pet_description, pet_status, users_pets_id, breed.breed_type, species.animal_type from pets\r\n"
 				+ "inner join breed on pets.breed_id = breed.breed_id\r\n"
-				+ "inner join species on pets.species_pet_id = species.species_id\r\n";
+				+ "inner join species on pets.species_pet_id = species.species_id\r\n"
+				+ "where users_pets_id="+user_id+";";
 
 		List<Map<String, Object>> results = jdbcTemplate.queryForList(query);
 

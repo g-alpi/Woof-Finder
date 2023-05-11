@@ -1,10 +1,7 @@
-import React, { useState,useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Modal.css";
 
-
 function Modal() {
-  
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -22,17 +19,13 @@ function Modal() {
     console.log("Password:", password);
   };
 
- 
   useEffect(() => {
     const handleClickOutside = (event) => {
-      const holaElements = document.querySelectorAll('.modal-background *');
+      const holaElements = document.querySelectorAll(".modal-background *");
       if (![...holaElements].includes(event.target)) {
-        
-          console.log("1");
-          var element=document.getElementById("modal");
-          element.style.visibility="hidden";
-          //pasar variable a app.jsx
-        
+        var element = document.getElementById("modal");
+        element.style.visibility = "hidden";
+        //pasar variable a app.jsx
       }
     };
 
@@ -42,8 +35,6 @@ function Modal() {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
-
-
 
   return (
     <div className="modal-background" id="modal">
@@ -55,7 +46,11 @@ function Modal() {
           </label>
           <label>
             Password:
-            <input type="password" value={password} onChange={handlePasswordChange} />
+            <input
+              type="password"
+              value={password}
+              onChange={handlePasswordChange}
+            />
           </label>
           <button type="submit">Submit</button>
         </form>

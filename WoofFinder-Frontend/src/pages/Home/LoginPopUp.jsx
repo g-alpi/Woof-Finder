@@ -18,7 +18,7 @@ export default function LoginPopUp({ selectedPet, toggleFlag }) {
     <>
       <div className="popUpBackground" onClick={toggleFlag}></div>
       <div className="popUp ">
-        <i class="fa-solid fa-xmark" onClick={toggleFlag}></i>
+        <i className="fa-solid fa-xmark" onClick={toggleFlag}></i>
         <div className="pet">
           <img src={img} alt={pet_name} />
           <div className="petInfo">
