@@ -1,79 +1,43 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
-import PetCard from "./../Adopt/PetCard";
-
-import InsertPopUpPerfil from "./InsertPopUpPerfil";
-import PetPopUpPerfil from "./PetPopUpPerfil";
-
-import InfoPerfil from "./../InfoPerfil/InfoPerfil";
+import InsertPet from "../../components/InsertPet";
+import Editar from "./Editar";
+import InfoPerfil from "./InfoPerfil";
+import PetProfileCard from "./PetProfileCard";
 
 export default function Perfil() {
   const navigate = useNavigate();
 
+  const [editFlag, setEditFlag] = useState(false);
   const [pets, setPets] = useState();
-  const [types, setTypes] = useState({});
-  const [selectedPetFlag, setSelectedPetFlag] = useState(false);
-  const [selectedPetInfo, setSelectedPet] = useState();
-  const [insertFlag, setInsertFlag] = useState(false);
+  const [dataLoaded, setDataLoaded] = useState(false);
 
-  const [visible, setVisible] = useState(true);
-
-  const GET_MY_PETS = "http://localhost:8080/pet/mismascotas";
   var id = localStorage.getItem("user_id");
-  console.log(id);
+  const GET_MY_PETS = "http://localhost:8080/pet/mismascotas/" + id;
 
   useEffect(() => {
+    let formData = new FormData();
+    formData.append("user_id", parseInt(id));
     fetch(GET_MY_PETS)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data[0].pet_name);
-        let num_mascotas = 0;
-        let filtro_mascotas = [];
-        for (let i = 0; i < data.length; i++) {
-          console.log(data[i].users_pets_id + " indice");
-          if (data[i].users_pets_id == id) {
-            num_mascotas = num_mascotas + 1;
-            filtro_mascotas.push(data[i]);
-          }
-        }
-        console.log(num_mascotas);
-
-        setPets(filtro_mascotas);
-        console.log(num_mascotas);
+        console.log(data);
+        setPets(data);
+        setDataLoaded((data) => (data = true));
       })
       .catch((error) => console.error(error));
   }, []);
-
-  const handleInputChange = (data) => {
-    const { value, checked } = data;
-    setTypes((prevTypes) => ({
-      ...prevTypes,
-      [value]: checked,
-    }));
-  };
-
-  const toggleInsertFlag = () => {
-    insertFlag === true ? setInsertFlag(false) : setInsertFlag(true);
-  };
-  const togglePetFlag = () => {
-    selectedPetFlag === true
-      ? setSelectedPetFlag(false)
-      : setSelectedPetFlag(true);
-  };
-
-  const selectPet = (data) => {
-    setSelectedPet(data);
-    setSelectedPetFlag(true);
-  };
 
   const Perfil_to_Informacion = () => {
     navigate("/Perfil");
   };
 
-  const Perfil_to_Editar = () => {
-    navigate("/EditarPerfil");
-  };
+  function Perfil_to_Editar() {
+    editFlag
+      ? setEditFlag((flag) => (flag = false))
+      : setEditFlag((flag) => (flag = true));
+  }
   const Perfil_to_Adopta = () => {
     navigate("/Adopta");
   };
@@ -85,9 +49,9 @@ export default function Perfil() {
   return (
     <>
       <Header />
-
-      <div className="adopt">
-        <div className="filterContainer">
+      <InsertPet />
+      <div className="profileContainer">
+        <div className="filterContainer profile">
           <h1>&nbsp; Perfil</h1>
           <section className="animalType">
             <span>
@@ -145,22 +109,15 @@ export default function Perfil() {
         </div>
 
         <div className="bloque-info">
-          <InfoPerfil />
+          {editFlag ? (
+            <Editar Perfil_to_Editar={Perfil_to_Editar} />
+          ) : (
+            <InfoPerfil />
+          )}
 
-          <div>
-            <h2>Mis mascotas</h2>
-          </div>
-          <div className="petsContainer">
-            {pets &&
-              !selectedPetFlag &&
-              pets.map((pet) => <PetCard content={pet} setPet={selectPet} />)}
-
-            {selectedPetFlag && (
-              <PetPopUpPerfil
-                selectedPet={selectedPetInfo}
-                toggleFlag={togglePetFlag}
-              />
-            )}
+          <h1>Mis mascotas</h1>
+          <div className="petsProfileContainer">
+            {dataLoaded && pets.map((pet) => <PetProfileCard content={pet} />)}
           </div>
         </div>
       </div>

@@ -1,20 +1,19 @@
 :root {
-  --white: #FFFFFF;
+  --white: #ffffff;
   /*font color and ligth section color*/
-  --gray: #3E3D3D;
+  --gray: #3e3d3d;
   /*font color and dark section color*/
   --light-gray: #666666;
   /*CopyRigths section*/
-  --light-brown: #A3826C;
+  --light-brown: #a3826c;
   /*Bottoms and slide arrows*/
-  --beige: #BEBCB1;
+  --beige: #bebcb1;
   /*header menu*/
   --black: #000;
 }
 html {
   scroll-behavior: smooth;
 }
-
 
 body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -43,14 +42,14 @@ body {
 
 *::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #909090;
 }
 
 /* alerts */
 .alert {
   position: fixed;
-  top:10vh;
+  top: 10vh;
   left: 50%;
   width: 500px;
   z-index: 3;
@@ -61,40 +60,45 @@ body {
   text-align: center;
   animation: alert 1s linear;
   font-size: 1.2rem;
-  font-weight:500 ;
+  font-weight: 500;
 }
 @keyframes alert {
-  from{top:-10px}to{top: 10vh;}
+  from {
+    top: -10px;
+  }
+  to {
+    top: 10vh;
+  }
 }
 
 /* Header and HomePageHeader */
 
-.Header{
-  background-image: url('../images/headerPicture1.png');
+.Header {
+  background-image: url("../images/headerPicture1.png");
   background-size: cover;
   background-position: center;
   height: 20vh;
   width: 100%;
   display: flex;
   align-items: center;
-  }
-  .Header .topnav {
-    margin-left: 5%;
-  }
-  .Header >a:first-child{
-    width: 153px;
-    margin-left: 10vw;
-  }
-  .Header .topnav a{
-    width: 5vw;
-  }
-  .Header .Logo {
-    width: 100%;
-    opacity: 90%;
-  }
+}
+.Header .topnav {
+  margin-left: 5%;
+}
+.Header > a:first-child {
+  width: 153px;
+  margin-left: 10vw;
+}
+.Header .topnav a {
+  width: 5vw;
+}
+.Header .Logo {
+  width: 100%;
+  opacity: 90%;
+}
 
 .homeHeader {
-  background-image: url('../images/headerPicture1.png');
+  background-image: url("../images/headerPicture1.png");
   background-size: cover;
   background-position: center;
   height: 49vh;
@@ -105,7 +109,7 @@ body {
   overflow: hidden;
 }
 
-.navBar{
+.navBar {
   display: flex;
   align-items: center;
 }
@@ -125,8 +129,8 @@ body {
 
 /* HomePageHeader */
 
-.homeHeader{
-  background-image: url('../images/headerPicture1.png');
+.homeHeader {
+  background-image: url("../images/headerPicture1.png");
   background-size: cover;
   background-position: center;
   height: 40vh;
@@ -157,14 +161,11 @@ body {
   opacity: 90%;
 }
 
-
-
 /* NavBar Menu */
-
 
 /* Add a black background color to the top navigation */
 .topnav {
-  background-color: #BEBCB1;
+  background-color: #bebcb1;
   overflow: hidden;
   opacity: 95%;
 }
@@ -182,7 +183,7 @@ body {
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: #B4B2AD;
+  background-color: #b4b2ad;
   color: black;
 }
 
@@ -192,10 +193,9 @@ body {
   color: white;
 }
 
-
 /* AboutUs HomePage Section */
-.aboutUs{
-  background-color: #3E3D3D;
+.aboutUs {
+  background-color: #3e3d3d;
   height: 60vh;
   display: flex;
   flex-direction: column;
@@ -204,13 +204,12 @@ body {
   overflow: hidden;
 }
 
-
-.aboutUs img{
+.aboutUs img {
   position: relative;
   right: 23%;
   opacity: 65%;
   transform: scale(0.22, 0.22) translateX(-10%);
-  border-radius: 100%;   
+  border-radius: 100%;
 }
 
 .aboutUsContent {
@@ -239,13 +238,13 @@ body {
   margin-bottom: 2px;
   opacity: 70%;
 }
-.aboutUsContent a{
+.aboutUsContent a {
   padding-top: 3%;
 }
 
 /* Sponsors Section */
 
-.Sponsors{
+.Sponsors {
   background-color: var(--beige);
   height: 60vh;
   display: flex;
@@ -255,20 +254,20 @@ body {
   overflow: hidden;
 }
 
-.sponsorImg{
+.sponsorImg {
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 50px;
 }
 
-.sponsorImg img{
+.sponsorImg img {
   width: 15%;
   border-radius: 100%;
 }
 
 /* Fotter Section */
 
-.Fotter{
+.Fotter {
   background-color: #ffffff;
   height: 100%;
   display: flex;
@@ -277,25 +276,25 @@ body {
   text-align: left;
 }
 
-.fotterContactUs{
+.fotterContactUs {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 0 10%;
 }
 
-.fotterContactUs h1{
+.fotterContactUs h1 {
   font-size: 24px;
   margin-bottom: -23px;
   margin-top: 7px;
 }
 
-.fotterContactUs h2{
+.fotterContactUs h2 {
   font-size: 14px;
   margin-bottom: 5px;
 }
 
-.fotterLogo{
+.fotterLogo {
   width: 20vw;
   display: flex;
   align-items: center;
@@ -309,7 +308,7 @@ body {
 .fotterLogo img {
   width: 30%;
 }
-.fotterLogo div  span {
+.fotterLogo div span {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -320,15 +319,15 @@ body {
   margin: 0;
 }
 
-.linkedin{
-  color: #056DFA;
+.linkedin {
+  color: #056dfa;
 }
 
-.github{
+.github {
   color: #6e5494;
 }
 
- .copyRights{
+.copyRights {
   background-color: #666666;
   height: 2vh;
   display: flex;
@@ -339,13 +338,13 @@ body {
   overflow: hidden;
 }
 
-.sponsorImg{
+.sponsorImg {
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 50px;
 }
 
-.sponsorImg img{
+.sponsorImg img {
   width: 15%;
   border-radius: 100%;
 }
@@ -380,15 +379,15 @@ body {
   font-style: italic;
 } */
 
-.fotterContactUs h2{
+.fotterContactUs h2 {
   font-size: 14px;
 }
 
-.fotterContactUs button{
+.fotterContactUs button {
   margin-left: -7px;
 }
 
-.fotterLogo{
+.fotterLogo {
   width: 20vw;
   display: flex;
   align-items: center;
@@ -402,7 +401,7 @@ body {
 .fotterLogo img {
   width: 30%;
 }
-.fotterLogo div  span {
+.fotterLogo div span {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -413,15 +412,15 @@ body {
   margin: 0;
 }
 
-.linkedin{
-  color: #056DFA;
+.linkedin {
+  color: #056dfa;
 }
 
-.github{
+.github {
   color: #6e5494;
 }
 
- .copyRights{
+.copyRights {
   background-color: #666666;
   height: 2vh;
   display: flex;
@@ -432,7 +431,7 @@ body {
 }
 .copyRights p {
   margin: 0;
-  font-size: .9rem;
+  font-size: 0.9rem;
   font-weight: 600;
   font-style: italic;
 }
@@ -440,13 +439,14 @@ body {
 /* Adopt page */
 .adopt {
   display: flex;
+  height: 99vh;
 }
 
 /* Display animals */
-.adopt {
+.adopt,
+.profileContainer {
   background-color: var(--beige);
   padding-top: 2%;
-  height: 99vh;
 }
 
 .petsContainer {
@@ -456,15 +456,13 @@ body {
   margin: 0 2%;
   width: 100%;
   max-height: 98vh;
-  overflow: hidden;
+  overflow: auto;
   border-radius: 25px;
 }
 
 .petsContainer:hover {
   overflow: auto;
 }
-
-
 
 @media screen and (min-width: 1160px) {
   .petsContainer {
@@ -529,7 +527,7 @@ body {
   flex-direction: column;
 }
 
-/* filter */  
+/* filter */
 .filterContainer {
   width: 15vw;
   max-width: 220px;
@@ -620,29 +618,34 @@ body {
   100% {
     transform: rotate(0deg);
   }
-
 }
-.submitButton{
+.submitButton {
   position: relative;
   left: 78%;
   margin-bottom: 2%;
-
 }
 
-
-
 /*DISEÑO DE LA PAGINA DE PERFIL*/
+
+.filterContainer.profile {
+  width: auto !important;
+  margin-left: 9%;
+}
+.profileFilterContainer div {
+  display: flex;
+  flex-direction: column;
+}
 .btnPrimaryPerfil {
   text-align: center;
-  width:150px;
+  width: 150px;
   padding-top: 2em;
   padding-bottom: 2em;
-  font-size: 12px;
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 2.5px;
   font-weight: 500;
   color: #000;
-  background-color: #BEBCB1;
+  background-color: #bebcb1;
   border: none;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease 0s;
@@ -651,19 +654,121 @@ body {
 }
 
 .btnPrimaryPerfil:hover {
-  background-color: #BEBCB1;
+  background-color: #bebcb1;
   box-shadow: 0px 15px 20px rgba(255, 255, 255, 0.4);
   color: #fff;
 }
 
+.profileContainer {
+  display: flex;
+}
 
+.bloque-info {
+  margin: 0 5% 0 5%;
+  width: 70%;
+}
+.infoContainer {
+  backdrop-filter: blur(11px) saturate(200%);
+  -webkit-backdrop-filter: blur(11px) saturate(200%);
+  background-color: rgba(255, 255, 255, 0.65);
+  border-radius: 25px;
+  padding: 20px;
+  margin-left: 7.8%;
+  border: 1px solid black;
+  width: 75%;
+}
+.infoContainer > .user-details {
+  display: flex;
+  justify-content: center;
+}
+.infoContainer > .user-details div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.detail {
+  padding: 10px 10%;
+}
+.detail span {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.detail p {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 0;
+  padding-left: 30px;
+}
+/* edit container */
+.user-details-registro {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10%;
+}
+.input-box-registro {
+  width: 40%;
+}
+.input-box-registro .details-registro {
+  font-weight: 500;
+}
+/* pets edit container */
+.petsProfileContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+.petDisplay {
+  display: flex;
+  margin-bottom: 3%;
+}
+.petDisplay img {
+  width: 25%;
+  border: 3px solid;
+  border-radius: 70px;
+}
+.petDisplay .petInfo {
+  margin-left: 2%;
+  width: 45%;
+}
+.petDisplay .petInfo li {
+  font-size: 1.5rem;
+}
+.petDisplay .petInfo li span {
+  font-weight: 700;
+}
+
+.petDisplay .petInfo h1:first-child {
+  font-size: 3rem;
+  line-height: 1rem;
+  letter-spacing: 3px;
+  margin-bottom: 40px;
+}
+
+.petInfo h2 {
+  margin-top: 5px;
+  margin-bottom: -1px;
+}
+.petDisplay .petInfo button {
+  position: relative;
+  top: 5%;
+  left: 82%;
+}
+.petDisplay .petInfo h1:nth-child(3) {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+}
+.petDisplay .petInfo p {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
 /*DISEÑO DEl BOTON LOGOUT*/
 .btnPrimaryPerfilLogout {
   text-align: center;
-  width:150px;
+  width: 150px;
   padding-top: 2em;
   padding-bottom: 2em;
-  font-size: 12px;
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 2.5px;
   font-weight: 500;
@@ -680,55 +785,6 @@ body {
   background-color: var(--light-brown);
   box-shadow: 0px 15px 20px rgba(255, 255, 255, 0.4);
   color: #fff;
-}
-
-
-/*descripcion de la mascota en la pagina de perfil*/
-.petPopUpPerfil {
-  width: 70vw;
-  max-width: 1000px;
-  display: flex;
-  min-height: 541px;
-  max-height: 603px;
-  
-}
-.petInfoPerfil {
-  width: 20%;
-}
-.descriptionPetPerfil {
-  max-height: 153px;
-  font-size: larger;
-}
-
-.petPerfil {
-  display: flex;
-}
-
-.petPerfil img {
-  width: 20%;
-  height: fit-content;
-  border: 3px solid;
-  margin-right: 22px;
-  margin-top: 21px;
-  margin-left: 36px;
-  border-radius: 70px;
-}
-
-.petPerfil ul {
-  list-style: none;
-  display: inline;
-  margin: 0;
-  font-size:large;
-}
-
-.petsContainerPerfil {
-  display: grid;
-  gap: 3%;
-  padding: 0 2%;
-  margin: 0 2%;
-  width: 100%;
-  max-height: 98vh;
-  border-radius: 25px;
 }
 
 /* Aplica los estilos a la lista de inputs */
@@ -762,19 +818,18 @@ body {
   width: 100px;
   height: 100px;
   border-radius: 100%;
-  transition: background-color,color 1.5s ease;
+  transition: background-color, color 1.5s ease;
   cursor: pointer;
   align-self: center;
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 .insertButton:hover {
   background-color: var(--light-brown);
   color: var(--white);
 }
-.insertButton:active{
+.insertButton:active {
   transform: translateY(5px);
 }
 
@@ -786,9 +841,7 @@ body {
   margin-top: 20px;
   filter: invert(100%);
   font-size: 1rem;
-
 }
-
 
 /* pop up */
 .popUpBackground {
@@ -796,7 +849,7 @@ body {
   width: 100%;
   top: 0;
   height: 100vh;
-  background-color: rgb(0, 0, 0, .8);
+  background-color: rgb(0, 0, 0, 0.8);
   backdrop-filter: blur(10px);
   z-index: 1;
 }
@@ -810,7 +863,7 @@ body {
   /* box-shadow: 0 0 30px rgb(0, 0, 0,.5); */
   border-radius: 25px;
   z-index: 2;
-  animation: showPopUp .8s ease;
+  animation: showPopUp 0.8s ease;
 }
 
 @keyframes showPopUp {
@@ -825,77 +878,78 @@ body {
 
 .popUp i {
   position: absolute;
-  top: 5px;
-  right: 1.2rem;
+  top: 10px;
+  right: 1.3rem;
   font-size: 2rem;
   cursor: pointer;
   transition: all 0.5s ease;
 }
 
 .popUp i:hover {
-  color: #BEBCB1;
+  color: #bebcb1;
   transform: translateY(3px);
 }
-
 
 .popUp.petPopUp {
   width: 70vw;
   max-width: 1000px;
   display: flex;
   min-height: 541px;
-  max-height: 603px;
-  
 }
 
 .pet {
   display: flex;
   justify-content: center;
   align-self: center;
+  width: 100%;
 }
 
 .pet img {
   width: 50%;
-  height: fit-content;
+  max-height: 580px;
   border: 3px solid;
-  margin-right: 22px;
-  margin-top: 21px;
-  margin-left: 36px;
+  margin: 3%;
   border-radius: 70px;
 }
+.pet .petInfo {
+  display: flex;
+  flex-direction: column;
+  margin-right: 3%;
+  width: 100%;
+  height: 100%;
+}
+.pet .petInfo h1 {
+  font-size: 3rem;
+  line-height: 1rem;
+  letter-spacing: 3px;
+  margin-top: 12%;
+}
 
-.pet ul {
+.pet .petInfo ul {
   list-style: none;
   display: inline;
   margin: 0;
+  padding: 0;
   font-size: x-large;
 }
-
-.petInfo {
-  width: 40%;
+.pet .petInfo ul li span {
+  font-weight: 600;
 }
-
-.petInfo li span {
-  font-weight: 700;
+.pet .petDescription h1 {
+  margin-top: 7%;
+  font-size: 2rem;
+  line-height: 1rem;
 }
-
-.petInfo h1 {
-  display: initial;
-  width: 100%;
-  text-align: center;
-  font-size: xxx-large;
-  text-transform: capitalize;
-  letter-spacing: 3.5px;
-}
-
-.description {
-  max-height: 153px;
-  font-size: larger;
+.pet .petDescription p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  max-height: 205px;
   overflow: auto;
 }
-
-.petInfo h2 {
-  margin-top: 5px;
-  margin-bottom: -1px;
+.pet .btnPrimary {
+  position: relative;
+  width: 100%;
+  bottom: 1%;
 }
 
 /* Adopt Button */
@@ -916,11 +970,6 @@ body {
   outline: none;
 }
 
-.petInfo button {
-  margin-top: 12px;
-  margin-left: 47%;
-}
-
 .btnPrimary:hover {
   background-color: var(--light-brown);
   box-shadow: 0px 15px 20px rgba(255, 255, 255, 0.4);
@@ -928,13 +977,12 @@ body {
   transform: translateY(-7px);
 }
 
-
 .btnPrimary:active {
   transform: translateY(-1px);
 }
 
 /* insert form pop up */
-.popUp.insertPet h1{
+.popUp.insertPet h1 {
   font-weight: 600;
   font-size: 2.5rem;
   padding-left: 10%;
@@ -946,31 +994,35 @@ body {
   max-width: 1000px;
   max-height: 80vh;
   overflow: auto;
-  transition: height .2;
+  transition: height 0.2;
 }
-.insertForm > div{
+.insertForm > div {
   display: flex;
   gap: 10%;
-  margin:0 10%;
+  margin: 0 10%;
 }
-.insertForm > div > span{
+.insertForm > div > span {
   width: 50%;
   margin-top: 2%;
 }
-.insertForm div:last-child{
+.insertForm div:last-child {
   margin-top: 5px;
 }
-.insertForm > div span select,.insertForm >div  span input,
-.insertForm >div  span textarea{
+.insertForm > div span select,
+.insertForm > div span input,
+.insertForm > div span textarea {
   width: 100%;
 }
 
-.insertForm label, .insertForm input, .insertForm select{
+.insertForm label,
+.insertForm input,
+.insertForm select {
   font-size: 2rem;
   font-weight: 200;
 }
 
-.insertForm input ,.insertForm select {
+.insertForm input,
+.insertForm select {
   border-radius: 15px;
 }
 .insertForm textarea {
@@ -981,9 +1033,8 @@ body {
 .fileButtonContainer {
   display: flex;
   justify-content: center;
-  align-items: center ;
+  align-items: center;
   gap: 10px;
-
 }
 
 .fileButton {
@@ -1036,11 +1087,9 @@ body {
   100% {
     transform: rotate(0deg);
   }
-
 }
-.submitButton{
+.submitButton {
   position: relative;
   left: 77%;
   margin-bottom: 2%;
-
 }

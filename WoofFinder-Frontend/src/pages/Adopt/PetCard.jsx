@@ -24,7 +24,6 @@ export default function PetCard({ content, setPet }) {
         </div>
         <div>
           <span>{content.breed_type}</span>
-          <span>{content.genre}</span>
           <span>{content.pet_status}</span>
         </div>
       </div>

@@ -83,7 +83,7 @@ export default function PetPopUp({ selectedPet, toggleFlag }) {
 
             <ul>
               <li key="age">
-                <span>Edad:</span> {age} años
+                <span>Edad:</span> {age <= 1 ? `${age} año` : `${age} años`}
               </li>
               <li key="genre">
                 <span>Genero: </span> {genre}
@@ -99,13 +99,11 @@ export default function PetPopUp({ selectedPet, toggleFlag }) {
               </li>
             </ul>
 
-            <h2>Descripción</h2>
-
-            <div>
-              <div className="description">
+            <div className="petDescription">
+              <h1>Descripción</h1>
+              <div>
                 <p>{pet_description}</p>
               </div>
-
               <button className="btnPrimary" onClick={handleClick}>
                 Adoptar
               </button>
